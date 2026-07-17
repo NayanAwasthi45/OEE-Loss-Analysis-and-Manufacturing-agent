@@ -1,0 +1,5 @@
+{
+  "downtime_cost_per_minute": 400,
+  "scrap_cost_per_part": 120,
+  "production_value_per_part": 250
+}

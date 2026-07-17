@@ -1,0 +1,20 @@
+Machine ID,Availability,Performance,Quality,OEE,Availability Loss,Performance Loss,Quality Loss,Dominant Loss,Description,Typical Downtime
+Assembly_Line_11,52.29,93.04,97.62,47.49,47.71,6.96,2.38,Availability,Mechanical Breakdown,30-240
+Assembly_Line_11,66.04,98.22,99.55,64.58,33.96,1.78,0.45,Availability,Mechanical Breakdown,30-240
+Assembly_Line_11,84.58,97.92,98.95,81.95,15.42,2.08,1.05,Availability,Electrical / Control Fault,10-90
+Assembly_Line_11,95.83,60.43,98.5,57.05,4.17,39.57,1.5,Performance,Reduced Speed Loss,Variable
+Assembly_Line_11,88.75,98.87,97.36,85.43,11.25,1.13,2.64,Availability,Mechanical Breakdown,30-240
+Assembly_Line_11,92.08,93.09,99.66,85.43,7.92,6.91,0.34,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_11,99.79,84.15,98.62,82.82,0.21,15.85,1.38,Performance,Minor Stoppage,1-15
+Assembly_Line_11,96.88,96.85,98.77,92.67,3.12,3.15,1.23,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_11,100.0,93.25,97.2,90.64,0.0,6.75,2.8,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,92.67,99.06,91.8,0.0,7.33,0.94,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,94.11,97.54,91.8,0.0,5.89,2.46,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,95.27,98.78,94.11,0.0,4.73,1.22,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,96.14,98.49,94.69,0.0,3.86,1.51,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,96.43,98.5,94.98,0.0,3.57,1.5,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,97.01,98.51,95.56,0.0,2.99,1.49,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,97.88,97.34,95.27,0.0,2.12,2.66,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.33,97.67,97.01,0.0,0.67,2.33,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.33,98.54,97.88,0.0,0.67,1.46,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.91,98.55,98.46,0.0,0.09,1.45,No Significant Loss,No Fault / Normal Operation,0

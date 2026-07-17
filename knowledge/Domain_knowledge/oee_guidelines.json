@@ -1,0 +1,124 @@
+{
+  "knowledge_base": "oee_guidelines",
+  "version": "1.0",
+  "purpose": "Reference thresholds and classification logic for interpreting deterministic OEE, Availability, Performance, and Quality scores within a manufacturing reasoning context. Based on widely adopted world-class manufacturing (WCM) and TPM benchmarks.",
+  "calculation_reference": {
+    "availability_formula": "Availability = Run Time / Planned Production Time",
+    "performance_formula": "Performance = (Ideal Cycle Time x Total Count) / Run Time",
+    "quality_formula": "Quality = Good Count / Total Count",
+    "oee_formula": "OEE = Availability x Performance x Quality"
+  },
+  "availability_thresholds": {
+    "metric": "Availability",
+    "manufacturing_significance": "Availability isolates Six Big Loss categories #1 (Breakdown) and #2 (Setup/Adjustment). A low Availability score points the investigation toward unplanned stoppages and changeover discipline rather than speed or quality issues, so it is typically the first pillar to triage after an OEE dip.",
+    "bands": [
+      {
+        "classification": "Excellent",
+        "range": ">= 90%",
+        "manufacturing_rationale": "Consistent with world-class benchmarks; indicates a mature preventive/predictive maintenance program and disciplined, standardized changeovers. Breakdown and setup losses are well controlled."
+      },
+      {
+        "classification": "Good",
+        "range": "80% - 89.9%",
+        "manufacturing_rationale": "Acceptable for most operations but still exposed to breakdown risk or changeover inefficiency. Typically indicates PM compliance gaps or non-standardized changeover work that has not yet been eliminated."
+      },
+      {
+        "classification": "Needs Attention",
+        "range": "60% - 79.9%",
+        "manufacturing_rationale": "Signals recurring unplanned downtime or excessive changeover duration eating meaningfully into planned production time. Warrants Pareto analysis of DT-01/DT-02 breakdown events and DT-03 changeover duration against SMED targets."
+      },
+      {
+        "classification": "Critical",
+        "range": "< 60%",
+        "manufacturing_rationale": "Indicates the asset is unreliable or poorly scheduled to the point of jeopardizing production plan attainment. Requires immediate RCFA on chronic breakdown modes and review of maintenance strategy (reactive vs. preventive vs. predictive)."
+      }
+    ]
+  },
+  "performance_thresholds": {
+    "metric": "Performance",
+    "manufacturing_significance": "Performance isolates Six Big Loss categories #3 (Small Stops) and #4 (Reduced Speed). This pillar is the most frequently underreported because micro-stops and speed derates rarely trigger formal downtime logging, making Performance the pillar most likely to hide true capacity loss.",
+    "bands": [
+      {
+        "classification": "Excellent",
+        "range": ">= 95%",
+        "manufacturing_rationale": "Equipment is running at or very near its designed ideal cycle time with minimal micro-stoppage. Indicates well-tuned process parameters and effective autonomous maintenance eliminating small stops."
+      },
+      {
+        "classification": "Good",
+        "range": "85% - 94.9%",
+        "manufacturing_rationale": "Some speed loss or micro-stop activity present but within a manageable range. Typically improved through targeted sensor/feed-mechanism adjustment rather than capital investment."
+      },
+      {
+        "classification": "Needs Attention",
+        "range": "65% - 84.9%",
+        "manufacturing_rationale": "Suggests chronic small-stop activity or a meaningful gap between actual and ideal cycle time. Warrants a stop-frequency Pareto by station and a cycle-time trend review to separate DT-04 from DT-05 root causes."
+      },
+      {
+        "classification": "Critical",
+        "range": "< 65%",
+        "manufacturing_rationale": "The equipment is operating far below its rated capability even while running. Often indicates unaddressed tooling wear, a stale/incorrect cycle time standard, or systemic micro-stop conditions that have been normalized rather than corrected."
+      }
+    ]
+  },
+  "quality_thresholds": {
+    "metric": "Quality",
+    "manufacturing_significance": "Quality isolates Six Big Loss categories #5 (Process Defects/Rework) and #6 (Startup/Yield Loss). Because Quality is multiplicative in the OEE formula, even a small decline here has an outsized effect on overall OEE and directly affects scrap cost and customer PPM.",
+    "bands": [
+      {
+        "classification": "Excellent",
+        "range": ">= 99.5%",
+        "manufacturing_rationale": "Consistent with Six Sigma-aligned process capability; scrap/rework is a rounding error. Indicates stable process parameters, effective SPC, and well-maintained tooling within wear limits."
+      },
+      {
+        "classification": "Good",
+        "range": "98% - 99.49%",
+        "manufacturing_rationale": "Acceptable for most industrial processes but leaves measurable scrap cost on the table. Typically improved by tightening SPC control limits or shortening tooling wear-replacement intervals."
+      },
+      {
+        "classification": "Needs Attention",
+        "range": "95% - 97.99%",
+        "manufacturing_rationale": "Indicates a process running with meaningful, recurring nonconformance. Warrants defect Pareto analysis to distinguish startup yield loss (DT-06) from in-process drift (DT-07), and review of incoming material variation."
+      },
+      {
+        "classification": "Critical",
+        "range": "< 95%",
+        "manufacturing_rationale": "Scrap/rework at this level materially threatens cost and delivery performance and risks customer PPM escalation. Requires immediate containment, root-cause investigation, and potential temporary 100% inspection until resolved."
+      }
+    ]
+  },
+  "overall_oee_thresholds": {
+    "metric": "OEE (Overall Equipment Effectiveness)",
+    "manufacturing_significance": "OEE is the composite multiplicative score (Availability x Performance x Quality) and represents the ratio of Fully Productive Time to Planned Production Time. Because the three pillars multiply rather than average, OEE is highly sensitive to weakness in any single pillar — a common diagnostic trap is treating a moderate OEE score as 'balanced' when it can equally result from one severely underperforming pillar masked by two strong ones.",
+    "bands": [
+      {
+        "classification": "Excellent",
+        "range": ">= 85%",
+        "manufacturing_rationale": "Recognized world-class OEE benchmark (originating from Nakajima's TPM framework). Achieving this typically requires all three pillars simultaneously performing well (approx. 90% Availability x 95% Performance x 99.5% Quality), reflecting a mature, well-managed operation."
+      },
+      {
+        "classification": "Good",
+        "range": "65% - 84.9%",
+        "manufacturing_rationale": "Typical for many conventional manufacturing operations; represents a reasonable baseline but with clear, addressable improvement opportunity. Root-cause priority should follow whichever pillar (A, P, or Q) is the weakest contributor."
+      },
+      {
+        "classification": "Needs Attention",
+        "range": "40% - 64.9%",
+        "manufacturing_rationale": "Indicates significant, multi-pillar loss accumulation. Common in operations without formal loss-tracking discipline. Warrants a structured Six Big Losses breakdown to prioritize improvement projects by financial impact."
+      },
+      {
+        "classification": "Critical",
+        "range": "< 40%",
+        "manufacturing_rationale": "Represents severe, systemic loss across the operation — frequently seen on newly commissioned lines, chronically under-maintained equipment, or lines with unresolved chronic quality issues. Requires cross-functional (maintenance, quality, production, engineering) intervention rather than a single-department fix."
+      }
+    ]
+  },
+  "diagnostic_priority_guidance": {
+    "description": "When OEE is low, the reasoning agent should determine which pillar is the primary driver before recommending action, since each pillar points to a different functional owner and a different set of DT-codes.",
+    "priority_logic": [
+      "If Availability is the weakest pillar: investigate DT-01 (breakdown), DT-02 (electrical/controls), and DT-03 (changeover) — primary owner: Maintenance and Industrial Engineering (SMED).",
+      "If Performance is the weakest pillar: investigate DT-04 (small stops) and DT-05 (reduced speed) — primary owner: Production Engineering and Maintenance; often the least-visible loss and the highest-value diagnostic target since it is chronically underreported.",
+      "If Quality is the weakest pillar: investigate DT-06 (startup yield) and DT-07 (in-process defects) — primary owner: Quality Engineering and Process Engineering.",
+      "If all three pillars are moderately weak simultaneously, prioritize Quality first (multiplicative sensitivity and customer/business risk), then Availability, then Performance, unless business context (e.g., a bottleneck asset constraining the entire line) dictates otherwise."
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+pandas
+pytest
+groq
+python-dotenv
+fastapi
+uvicorn[standard]

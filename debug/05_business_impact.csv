@@ -1,0 +1,20 @@
+Machine ID,Date,Shift,OEE,Production Loss (units),Throughput Loss (units),Downtime Cost,Scrap Cost,Production Loss Cost,Estimated Business Loss,Primary Business Driver,Business Loss Breakdown,Priority Score,Priority,Top Loss Driver Rank
+Assembly_Line_11,29-04-2026,Night,47.49,177,13,91600.0,480.0,44330.94,136410.94,Downtime Cost,"Downtime (₹91,600.00) + Scrap (₹480.00) + Prod. Loss (₹44,330.94)",86,Critical,1
+Assembly_Line_11,18-04-2026,Night,64.58,121,4,65200.0,120.0,30330.94,95650.94,Downtime Cost,"Downtime (₹65,200.00) + Scrap (₹120.00) + Prod. Loss (₹30,330.94)",63,High,2
+Assembly_Line_11,04-05-2026,Night,81.95,59,6,29600.0,360.0,14830.94,44790.94,Downtime Cost,"Downtime (₹29,600.00) + Scrap (₹360.00) + Prod. Loss (₹14,830.94)",33,Low,3
+Assembly_Line_11,26-05-2026,Night,57.05,145,131,8000.0,360.0,36330.94,44690.94,Production Loss Cost,"Downtime (₹8,000.00) + Scrap (₹360.00) + Prod. Loss (₹36,330.94)",34,Low,4
+Assembly_Line_11,08-07-2026,Afternoon,85.43,42,3,21600.0,960.0,10580.94,33140.94,Downtime Cost,"Downtime (₹21,600.00) + Scrap (₹960.00) + Prod. Loss (₹10,580.94)",29,Low,5
+Assembly_Line_11,17-06-2026,Night,85.43,49,22,15200.0,120.0,12330.94,27650.94,Downtime Cost,"Downtime (₹15,200.00) + Scrap (₹120.00) + Prod. Loss (₹12,330.94)",24,Low,6
+Assembly_Line_11,02-07-2026,Afternoon,82.82,55,55,400.0,480.0,13830.94,14710.94,Production Loss Cost,"Downtime (₹400.00) + Scrap (₹480.00) + Prod. Loss (₹13,830.94)",14,Low,7
+Assembly_Line_11,29-06-2026,Morning,92.67,21,11,6000.0,480.0,5330.94,11810.94,Downtime Cost,"Downtime (₹6,000.00) + Scrap (₹480.00) + Prod. Loss (₹5,330.94)",15,Low,8
+Assembly_Line_11,16-05-2026,Morning,90.64,23,23,0.0,1080.0,5830.94,6910.94,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹1,080.00) + Prod. Loss (₹5,830.94)",5,Low,9
+Assembly_Line_11,29-05-2026,Afternoon,91.8,25,25,0.0,360.0,6330.94,6690.94,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹360.00) + Prod. Loss (₹6,330.94)",4,Low,10
+Assembly_Line_11,29-05-2026,Morning,91.8,20,20,0.0,960.0,5080.94,6040.94,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹960.00) + Prod. Loss (₹5,080.94)",4,Low,11
+Assembly_Line_11,28-06-2026,Morning,94.11,16,16,0.0,480.0,4080.94,4560.94,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹480.00) + Prod. Loss (₹4,080.94)",3,Low,12
+Assembly_Line_11,04-06-2026,Night,94.69,13,13,0.0,600.0,3330.94,3930.94,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹600.00) + Prod. Loss (₹3,330.94)",3,Low,13
+Assembly_Line_11,09-06-2026,Afternoon,94.98,12,12,0.0,600.0,3080.94,3680.94,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹600.00) + Prod. Loss (₹3,080.94)",3,Low,14
+Assembly_Line_11,24-04-2026,Afternoon,95.56,10,10,0.0,600.0,2580.94,3180.94,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹600.00) + Prod. Loss (₹2,580.94)",2,Low,15
+Assembly_Line_11,06-06-2026,Afternoon,95.27,7,7,0.0,1080.0,1830.94,2910.94,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹1,080.00) + Prod. Loss (₹1,830.94)",2,Low,16
+Assembly_Line_11,17-06-2026,Morning,97.01,2,2,0.0,960.0,580.94,1540.94,Scrap Cost,Downtime (₹0.00) + Scrap (₹960.00) + Prod. Loss (₹580.94),1,Low,17
+Assembly_Line_11,28-06-2026,Night,97.88,2,2,0.0,600.0,580.94,1180.94,Scrap Cost,Downtime (₹0.00) + Scrap (₹600.00) + Prod. Loss (₹580.94),1,Low,18
+Assembly_Line_11,10-06-2026,Afternoon,98.46,0,0,0.0,600.0,80.94,680.94,Scrap Cost,Downtime (₹0.00) + Scrap (₹600.00) + Prod. Loss (₹80.94),1,Low,19

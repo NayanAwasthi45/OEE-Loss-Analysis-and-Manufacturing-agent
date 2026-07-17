@@ -1,0 +1,169 @@
+{
+  "knowledge_base": "machine_profiles",
+  "version": "1.0",
+  "purpose": "Equipment-class domain knowledge for LLM-based OEE Loss Analysis. Provides mechanical/process context so the agent can reason about failure modes, bottlenecks, and degradation signatures specific to each machine class rather than generically.",
+  "machine_profiles": [
+    {
+      "machine_type": "Press Line",
+      "machine_purpose": "Forms, blanks, or draws sheet metal (or performs progressive-die stamping) into net-shape or near-net-shape components using mechanical or hydraulic force, typically integrated with a coil feed/straightener system for continuous strip processing.",
+      "critical_components": [
+        "Mechanical or hydraulic drive system (flywheel, clutch-brake or hydraulic power unit)",
+        "Ram/slide and guide system",
+        "Die set (upper/lower tooling, punches, blanks, cams)",
+        "Coil feed system (uncoiler, straightener, servo feed rolls)",
+        "Press bed and bolster",
+        "Tonnage/load monitoring system",
+        "Safety systems (light curtains, two-hand controls, interlocked guarding)",
+        "Lubrication and hydraulic fluid system"
+      ],
+      "common_failure_modes": [
+        "Clutch-brake wear leading to inconsistent stop position or slippage",
+        "Die/tooling wear, chipping, or breakage (punches, cutting edges)",
+        "Feed roll slippage or coil misalignment causing part mislocation",
+        "Hydraulic seal leaks causing pressure loss and ram drift",
+        "Ram/guide bearing wear causing increased clearance and part variation",
+        "Light curtain or safety interlock misalignment causing nuisance stops",
+        "Tonnage monitor false trips from miscalibration"
+      ],
+      "typical_error_codes": ["DT-01 (clutch-brake/mechanical breakdown)", "DT-02 (tonnage monitor/sensor faults)", "DT-03 (die changeover)", "DT-05 (SPM reduction from die wear/feed hesitation)", "DT-06 (startup scrap during die thermal stabilization)", "DT-07 (in-process defects from die wear)"],
+      "expected_operating_behaviour": "Consistent strokes-per-minute (SPM) matching the rated press speed for the die set in use; a repeatable tonnage curve shape stroke-to-stroke; consistent, uninterrupted part ejection and coil feed advance; stable pilot/sensor signals confirming correct strip position each cycle.",
+      "common_production_bottlenecks": [
+        "Die changeover time, especially on multi-model lines without quick-die-change (QDC) systems",
+        "Coil feed interruptions from splice welds or coil-end transitions",
+        "Tonnage monitor trips requiring manual reset and root-cause check before resuming",
+        "Scrap/slug buildup in the die requiring line stop for manual clearing",
+        "Progressive die station imbalance causing localized wear-driven stoppages"
+      ],
+      "maintenance_checklist": [
+        "Inspect die cutting edges and forming surfaces for wear/sharpness",
+        "Lubricate ram guides and gibs per schedule",
+        "Check hydraulic fluid level, condition, and filter status",
+        "Inspect clutch-brake wear indicators and air pressure (mechanical press)",
+        "Function-test light curtains and safety interlocks",
+        "Calibrate tonnage monitoring system against known reference load",
+        "Inspect feed roll condition and pinch-roll pressure",
+        "Check coil straightener roll alignment"
+      ],
+      "performance_degradation_indicators": [
+        "Declining strokes-per-minute (SPM) trend vs. rated speed for the die",
+        "Increasing tonnage signature variance stroke-to-stroke",
+        "Rising frequency of feed hesitation or feed-fault events",
+        "Increasing time between coil splices or feed re-registration events"
+      ],
+      "quality_degradation_indicators": [
+        "Increasing burr height on blanked/pierced edges",
+        "Dimensional drift on formed features (radius, depth, flatness)",
+        "Increased incomplete forms or flash on drawn/formed parts",
+        "Growing part-to-part thickness or dimensional variability within a coil run",
+        "Upward trend in scrap rate correlated with die stroke count since last sharpening"
+      ]
+    },
+    {
+      "machine_type": "CNC Milling",
+      "machine_purpose": "Performs subtractive machining of precision metal or plastic components via multi-axis (typically 3- to 5-axis) rotating cutting tools, executing programmed toolpaths (G-code) to achieve dimensional tolerances and surface finish requirements not achievable via forming processes.",
+      "critical_components": [
+        "Spindle motor and spindle bearings",
+        "Ball screws and linear guideways (X/Y/Z and rotary axes)",
+        "Automatic tool changer (ATC) and tool magazine",
+        "CNC controller and servo drives",
+        "Encoders/feedback devices per axis",
+        "Coolant delivery and filtration system",
+        "Work-holding fixtures/vises",
+        "Chip management/conveyor system"
+      ],
+      "common_failure_modes": [
+        "Spindle bearing wear or failure (heat, vibration, reduced accuracy)",
+        "Tool breakage mid-cut (chip load exceedance, tool wear beyond limit)",
+        "Ball screw backlash increasing due to wear, degrading positional accuracy",
+        "ATC misindex or tool-change failure (gripper wear, pot misalignment)",
+        "Coolant pump failure or coolant concentration drift affecting tool life",
+        "Encoder/feedback fault causing following error or axis fault",
+        "Progressive tool wear degrading surface finish before scheduled replacement"
+      ],
+      "typical_error_codes": ["DT-01 (spindle/mechanical breakdown)", "DT-02 (servo/encoder/drive faults)", "DT-03 (tool and fixture changeover, program load)", "DT-05 (feed override reduction from tool wear or thermal compensation)", "DT-06 (first-part thermal growth error after cold start)", "DT-07 (in-process dimensional drift from progressive tool wear)"],
+      "expected_operating_behaviour": "Programmed feed rate override held at or near 100%; stable spindle load current at a given commanded feed and depth of cut; cycle time tracking within a tight tolerance band of the NC program's estimated cycle time; consistent tool-change duration per changeover event.",
+      "common_production_bottlenecks": [
+        "Tool changeover frequency, particularly for parts requiring many distinct tools",
+        "Program inefficiency — excessive air-cutting/rapid traverse time not optimized out of the toolpath",
+        "Fixture load/unload (part handling) time relative to machining time",
+        "In-process/post-process inspection dwell time (probing cycles, CMM queue)",
+        "Tool life management — reactive replacement causing unplanned mid-run stops"
+      ],
+      "maintenance_checklist": [
+        "Monitor spindle vibration and bearing temperature trend",
+        "Check way lubrication (oil) system function and reservoir level",
+        "Verify coolant concentration (refractometer) and fluid level/cleanliness",
+        "Inspect tool holder tapers and pull studs for cleanliness/damage",
+        "Measure axis backlash and compare to specification",
+        "Function-test ATC tool-change cycle (grip, index, exchange)",
+        "Review encoder/feedback diagnostics for following-error trends",
+        "Inspect and clean way covers and telescopic covers for chip ingress"
+      ],
+      "performance_degradation_indicators": [
+        "Feed override consistently trimmed below 100% by the operator to protect tool/finish",
+        "Actual cycle time creeping above the NC program's estimated cycle time",
+        "Spindle load trending upward over time at a constant commanded feed and depth of cut",
+        "Increasing frequency of tool-wear compensation offset adjustments"
+      ],
+      "quality_degradation_indicators": [
+        "Surface finish (Ra) degrading progressively within a tool's life",
+        "Dimensional drift within a single tool's production window (before scheduled change)",
+        "Increasing frequency of tool-wear compensation triggers on in-process probing",
+        "Scrap/rework concentration correlated with specific tool numbers or spindle hours",
+        "Rising chatter/vibration marks on machined surfaces"
+      ]
+    },
+    {
+      "machine_type": "Assembly Line",
+      "machine_purpose": "Performs sequential joining, fastening, and verification of components into sub-assemblies or finished products across multiple linked workstations, combining manual labor, semi-automated tooling (torque guns, robots/cobots), and in-line quality verification (vision, force/torque monitoring).",
+      "critical_components": [
+        "Conveyor/transfer system (belt, pallet, or power-and-free)",
+        "Pick-and-place robots or collaborative robots (cobots)",
+        "Torque tools and torque control system",
+        "Vision inspection systems (presence/absence, alignment, barcode/DMC verification)",
+        "Poka-yoke (error-proofing) fixtures",
+        "PLC line controller and station-level I/O",
+        "Component feeders (vibratory bowl, kitted parts presentation)"
+      ],
+      "common_failure_modes": [
+        "Conveyor jam or pallet/belt misalignment",
+        "Feeder starvation from upstream supply interruption or jam in the feed track",
+        "Torque tool calibration drift causing false pass/fail results",
+        "Vision system false reject or false accept from lighting drift or lens contamination",
+        "Sensor misalignment causing part-presence detection errors",
+        "Fixture/tooling wear causing misassembly or increased force required to mate parts"
+      ],
+      "typical_error_codes": ["DT-02 (control/sensor faults)", "DT-03 (model/program changeover)", "DT-04 (small stops/jams — the dominant loss category on assembly lines)", "DT-05 (line speed derate to protect quality or manage a chronic station issue)", "DT-07 (in-process defects — failed torque checks, vision rejects, missing components)"],
+      "expected_operating_behaviour": "Consistent takt time achieved across all stations with the line balanced so no single station is a chronic bottleneck; low and stable WIP buffer levels between stations; torque and vision verification pass rates near 100% with minimal repeat-check events.",
+      "common_production_bottlenecks": [
+        "Station with the longest cycle time relative to line takt (the line-balance constraint/bottleneck station)",
+        "Component starvation at feeders due to upstream kitting or supply chain variability",
+        "Rework loop congestion when failed-check units queue faster than they can be reworked",
+        "Model/variant changeover time on mixed-model lines",
+        "Operator-paced manual stations subject to fatigue-driven cycle time variability"
+      ],
+      "maintenance_checklist": [
+        "Check conveyor belt tension, tracking, and alignment",
+        "Clean and verify alignment of photo-eyes/proximity sensors at each station",
+        "Verify torque tool calibration against a certified reference (torque audit)",
+        "Clean vision system lenses and re-verify lighting/calibration settings",
+        "Inspect feeder tracks and bowl feeders for wear or blockage points",
+        "Function-test poka-yoke devices to confirm they still prevent the intended error condition",
+        "Inspect pallet/fixture locating pins and clamps for wear"
+      ],
+      "performance_degradation_indicators": [
+        "Increasing micro-stop frequency concentrated at one or more specific stations",
+        "Takt time creep across the line without a corresponding hard-stop event",
+        "Growing WIP buffer accumulating immediately before the constraint/bottleneck station",
+        "Rising number of manual interventions per shift at a given station"
+      ],
+      "quality_degradation_indicators": [
+        "Declining First Pass Yield (FPY) at final test or in-line verification stations",
+        "Increasing torque check failure rate (over-torque, under-torque, cross-thread)",
+        "Rising vision-system reject rate not attributable to lighting/calibration drift",
+        "Increasing field or warranty claims traceable to a specific assembly station or shift",
+        "Growth in the rework/repair loop queue length"
+      ]
+    }
+  ]
+}

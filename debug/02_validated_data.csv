@@ -1,0 +1,20 @@
+Date,Machine ID,Shift,Planned Time (min),Downtime (min),Total Parts Produced,Defective Parts,Ideal Cycle Time (min/unit),Error Code,Operator ID
+28-06-2026,Assembly_Line_11,Morning,480,0,329,4,1.39,DT-00,OP-065
+29-05-2026,Assembly_Line_11,Morning,480,0,325,8,1.39,DT-00,OP-090
+26-05-2026,Assembly_Line_11,Night,480,20,200,3,1.39,DT-05,OP-084
+06-06-2026,Assembly_Line_11,Afternoon,480,0,338,9,1.39,DT-00,OP-038
+08-07-2026,Assembly_Line_11,Afternoon,480,54,303,8,1.39,DT-01,OP-030
+04-05-2026,Assembly_Line_11,Night,480,74,286,3,1.39,DT-02,OP-013
+02-07-2026,Assembly_Line_11,Afternoon,480,1,290,4,1.39,DT-04,OP-011
+17-06-2026,Assembly_Line_11,Morning,480,0,343,8,1.39,DT-00,OP-064
+10-06-2026,Assembly_Line_11,Afternoon,480,0,345,5,1.39,DT-00,OP-052
+29-05-2026,Assembly_Line_11,Afternoon,480,0,320,3,1.39,DT-00,OP-096
+24-04-2026,Assembly_Line_11,Afternoon,480,0,335,5,1.39,DT-00,OP-054
+04-06-2026,Assembly_Line_11,Night,480,0,332,5,1.39,DT-00,OP-117
+17-06-2026,Assembly_Line_11,Night,480,38,296,1,1.39,DT-02,OP-109
+18-04-2026,Assembly_Line_11,Night,480,163,224,1,1.39,DT-01,OP-020
+09-06-2026,Assembly_Line_11,Afternoon,480,0,333,5,1.39,DT-00,OP-016
+16-05-2026,Assembly_Line_11,Morning,480,0,322,9,1.39,DT-00,OP-056
+28-06-2026,Assembly_Line_11,Night,480,0,343,5,1.39,DT-00,OP-118
+29-04-2026,Assembly_Line_11,Night,480,229,168,4,1.39,DT-01,OP-011
+29-06-2026,Assembly_Line_11,Morning,480,15,324,4,1.39,DT-03,OP-120

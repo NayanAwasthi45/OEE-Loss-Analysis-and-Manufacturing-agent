@@ -1,0 +1,48 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+.env/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# VS Code settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Project-specific
+plan.txt
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Python build artifacts
+*.pyo
+*.pyd
+*.egg-info/
+
+# Frontend build artifacts
+node_modules/
+dist/
+build/
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal

@@ -1,0 +1,221 @@
+{
+  "knowledge_base": "six_big_losses",
+  "version": "1.0",
+  "purpose": "Detailed TPM (Total Productive Maintenance) domain knowledge on the Six Big Losses framework, the foundational loss taxonomy underlying OEE. Provides the LLM agent with causal, diagnostic, and business-impact context for each loss category, independent of the specific DT error code taxonomy.",
+  "framework_reference": "Originated from Seiichi Nakajima's TPM methodology. The Six Big Losses map directly onto the three OEE pillars: Losses 1-2 reduce Availability, Losses 3-4 reduce Performance, Losses 5-6 reduce Quality.",
+  "six_big_losses": [
+    {
+      "loss_number": 1,
+      "loss_name": "Breakdown Losses (Equipment Failure)",
+      "definition": "Unplanned stoppages caused by the failure of a machine, tool, or component, requiring corrective maintenance intervention before production can resume. Includes both sudden catastrophic failures and progressive failures where a component degrades to the point of stopping the process.",
+      "manufacturing_examples": [
+        "Press clutch-brake failure halting a stamping line mid-shift",
+        "CNC spindle bearing seizure requiring spindle rebuild",
+        "Conveyor gearbox failure on an assembly line",
+        "Hydraulic pump failure on an injection molding machine",
+        "Robot servo motor failure on a welding cell"
+      ],
+      "typical_causes": [
+        "Deferred or skipped preventive maintenance",
+        "Component operating beyond its rated design life or load capacity",
+        "Lubrication failure or contamination",
+        "Lack of predictive maintenance (vibration/thermal monitoring) to catch degradation before failure",
+        "Poor spare parts management leading to extended repair time even after diagnosis"
+      ],
+      "oee_pillar_affected": "Availability",
+      "kpis_affected": ["OEE", "Availability %", "Mean Time Between Failures (MTBF)", "Mean Time To Repair (MTTR)", "Unplanned Downtime Hours", "Maintenance Cost per Unit"],
+      "common_symptoms": [
+        "Sudden hard stop with fault/alarm indication",
+        "Abnormal vibration, noise, or heat preceding the failure",
+        "Repeat failures of the same component or subsystem (chronic breakdown pattern)",
+        "Rising trend in unplanned maintenance work orders for a given asset"
+      ],
+      "diagnostic_approach": "Perform Root Cause Failure Analysis (RCFA) or 5-Why on each breakdown event; track MTBF by failure mode and component to identify chronic patterns; cross-reference against PM compliance history to determine if the failure was preventable; use condition-monitoring data (vibration, thermal, oil analysis) where available to distinguish sudden vs. progressive failure.",
+      "business_impact": "Directly threatens on-time delivery (OTD) and creates the highest per-event cost among the Six Big Losses due to combined lost production, emergency labor/overtime, expedited parts freight, and potential customer escalation for missed shipments.",
+      "prevention_strategies": [
+        "Implement or mature a Preventive Maintenance (PM) program based on manufacturer specifications and failure history",
+        "Adopt Predictive Maintenance (PdM) — vibration analysis, thermal imaging, oil analysis — on critical/bottleneck assets",
+        "Apply criticality-based spare parts stocking strategy to reduce MTTR",
+        "Standardize RCFA/5-Why documentation to prevent repeat failures",
+        "Support Autonomous Maintenance (AM) so operators catch early degradation signs (Jishu Hozen pillar of TPM)"
+      ]
+    },
+    {
+      "loss_number": 2,
+      "loss_name": "Setup and Adjustment Losses",
+      "definition": "Downtime incurred while changing over equipment from producing one product to another, including tooling/die/mold changes, program changes, and the trial-and-adjustment period required to validate the new setup before resuming full-rate, conforming production.",
+      "manufacturing_examples": [
+        "Die change on a stamping press between two part numbers",
+        "Tool and fixture change on a CNC machine for a new job",
+        "Format/size changeover on packaging equipment",
+        "Model changeover on a mixed-model assembly line",
+        "Recipe and mold change on an injection molding press"
+      ],
+      "typical_causes": [
+        "Lack of standardized changeover work instructions (no SMED discipline)",
+        "Tools, dies, or fixtures not staged and ready at point of use (external steps not done in advance)",
+        "Trial-and-error adjustment rather than pre-set/pre-calibrated tooling",
+        "Inadequately trained personnel performing changeovers inconsistently",
+        "Worn or imprecise locating features requiring repeated realignment"
+      ],
+      "oee_pillar_affected": "Availability",
+      "kpis_affected": ["OEE", "Availability %", "Changeover Time (SMED)", "Internal vs. External Setup Time Ratio", "Batch Size / Lot Size", "WIP Inventory Levels"],
+      "common_symptoms": [
+        "Changeover duration significantly exceeding the engineered/standard time",
+        "High variability in changeover time between operators or shifts",
+        "Multiple first-article rejections before production is accepted",
+        "Pressure toward larger batch sizes to amortize a costly changeover"
+      ],
+      "diagnostic_approach": "Conduct a SMED (Single-Minute Exchange of Die) time study classifying each changeover step as internal (must be done machine-stopped) or external (can be done while running); video-record changeovers to identify waste and inconsistency; compare actual changeover duration against the standard by operator/shift to isolate a training gap vs. a tooling/process gap.",
+      "business_impact": "Reduces manufacturing flexibility and pushes operations toward larger batch sizes, which increases inventory carrying cost and working capital tied up in WIP — directly conflicting with lean/JIT objectives and reducing responsiveness to demand changes.",
+      "prevention_strategies": [
+        "Run SMED kaizen events to convert internal setup steps to external (pre-staged) steps",
+        "Invest in quick-change tooling systems (quick-die-change carts, standardized clamping, zero-point fixturing)",
+        "Standardize and visually document changeover procedures at the point of use",
+        "Pre-calibrate or pre-set tooling offline before installing on the machine",
+        "Cross-train personnel to eliminate single-operator changeover bottlenecks"
+      ]
+    },
+    {
+      "loss_number": 3,
+      "loss_name": "Small Stops / Idling Losses",
+      "definition": "Brief interruptions to the production cycle, typically under five to ten minutes, caused by conditions such as jams, misfeeds, blocked sensors, or minor misalignments that are usually cleared by the operator without a formal maintenance work order. Also called 'chokotei' (a Japanese TPM term for minor stoppages).",
+      "manufacturing_examples": [
+        "Part jam at a conveyor transfer point requiring the operator to manually clear it",
+        "Vibratory bowl feeder momentarily jamming and requiring a light tap or reset",
+        "Photo-eye sensor repeatedly triggering a nuisance stop due to glare or debris",
+        "Component misfeed at an automated pick-and-place station",
+        "Momentary tool-path pause on a CNC due to a chip-clearing air-blast fault"
+      ],
+      "typical_causes": [
+        "Component/material dimensional variability from upstream suppliers",
+        "Worn or misaligned guides, feed mechanisms, or transfer fingers",
+        "Sensor sensitivity thresholds set too tight or too loose",
+        "Inconsistent operator loading technique",
+        "Equipment running at a speed that exceeds the reliable capability of a specific mechanism"
+      ],
+      "oee_pillar_affected": "Performance",
+      "kpis_affected": ["OEE", "Performance %", "Micro-stop Frequency (events/shift)", "Net Run Rate vs. Rated Speed", "Operator Intervention Count"],
+      "common_symptoms": [
+        "High-frequency, short-duration alarm history in the machine log",
+        "Operators repeatedly clearing and resetting without logging a formal downtime event",
+        "A visible gap between rated line speed and observed average output rate despite no long stoppages",
+        "Chronic, low-grade frustration reported by operators about a specific station"
+      ],
+      "diagnostic_approach": "Build a Pareto chart of small-stop frequency by station/asset using automated stop-detection (PLC/SCADA event logs) rather than manual logging, since small stops are the most under-reported loss category; correlate stop frequency against shift, material lot, and operator to isolate the dominant variable; conduct focused time-and-motion observation at the chronic station.",
+      "business_impact": "Represents hidden capacity loss that is frequently the single largest unrecognized contributor to the OEE gap because it rarely appears in traditional downtime reporting; also drives operator fatigue and erodes trust in equipment reliability, which can suppress reporting further (a self-reinforcing blind spot).",
+      "prevention_strategies": [
+        "Deploy automated stop-detection via PLC/SCADA/MES rather than relying on manual operator logging",
+        "Implement Autonomous Maintenance (AM) so operators perform routine cleaning, inspection, and minor adjustment (Jishu Hozen)",
+        "Realign and properly tune sensors (photo-eyes, proximity switches) to eliminate nuisance triggers",
+        "Address root-cause component/material variability with suppliers",
+        "Redesign chronic jam points (guide geometry, transfer mechanism) as a targeted engineering project"
+      ]
+    },
+    {
+      "loss_number": 4,
+      "loss_name": "Reduced Speed Losses",
+      "definition": "Loss incurred when equipment operates below its designed ideal cycle time or rated speed without stopping, whether due to deliberate derating, mechanical degradation, or operator caution. The equipment is technically 'running' but not at its designed capability.",
+      "manufacturing_examples": [
+        "CNC machine running at 80% feed override to reduce tool breakage risk",
+        "Stamping press running below rated strokes-per-minute due to feed hesitation",
+        "Conveyor line running below design takt to reduce downstream station overload",
+        "Injection molding cycle extended beyond standard to compensate for inconsistent cooling"
+      ],
+      "typical_causes": [
+        "Tooling wear increasing cutting/forming resistance and cycle time",
+        "Operator informally derating speed due to past reliability issues (undocumented workaround)",
+        "Outdated or inaccurate standard cycle time reference no longer matching current tooling/process condition",
+        "Mechanical drag from worn bearings, guides, or inadequate lubrication",
+        "Servo/drive tuning degradation causing conservative acceleration/deceleration profiles"
+      ],
+      "oee_pillar_affected": "Performance",
+      "kpis_affected": ["OEE", "Performance %", "Actual Cycle Time vs. Ideal Cycle Time", "Feed/Speed Override %", "Units per Hour vs. Rated Capacity"],
+      "common_symptoms": [
+        "Actual cycle time consistently above the engineered standard with no stoppage recorded",
+        "Feed rate or line speed override set below 100% as a matter of routine practice",
+        "Output volume shortfall against the production plan despite full scheduled run time",
+        "Rising motor load/current at a given commanded speed, indicating mechanical drag"
+      ],
+      "diagnostic_approach": "Extract cycle time data directly from the machine controller (not manual time studies) and trend actual vs. ideal cycle time over time; review speed/feed override settings and change history; correlate cycle time creep against tooling age/wear-part life and lubrication service intervals; interview operators to surface informal derating practices and their stated rationale.",
+      "business_impact": "Often the largest unrecognized capacity loss in a facility because it produces no alarms and is easy to normalize as 'just how the machine runs'; directly increases per-unit manufacturing cost and can force overtime or additional shifts to recover planned volume.",
+      "prevention_strategies": [
+        "Periodically re-validate standard/ideal cycle times against current tooling and process condition",
+        "Investigate and eliminate the root cause behind any informal operator derating rather than accepting it as fixed",
+        "Maintain tooling and wear components on a defined replacement interval to prevent drag-induced slowdown",
+        "Use controller-level cycle time data (not manual logging) to make Performance loss visible in daily management",
+        "Re-tune servo/drive parameters periodically as part of a precision maintenance program"
+      ]
+    },
+    {
+      "loss_number": 5,
+      "loss_name": "Quality Defects and Rework (Process Defects)",
+      "definition": "Loss from producing non-conforming product during normal, steady-state running (as opposed to during startup), requiring the product to be scrapped or reworked. Reflects process drift, tooling wear, or material variation occurring after the process had already demonstrated capability.",
+      "manufacturing_examples": [
+        "Progressive die wear causing burr height to exceed specification mid-run on a stamping line",
+        "CNC tool wear causing a dimensional feature to drift out of tolerance partway through a production lot",
+        "Assembly torque failures caused by fastener lot variation",
+        "Paint/coating defects from contamination introduced mid-shift"
+      ],
+      "typical_causes": [
+        "Progressive tooling or die wear not yet at its scheduled replacement point",
+        "Incoming material lot-to-lot variation",
+        "Process parameter drift (temperature, pressure, torque, speed) not caught by existing control limits",
+        "Operator deviation from standard work",
+        "Sensor/instrument calibration drift affecting closed-loop process control"
+      ],
+      "oee_pillar_affected": "Quality",
+      "kpis_affected": ["OEE", "Quality Rate %", "First Pass Yield (FPY)", "Scrap Rate %", "Rework Hours", "Parts Per Million Defective (PPM)", "Cost of Poor Quality (COPQ)"],
+      "common_symptoms": [
+        "SPC control chart signals: points beyond control limits, sustained trends, or non-random runs",
+        "Defect rate that increases as a function of run length or tool/die stroke count",
+        "Functional test or torque check failures clustering mid-run rather than at startup",
+        "Customer or downstream station complaints correlated with a specific shift or lot"
+      ],
+      "diagnostic_approach": "Review SPC charts for trend/shift signatures distinguishing gradual tool wear from a sudden step-change (material lot or process disturbance); build a defect Pareto by type and location to prioritize the highest-frequency/highest-cost defect mode; correlate defect onset against tooling stroke/cycle count, material lot changes, and process parameter logs.",
+      "business_impact": "Direct scrap material cost and rework labor cost; exposes the business to customer PPM escalation, containment/sorting costs, and potential warranty claims if defective product escapes detection — quality loss has an outsized effect on OEE because it is multiplicative with Availability and Performance.",
+      "prevention_strategies": [
+        "Tighten and actively monitor SPC control limits on critical-to-quality (CTQ) characteristics",
+        "Shift tooling/die replacement from a fixed calendar interval to a wear-based or stroke-count-based interval",
+        "Implement incoming material inspection or supplier quality agreements to reduce lot-to-lot variation",
+        "Calibrate process sensors/instruments on a defined schedule",
+        "Use mistake-proofing (poka-yoke) to prevent defect-causing conditions rather than only detecting defects after the fact"
+      ]
+    },
+    {
+      "loss_number": 6,
+      "loss_name": "Startup / Yield Losses (Reduced Yield)",
+      "definition": "Loss from defective product produced during the warm-up, startup, or process-stabilization period following equipment start or a changeover, before the process reaches its steady-state quality capability. Distinguished from Loss #5 by its concentration at the beginning of a run rather than during established steady-state operation.",
+      "manufacturing_examples": [
+        "First parts off a stamping die before die temperature stabilizes",
+        "First CNC parts machined before spindle/machine thermal growth stabilizes",
+        "Injection molding shots discarded until melt/mold temperature reaches steady state",
+        "Assembly line first units after a model changeover before torque/vision systems are re-validated"
+      ],
+      "typical_causes": [
+        "Inadequate or skipped warm-up procedure before resuming production",
+        "First-article inspection skipped or rushed due to schedule pressure",
+        "Thermal expansion of tooling, spindle, or die not yet stabilized to process setpoint",
+        "Incorrect or stale process parameters loaded from a recipe/program at startup",
+        "Sensor calibration drift specific to cold-start conditions"
+      ],
+      "oee_pillar_affected": "Quality",
+      "kpis_affected": ["OEE", "Quality Rate %", "Startup Scrap Rate", "Time-to-Stable-Process", "Cost per Changeover (true cost including yield loss)"],
+      "common_symptoms": [
+        "First N parts of a run consistently reject at first-article inspection",
+        "Dimensional or process parameter drift observable and converging during a defined warm-up window",
+        "Repeated trial cycles required before achieving an accepted first article",
+        "Startup scrap that recurs predictably with every changeover, essentially a hidden fixed cost per changeover"
+      ],
+      "diagnostic_approach": "Isolate and chart the startup-window parts separately from steady-state SPC data to quantify the yield-loss window; conduct a thermal/process stabilization time study to measure actual time-to-target-condition; review whether warm-up SOPs exist and are being followed consistently across shifts and operators.",
+      "business_impact": "Effectively inflates the true cost of every changeover beyond the recorded Setup and Adjustment downtime, since material and cycle time are consumed producing scrap; disproportionately impacts operations with high product mix and frequent changeovers, where startup loss can accumulate into a significant fraction of total scrap cost.",
+      "prevention_strategies": [
+        "Standardize and enforce a defined warm-up cycle duration before releasing production to the floor",
+        "Install or maintain active preheating systems (mold/die heaters, spindle warm-up macros) to shorten the stabilization window",
+        "Load and verify correct process parameters/recipes as a mandatory changeover step rather than relying on memory",
+        "Calibrate startup-specific sensors separately from steady-state process sensors",
+        "Track startup yield loss as its own KPI, separate from steady-state quality rate, to make its cost visible for improvement prioritization"
+      ]
+    }
+  ]
+}

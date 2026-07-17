@@ -1,0 +1,16 @@
+Date,Machine ID,Shift,Planned Time (min),Downtime (min),Total Parts Produced,Defective Parts,Ideal Cycle Time,Context / Notes,Operator ID,Batch / Product ID
+13-07-2026,Press_Line_1,Morning,480,90,320,5,1,Conveyor belt jammed,OP-492,Batch-A12
+13-07-2026,Press_Line_2,Afternoon,480,15,300,3,1.2,Frequent minor stops by new operator,OP-101,Batch-B01
+13-07-2026,CNC_Milling_1,Night,480,10,210,45,2,Sensor calibration drift,OP-222,Batch-C99
+14-07-2026,Press_Line_1,Morning,480,5,450,4,1,Normal operation,OP-492,Batch-A13
+14-07-2026,Press_Line_2,Afternoon,480,120,240,2,1.2,Hydraulic line leak,OP-305,Batch-B02
+14-07-2026,CNC_Milling_1,Night,480,20,160,5,2,Machine running below rated speed,OP-999,Batch-C100
+15-07-2026,Press_Line_1,Morning,480,10,400,60,1,Temperature out of spec during warmup,OP-404,Batch-A14
+15-07-2026,Press_Line_2,Afternoon,480,0,380,5,1.2,Normal operation,OP-101,Batch-B03
+15-07-2026,CNC_Milling_1,Night,480,65,180,8,2,Tool changeover delay,OP-222,Batch-C101
+16-07-2026,Press_Line_1,Morning,480,15,410,12,1,Minor sensor blockages,OP-492,Batch-A15
+16-07-2026,Press_Line_2,Afternoon,480,45,330,6,1.2,Motor fault reset required,OP-305,Batch-B04
+16-07-2026,CNC_Milling_1,Night,480,5,225,50,2,Pressure recalibration needed,OP-999,Batch-C102
+17-07-2026,Press_Line_1,Morning,480,200,200,2,1,Main drive shaft failure,OP-404,Batch-A16
+17-07-2026,Press_Line_2,Afternoon,480,10,350,25,1.2,Yield loss on startup,OP-101,Batch-B05
+17-07-2026,CNC_Milling_1,Night,480,0,230,4,2,Normal operation,OP-222,Batch-C103

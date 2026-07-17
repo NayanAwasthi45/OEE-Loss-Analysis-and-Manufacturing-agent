@@ -1,0 +1,465 @@
+{
+  "knowledge_base": "manufacturing_playbook",
+  "version": "1.0",
+  "purpose": "Domain knowledge for LLM-based OEE Loss Analysis & Improvement Agent. Maps standardized downtime error codes (DT-00 to DT-08) to manufacturing engineering context: causes, symptoms, OEE impact, and maintenance response.",
+  "taxonomy_note": "DT-00 to DT-08 are mapped to the standard TPM Six Big Losses framework plus baseline running state and planned downtime, ensuring full coverage of Availability, Performance, and Quality loss categories.",
+  "error_codes": [
+    {
+      "error_code": "DT-00",
+      "category": "Baseline Productive Time (No Loss / Running State)",
+      "manufacturing_description": "Represents time during which equipment is running at or near ideal cycle time, producing conforming product, with no active loss event. This is the reference state against which all six big losses are measured.",
+      "typical_equipment_involved": ["All equipment types", "Press Line", "CNC Milling", "Assembly Line"],
+      "expected_oee_behaviour": "Contributes positively to Availability, Performance, and Quality simultaneously; drives OEE toward target.",
+      "expected_availability_impact": "None — counted as fully productive run time.",
+      "expected_performance_impact": "None — cycle time tracking at or near 100% of ideal cycle time.",
+      "expected_quality_impact": "None — output within specification, no scrap/rework generated.",
+      "common_machine_symptoms": [
+        "Stable, repeating cycle time",
+        "Output count tracking linearly with takt time",
+        "No active alarms or fault codes",
+        "Consistent process parameters (pressure, temperature, torque, feed) within control limits"
+      ],
+      "possible_operational_causes": [],
+      "possible_mechanical_causes": [],
+      "possible_electrical_causes": [],
+      "typical_downtime_range": "0 minutes (not a downtime-generating code; used as the OEE calculation baseline)",
+      "common_diagnostic_checks": [
+        "Cycle time trend vs. ideal/standard cycle time",
+        "Output count reconciliation against planned production time",
+        "SPC control chart review for early drift detection"
+      ],
+      "production_consequences": "None — this is the target operating state; sustained DT-00 time is the objective of loss elimination efforts.",
+      "business_consequences": "Meets production plan, supports on-time delivery (OTD), maximizes throughput per labor and asset hour.",
+      "common_maintenance_actions": [
+        "Routine condition monitoring only",
+        "Log baseline performance data for trend and capability analysis"
+      ],
+      "severity": "Low",
+      "keywords_operators_commonly_use": ["running fine", "on rate", "green light", "no issues", "steady state"],
+      "typical_maintenance_department_actions": [
+        "Passive monitoring via CMMS/SCADA",
+        "Use baseline data to calibrate PM intervals and OEE targets"
+      ]
+    },
+    {
+      "error_code": "DT-01",
+      "category": "Breakdown Loss — Unplanned Mechanical Failure (Six Big Loss #1)",
+      "manufacturing_description": "Unplanned stoppage caused by failure of a mechanical component (bearing, belt, gearbox, seal, tooling, structural element) that halts production until repaired. The most severe and costly category of Availability loss.",
+      "typical_equipment_involved": ["Press Line (clutch-brake, ram guides, hydraulic power unit)", "CNC Milling (spindle bearings, ball screws, way covers)", "Assembly Line (conveyor drives, gearboxes, pneumatic actuators)"],
+      "expected_oee_behaviour": "Severe, immediate Availability loss; frequently cascades into Performance loss (restart ramp-up) and Quality loss (startup scrap).",
+      "expected_availability_impact": "High — direct unplanned run-time loss, typically 30 minutes to 8+ hours depending on component and spare parts availability.",
+      "expected_performance_impact": "Indirect — post-repair restart often runs below rated speed until process stabilizes.",
+      "expected_quality_impact": "Indirect — first parts after restart may be out of tolerance due to thermal/mechanical re-settling.",
+      "common_machine_symptoms": [
+        "Sudden, unexpected stop with hard fault indication",
+        "Abnormal noise, vibration, or heat prior to failure (often missed if not monitored)",
+        "Loss of hydraulic or pneumatic pressure",
+        "Visible component damage (broken belt, sheared key, cracked casting)",
+        "Burning smell or smoke from motor/gearbox"
+      ],
+      "possible_operational_causes": [
+        "Operating beyond rated capacity/tonnage/load",
+        "Deferred or skipped preventive maintenance",
+        "Foreign object damage (FOD) introduced into equipment",
+        "Operator override of safety interlocks or load limits"
+      ],
+      "possible_mechanical_causes": [
+        "Bearing failure due to lubrication breakdown or contamination",
+        "Belt or chain breakage from fatigue or misalignment",
+        "Seal/gasket failure causing fluid loss",
+        "Tooling or die breakage from fatigue cracking",
+        "Gearbox failure (gear tooth wear, shaft misalignment)"
+      ],
+      "possible_electrical_causes": [
+        "Motor overload trip due to mechanical binding",
+        "Contactor or relay failure preventing restart",
+        "Safety interlock/sensor fault forcing emergency stop"
+      ],
+      "typical_downtime_range": "30–480 minutes depending on failure severity and spare parts availability",
+      "common_diagnostic_checks": [
+        "Vibration analysis on rotating equipment",
+        "Thermal imaging of motors, bearings, and electrical panels",
+        "Oil/lubricant analysis for contamination or metal particulate",
+        "Visual inspection of wear components (belts, seals, tooling edges)",
+        "Fault/error log review on machine controller"
+      ],
+      "production_consequences": "Full line stoppage, missed takt, downstream station starvation, potential upstream line back-up if buffer capacity is exceeded.",
+      "business_consequences": "Missed on-time delivery (OTD), overtime/expedite costs, expedited spare parts freight, potential customer escalation.",
+      "common_maintenance_actions": [
+        "Emergency corrective repair",
+        "Failed component replacement",
+        "Root Cause Failure Analysis (RCFA) / 5-Why investigation",
+        "Update PM plan/interval based on failure mode"
+      ],
+      "severity": "Critical",
+      "keywords_operators_commonly_use": ["machine down", "broke down", "won't start", "tripped", "jammed hard", "smoking", "no power to the machine"],
+      "typical_maintenance_department_actions": [
+        "Dispatch technician immediately (emergency work order)",
+        "Pull spare parts from crib/inventory",
+        "Document RCFA in CMMS",
+        "Update FMEA and PM schedule based on failure mode found"
+      ]
+    },
+    {
+      "error_code": "DT-02",
+      "category": "Breakdown Loss — Electrical / Control System Fault (Six Big Loss #1, electrical subtype)",
+      "manufacturing_description": "Stoppage caused by electrical, PLC, servo drive, sensor, or HMI malfunction rather than a mechanical component failure. Often presents as intermittent nuisance faults that are harder to diagnose than mechanical breakdowns.",
+      "typical_equipment_involved": ["CNC controllers and servo drives", "PLC-controlled press lines", "Robotic/cobot assembly cells", "Vision inspection systems"],
+      "expected_oee_behaviour": "High Availability loss for hard faults; repeated short Availability losses for intermittent/nuisance faults that can mimic small-stop patterns.",
+      "expected_availability_impact": "High for hard faults (E-stop, drive fault); moderate but chronic for intermittent faults.",
+      "expected_performance_impact": "Low to moderate if the fault forces a reduced-speed fallback mode.",
+      "expected_quality_impact": "Low to moderate if sensor drift causes a miscalibrated process parameter before detection.",
+      "common_machine_symptoms": [
+        "Fault code displayed on HMI/operator panel",
+        "Unexpected E-stop trips with no visible mechanical cause",
+        "Communication loss between PLC and drives/sensors",
+        "Servo drive alarm (overcurrent, following error, encoder fault)",
+        "Intermittent resets that clear themselves"
+      ],
+      "possible_operational_causes": [
+        "Incorrect parameter entry by operator or setup technician",
+        "Unauthorized parameter override",
+        "Electromagnetic interference (EMI) from nearby equipment"
+      ],
+      "possible_mechanical_causes": [
+        "Loose wiring/connectors caused by machine vibration",
+        "Connector corrosion in harsh environments (coolant, humidity)"
+      ],
+      "possible_electrical_causes": [
+        "Sensor (proximity, photo-eye, limit switch) failure or drift",
+        "PLC I/O card failure",
+        "Power supply voltage fluctuation or sag",
+        "Encoder/resolver failure",
+        "Servo drive fault",
+        "Grounding/bonding issue causing noise on signal lines"
+      ],
+      "typical_downtime_range": "10–240 minutes; can recur multiple times per shift if intermittent",
+      "common_diagnostic_checks": [
+        "PLC/drive fault log export and review",
+        "Continuity and insulation resistance testing on suspect wiring",
+        "Sensor calibration and alignment check",
+        "Power quality analysis (voltage sag, harmonics)",
+        "I/O forcing/simulation test to isolate faulty input/output"
+      ],
+      "production_consequences": "Intermittent, unpredictable stoppages that are difficult to schedule around; erodes operator trust in equipment reliability.",
+      "business_consequences": "Controls engineering support cost, risk of latent recurring faults that resist first-pass repair, potential for repeat visits.",
+      "common_maintenance_actions": [
+        "Sensor replacement and recalibration",
+        "Firmware/software update",
+        "Rewiring or connector replacement",
+        "Servo drive parameter reset/re-tuning"
+      ],
+      "severity": "High",
+      "keywords_operators_commonly_use": ["fault code", "E-stop tripped", "sensor error", "comms lost", "PLC fault", "drive alarm", "it just resets itself"],
+      "typical_maintenance_department_actions": [
+        "Dispatch controls/electrical technician",
+        "Export and analyze fault history log",
+        "Recalibrate or replace sensors",
+        "Review recent software/firmware changes for regression"
+      ]
+    },
+    {
+      "error_code": "DT-03",
+      "category": "Setup and Adjustment Loss (Six Big Loss #2)",
+      "manufacturing_description": "Downtime associated with changing over tooling, dies, molds, fixtures, or programs between product runs, including first-piece trial and adjustment. Planned in nature but frequently exceeds standard due to lack of standardized work.",
+      "typical_equipment_involved": ["Press Line (die change)", "CNC Milling (tool/fixture/program change)", "Assembly Line (fixture and program change for model changeover)"],
+      "expected_oee_behaviour": "Direct Availability loss (counted against run time unless the OEE model explicitly excludes changeover from Planned Production Time).",
+      "expected_availability_impact": "Moderate to high; scheduled but highly variable in duration based on operator skill and standardization.",
+      "expected_performance_impact": "Low, unless the post-changeover adjustment phase runs at reduced speed before full-rate confirmation.",
+      "expected_quality_impact": "Moderate — first-off parts during trial/adjustment are frequently out of specification.",
+      "common_machine_symptoms": [
+        "Extended idle time between last-good part of prior run and first-good part of new run",
+        "Repeated trial cycles with manual jogging/adjustment",
+        "Operator searching for tools, fixtures, or setup documentation",
+        "Multiple first-article inspection rejections before acceptance"
+      ],
+      "possible_operational_causes": [
+        "No standardized changeover procedure (no SMED/quick-changeover standard work)",
+        "Tools, dies, or fixtures not staged at point of use",
+        "Incorrect or missing setup documentation/recipe",
+        "Inexperienced or undertrained operator performing changeover"
+      ],
+      "possible_mechanical_causes": [
+        "Worn locating pins, clamps, or datums requiring repeated realignment",
+        "Die/mold wear requiring shimming or manual compensation"
+      ],
+      "possible_electrical_causes": [
+        "Slow program upload/download to controller",
+        "Incorrect recipe/program selected from library"
+      ],
+      "typical_downtime_range": "15–180 minutes depending on product complexity and changeover standardization maturity",
+      "common_diagnostic_checks": [
+        "Changeover time study with internal vs. external step classification (SMED analysis)",
+        "Tooling/fixture condition and calibration check",
+        "Setup documentation accuracy audit"
+      ],
+      "production_consequences": "Reduced available run time; creates pressure toward larger batch sizes to amortize changeover cost, increasing WIP and inventory.",
+      "business_consequences": "Reduced manufacturing flexibility, higher inventory carrying cost, schedule adherence risk on high-mix product lines.",
+      "common_maintenance_actions": [
+        "Fixture and quick-change tooling refurbishment",
+        "Implementation of quick-change clamping/locating systems",
+        "Development of standardized changeover kits and staged tool carts"
+      ],
+      "severity": "Medium",
+      "keywords_operators_commonly_use": ["changeover", "die change", "tool change", "setup", "first article", "trial run", "dialing it in"],
+      "typical_maintenance_department_actions": [
+        "Ensure tooling/fixture readiness and PM prior to scheduled changeover",
+        "PM on quick-change mechanisms (clamps, locators, quick-disconnects)",
+        "Participate in SMED kaizen events to reduce internal setup steps"
+      ]
+    },
+    {
+      "error_code": "DT-04",
+      "category": "Small Stops / Idling Loss (Six Big Loss #3)",
+      "manufacturing_description": "Brief stoppages, typically under 5–10 minutes, that do not require formal maintenance intervention and are often self-cleared by the operator (jams, misfeeds, blocked sensors, minor misalignment). Individually minor but cumulatively one of the largest and most under-reported OEE losses.",
+      "typical_equipment_involved": ["Conveyors and transfer systems", "Part feeders (vibratory bowl, chute)", "Assembly stations", "Packaging equipment"],
+      "expected_oee_behaviour": "Depresses both Availability (frequent micro-stoppages) and Performance (net effective rate falls well below rated speed); commonly underreported in manual data collection systems.",
+      "expected_availability_impact": "Low-to-moderate per event; high cumulative impact due to frequency (often 10–50+ events per shift).",
+      "expected_performance_impact": "Moderate to high — the dominant driver of chronic Performance loss on high-speed automated lines.",
+      "expected_quality_impact": "Low direct impact, but misfeeds and jam-clearing can induce downstream defects.",
+      "common_machine_symptoms": [
+        "Frequent short-duration alarms (seconds to a few minutes)",
+        "Part jams at transfer or infeed/outfeed points",
+        "Photo-eye or proximity sensor repeatedly blocked/triggered",
+        "Operator repeatedly clearing jams and pressing reset without logging a formal stop"
+      ],
+      "possible_operational_causes": [
+        "Inconsistent upstream component supply (starvation/blocking)",
+        "Poor operator technique during manual loading",
+        "Incoming material/component dimensional variability"
+      ],
+      "possible_mechanical_causes": [
+        "Misaligned guide rails or transfer fingers",
+        "Worn feed mechanism (belts, chains, star wheels)",
+        "Chain or belt tension out of specification"
+      ],
+      "possible_electrical_causes": [
+        "Sensor sensitivity/threshold misadjustment",
+        "Debris or glare interfering with optical sensors"
+      ],
+      "typical_downtime_range": "1–10 minutes per event; high frequency makes cumulative daily impact substantial",
+      "common_diagnostic_checks": [
+        "Pareto analysis of stop reason and frequency by station/asset",
+        "Sensor alignment and sensitivity verification",
+        "Feed mechanism physical inspection",
+        "Video/motion analysis at chronic jam points"
+      ],
+      "production_consequences": "Chronic underperformance relative to rated line speed; difficult to capture accurately without automated stop-detection, leading to underestimated true capacity loss.",
+      "business_consequences": "Hidden capacity loss — often the single largest unrecognized contributor to OEE gap; increases operator fatigue and reduces trust in line reliability.",
+      "common_maintenance_actions": [
+        "Sensor realignment/resensitization",
+        "Guide and feed mechanism adjustment",
+        "Enable and support autonomous maintenance (operator-led cleaning, inspection, lubrication)"
+      ],
+      "severity": "Medium (per event); High (cumulative/chronic pattern)",
+      "keywords_operators_commonly_use": ["jammed again", "keeps stopping", "small stop", "misfeed", "sensor blocked", "had to clear it again"],
+      "typical_maintenance_department_actions": [
+        "Trend micro-stop frequency by station using SCADA/MES data",
+        "Support and audit autonomous maintenance program compliance",
+        "Adjust sensor thresholds and perform targeted precision maintenance"
+      ]
+    },
+    {
+      "error_code": "DT-05",
+      "category": "Reduced Speed Loss (Six Big Loss #4)",
+      "manufacturing_description": "Equipment running below its designed ideal cycle time or rated speed without a hard stop, typically due to operator caution, mechanical wear, or deliberate process derating. Directly reduces the Performance factor of OEE.",
+      "typical_equipment_involved": ["CNC Milling (feed rate override reduced below 100%)", "Press Line (strokes-per-minute reduced below rated)", "Assembly Line (conveyor/line speed reduced below design takt)"],
+      "expected_oee_behaviour": "Direct Performance loss; Performance = (Ideal Cycle Time × Output Count) / Run Time falls below 100% even though the machine never stops.",
+      "expected_availability_impact": "None to low — the machine is running and generating output.",
+      "expected_performance_impact": "High — this is the primary loss category this code represents.",
+      "expected_quality_impact": "Low to moderate — sometimes speed is deliberately reduced to protect quality; other times wear-induced defects appear despite the slower rate.",
+      "common_machine_symptoms": [
+        "Actual cycle time consistently exceeds standard/ideal cycle time",
+        "Feed rate or speed override set below 100% on controller",
+        "Throughput trending below rated capacity with no stoppage recorded",
+        "Motor current/load below expected value at reduced feed"
+      ],
+      "possible_operational_causes": [
+        "Operator running below standard rate for comfort or perceived risk avoidance",
+        "Inaccurate or outdated standard cycle time reference",
+        "Inadequate operator training on rated capability",
+        "Deliberate derate to reduce scrap risk (informal compensation for an unaddressed root cause)"
+      ],
+      "possible_mechanical_causes": [
+        "Tooling wear increasing cutting/forming resistance",
+        "Worn bearings or guides increasing friction",
+        "Hydraulic system pressure drop limiting cycle speed",
+        "Inadequate lubrication increasing mechanical drag"
+      ],
+      "possible_electrical_causes": [
+        "Servo/drive parameter drift from optimal tuning",
+        "Degraded servo tuning causing conservative acceleration limits",
+        "VFD thermal derating due to overheating or duty cycle limits"
+      ],
+      "typical_downtime_range": "Not applicable — continuous rate loss rather than a discrete stoppage; quantified as lost-production-equivalent minutes",
+      "common_diagnostic_checks": [
+        "Cycle time trend analysis vs. engineered standard",
+        "Feed/speed override log review over time",
+        "Tooling wear inspection and replacement interval audit",
+        "Motor load/current analysis at constant commanded feed"
+      ],
+      "production_consequences": "Chronic shortfall against planned output; frequently requires overtime or extended shifts to recover volume.",
+      "business_consequences": "Hidden capacity loss — frequently the largest unrecognized OEE gap in a facility; increases per-unit manufacturing cost.",
+      "common_maintenance_actions": [
+        "Tooling replacement or refurbishment",
+        "Lubrication system service",
+        "Servo drive re-tuning",
+        "Joint re-validation of standard cycle time with process/industrial engineering"
+      ],
+      "severity": "High",
+      "keywords_operators_commonly_use": ["running slow", "behind rate", "feed override down", "below standard speed", "throttled back", "not hitting cycle time"],
+      "typical_maintenance_department_actions": [
+        "Capture and compare actual vs. ideal cycle time from controller data",
+        "Investigate mechanical drag sources (bearings, guides, hydraulics)",
+        "Coordinate with process/industrial engineering on rate standard validation"
+      ]
+    },
+    {
+      "error_code": "DT-06",
+      "category": "Startup / Yield Loss (Six Big Loss #6 — Reduced Yield)",
+      "manufacturing_description": "Defective parts produced during machine warm-up, post-changeover startup, or process stabilization before the process reaches steady-state quality capability. Distinct from in-process running defects (DT-07).",
+      "typical_equipment_involved": ["Stamping/forming presses (thermal stabilization of tooling)", "CNC Milling (thermal growth affecting first-part accuracy)", "Assembly Line (process/torque/vision stabilization after changeover)"],
+      "expected_oee_behaviour": "Direct Quality loss concentrated at the start of a production run.",
+      "expected_availability_impact": "None direct — the machine is running.",
+      "expected_performance_impact": "Low — may include slower initial cycles during controlled ramp-up.",
+      "expected_quality_impact": "High — direct scrap/rework concentrated in the first parts of a run.",
+      "common_machine_symptoms": [
+        "First N parts out of dimensional or visual tolerance",
+        "Dimensional drift observable during the warm-up window",
+        "Process parameters (temperature, pressure) not yet stabilized against target",
+        "Repeated first-article inspection failures before acceptance"
+      ],
+      "possible_operational_causes": [
+        "Inadequate or skipped warm-up procedure",
+        "First-article inspection skipped or rushed to meet schedule pressure",
+        "Production restarted immediately after changeover without stabilization dwell"
+      ],
+      "possible_mechanical_causes": [
+        "Thermal expansion of tooling, spindle, or die not yet stabilized",
+        "Die/mold temperature not at process setpoint",
+        "Hydraulic oil viscosity/temperature affecting initial cycle consistency"
+      ],
+      "possible_electrical_causes": [
+        "Incorrect initial process parameters loaded from recipe",
+        "Sensor calibration drift specific to cold-start conditions"
+      ],
+      "typical_downtime_range": "Not applicable — a yield loss, typically manifesting across the first 5–50 parts of a run",
+      "common_diagnostic_checks": [
+        "SPC chart review isolating startup-window parts",
+        "Thermal stabilization time study (time-to-target-temperature)",
+        "First-article inspection record review across multiple changeovers"
+      ],
+      "production_consequences": "Recurring scrap/rework at the start of every production run, disproportionately costly on lines with frequent changeovers.",
+      "business_consequences": "Material waste cost, effectively inflates the true cost of each changeover beyond the recorded DT-03 downtime.",
+      "common_maintenance_actions": [
+        "Standardize and enforce warm-up cycle duration",
+        "Install/maintain preheating systems (mold/die heaters, spindle warm-up cycles)",
+        "Calibrate startup-specific process sensors"
+      ],
+      "severity": "Medium",
+      "keywords_operators_commonly_use": ["first parts bad", "warm up scrap", "startup reject", "not stable yet", "still dialing in after changeover"],
+      "typical_maintenance_department_actions": [
+        "Verify heating/cooling system function ahead of scheduled changeovers",
+        "Support and audit warm-up SOP compliance",
+        "Calibrate sensors specifically involved in startup process control"
+      ]
+    },
+    {
+      "error_code": "DT-07",
+      "category": "Quality Defects / Rework Loss (Six Big Loss #5 — In-Process Running Defects)",
+      "manufacturing_description": "Non-conforming product produced during normal steady-state running (not during startup), requiring scrap or rework. Distinct from DT-06 in that the process was previously stable and has since drifted or been disturbed.",
+      "typical_equipment_involved": ["All equipment types — Press Line, CNC Milling, Assembly Line"],
+      "expected_oee_behaviour": "Direct Quality loss occurring mid-run, often signaling tooling wear or process drift rather than a startup condition.",
+      "expected_availability_impact": "None direct, unless the line is stopped for containment or quality hold.",
+      "expected_performance_impact": "Low — rework may consume additional cycles or station time.",
+      "expected_quality_impact": "High — direct impact on First Pass Yield (FPY) and scrap rate.",
+      "common_machine_symptoms": [
+        "SPC out-of-control signals (points beyond control limits, trends, runs)",
+        "Dimensional drift accumulating over the course of a run",
+        "Visual defects (burrs, scratches, flash, surface finish degradation)",
+        "Functional/torque/leak test failures"
+      ],
+      "possible_operational_causes": [
+        "Incoming material lot-to-lot variation",
+        "Operator error or deviation from work instructions",
+        "Inadequate or unclear standard work instructions",
+        "Tooling wear that has not yet triggered a wear-limit alarm"
+      ],
+      "possible_mechanical_causes": [
+        "Tool or die wear progressing through the run",
+        "Worn locating features causing positional drift",
+        "Misalignment developing over run duration (thermal or vibration-induced)"
+      ],
+      "possible_electrical_causes": [
+        "Process sensor drift (pressure, temperature, torque transducers)",
+        "Closed-loop control parameter drift not caught by existing control limits"
+      ],
+      "typical_downtime_range": "Not applicable — a continuous quality loss quantified as a defect rate percentage rather than a stoppage duration",
+      "common_diagnostic_checks": [
+        "SPC control chart review for trend/shift patterns",
+        "Defect Pareto analysis by defect type and location",
+        "Tooling wear inspection against wear-limit specification",
+        "Incoming material certificate/lot review",
+        "Torque, pressure, or temperature trend review against process window"
+      ],
+      "production_consequences": "Direct scrap cost, added rework labor, potential containment sort or quality hold on downstream/finished goods inventory.",
+      "business_consequences": "Customer complaint and PPM impact, warranty exposure, potential line-side sorting or 100% inspection cost.",
+      "common_maintenance_actions": [
+        "Tooling replacement or refurbishment on defined wear intervals",
+        "Process parameter re-validation against specification",
+        "Calibration of in-process quality sensors"
+      ],
+      "severity": "High",
+      "keywords_operators_commonly_use": ["scrap", "defect", "reject", "out of spec", "rework", "quality hold", "starting to drift"],
+      "typical_maintenance_department_actions": [
+        "Execute tooling PM on defined interval",
+        "Calibrate process and quality sensors",
+        "Support SPC root-cause investigation jointly with quality engineering",
+        "Coordinate containment actions with quality department"
+      ]
+    },
+    {
+      "error_code": "DT-08",
+      "category": "Planned Downtime (Excluded from OEE; affects TEEP)",
+      "manufacturing_description": "Scheduled stoppage for planned maintenance, scheduled breaks, shift changes, or periods with no production demand. Standard OEE calculations exclude this time from the Planned Production Time base; it is captured separately to compute Total Effective Equipment Performance (TEEP).",
+      "typical_equipment_involved": ["All equipment types"],
+      "expected_oee_behaviour": "Excluded from the OEE calculation base under standard methodology; reduces TEEP, not OEE.",
+      "expected_availability_impact": "None to OEE Availability (excluded from denominator); reduces calendar-time utilization (TEEP).",
+      "expected_performance_impact": "None.",
+      "expected_quality_impact": "None.",
+      "common_machine_symptoms": [
+        "Machine intentionally offline per production schedule — not a fault condition",
+        "No alarms; controller in standby/off state"
+      ],
+      "possible_operational_causes": [
+        "Gap in production schedule (no orders/no demand)",
+        "Scheduled shift break or shift change",
+        "Scheduled preventive maintenance window",
+        "No material available for a scheduled production block"
+      ],
+      "possible_mechanical_causes": [],
+      "possible_electrical_causes": [],
+      "typical_downtime_range": "Scheduled duration — typically 15–60 minutes for breaks, 2–8 hours for PM windows",
+      "common_diagnostic_checks": [
+        "PM compliance rate review (completed on schedule vs. missed)",
+        "Planned vs. actual PM duration variance analysis",
+        "Overrun tracking — instances where DT-08 extends into scheduled production time"
+      ],
+      "production_consequences": "None if properly scheduled and executed within window; risk arises only if the PM window overruns into planned production time, which then should be reclassified as an Availability loss (DT-01/DT-02 pattern).",
+      "business_consequences": "Direct PM labor/parts cost, but reduces future unplanned breakdown risk (DT-01) when PM scope is executed effectively.",
+      "common_maintenance_actions": [
+        "Execute PM checklist per asset PM plan",
+        "Lubrication service",
+        "Calibration of critical sensors/instruments",
+        "Planned component replacement per wear-life schedule"
+      ],
+      "severity": "Low (as planned); escalates to High if it overruns into production time",
+      "keywords_operators_commonly_use": ["scheduled PM", "on break", "no orders", "planned maintenance", "shift change", "waiting on material"],
+      "typical_maintenance_department_actions": [
+        "Execute PM tasks per schedule and document completion in CMMS",
+        "Update PM intervals/scope based on findings during the window",
+        "Track PM window adherence as a maintenance KPI"
+      ]
+    }
+  ]
+}

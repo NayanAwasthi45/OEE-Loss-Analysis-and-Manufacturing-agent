@@ -1,0 +1,56 @@
+{
+  "DT-00": {
+    "description": "No Fault / Normal Operation",
+    "business_meaning": "Machine operating normally",
+    "oee_impact": "None",
+    "typical_downtime": "0"
+  },
+  "DT-01": {
+    "description": "Mechanical Breakdown",
+    "business_meaning": "Mechanical failure causing unplanned downtime",
+    "oee_impact": "Availability",
+    "typical_downtime": "30-240"
+  },
+  "DT-02": {
+    "description": "Electrical / Control Fault",
+    "business_meaning": "PLC / Motor / Electrical fault",
+    "oee_impact": "Availability",
+    "typical_downtime": "10-90"
+  },
+  "DT-03": {
+    "description": "Changeover / Setup Delay",
+    "business_meaning": "Setup activities exceeding planned time",
+    "oee_impact": "Availability",
+    "typical_downtime": "10-60"
+  },
+  "DT-04": {
+    "description": "Minor Stoppage",
+    "business_meaning": "Short interruptions reducing throughput",
+    "oee_impact": "Performance",
+    "typical_downtime": "1-15"
+  },
+  "DT-05": {
+    "description": "Reduced Speed Loss",
+    "business_meaning": "Machine running below rated speed",
+    "oee_impact": "Performance",
+    "typical_downtime": "Variable"
+  },
+  "DT-06": {
+    "description": "Calibration / Instrumentation Fault",
+    "business_meaning": "Calibration required causing quality or availability issues",
+    "oee_impact": "Availability / Quality",
+    "typical_downtime": "5-30"
+  },
+  "DT-07": {
+    "description": "Startup / Warm-up Loss",
+    "business_meaning": "Startup instability causing yield loss",
+    "oee_impact": "Quality",
+    "typical_downtime": "5-20"
+  },
+  "DT-08": {
+    "description": "Material / Operator Shortage",
+    "business_meaning": "Material unavailable or operator absent",
+    "oee_impact": "Availability",
+    "typical_downtime": "Variable"
+  }
+}
