@@ -29,8 +29,7 @@ from config import DB_FILE_PATH
 from database.init_db import initialize_database
 from database.database import Database
 from database.repositories import ProductionRepository
-from core.query_parser import QueryParser, QueryFilter
-from core.data_loader import DataLoader
+from core.query_service import QueryService
 from core.validator import DataValidator
 from core.oee_calculator import OEECalculator
 from analysis.error_code_resolver import ErrorCodeResolver
@@ -82,8 +81,7 @@ class Pipeline:
         self.db = Database()
         self.repo = ProductionRepository(self.db)
         self.available_machines = self.repo.get_available_machines()
-        self.parser = QueryParser(known_machines=self.available_machines)
-        self.data_loader = DataLoader(self.repo)
+        self.query_service = QueryService()
         self.validator = DataValidator()
         self.calculator = OEECalculator()
         self.resolver = ErrorCodeResolver()
@@ -147,20 +145,19 @@ def analyze(request: AnalyzeRequest) -> dict:
     """
     pipe = Pipeline.get()
 
-    # 1. Parse query
-    query_filter: Optional[QueryFilter] = pipe.parser.parse(request.query)
-    if query_filter is None:
+    # 1. NL-to-SQL (Query Service)
+    try:
+        raw_df, valid_sql = pipe.query_service.process_query(request.query)
+    except Exception as e:
         raise HTTPException(
             status_code=400,
-            detail="Could not extract filters. Provide at least a Machine ID.",
+            detail=f"Failed to generate valid SQL for your query: {e}",
         )
 
-    # 2. Fetch filtered data
-    raw_df = pipe.data_loader.fetch_filtered_data(query_filter)
     if raw_df.empty:
         raise HTTPException(
             status_code=404,
-            detail=f"No records found for: {query_filter.describe()}",
+            detail=f"No records found for query. SQL Executed:\n{valid_sql}",
         )
 
     # 3. Validate
@@ -237,9 +234,7 @@ def analyze(request: AnalyzeRequest) -> dict:
         "ai_distribution": ai_dist,
         "loss_distribution": loss_distribution,
         "query_context": {
-            "machine_id": query_filter.machine_id,
-            "shift": query_filter.shift,
-            "date": query_filter.date,
-            "description": query_filter.describe(),
+            "description": request.query,
+            "generated_sql": valid_sql
         },
     }

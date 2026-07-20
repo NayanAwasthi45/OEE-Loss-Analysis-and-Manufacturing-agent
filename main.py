@@ -21,14 +21,13 @@ from config import DB_FILE_PATH, DEBUG_DIR
 from database.init_db import initialize_database
 from database.database import Database
 from database.repositories import ProductionRepository
-from core.query_parser import QueryParser, QueryFilter
-from core.data_loader import DataLoader
 from core.validator import DataValidator
 from core.oee_calculator import OEECalculator
 from analysis.error_code_resolver import ErrorCodeResolver
 from analysis.loss_analyzer import LossAnalyzer
 from analysis.business_impact import BusinessImpactEngine
 from reports.report_generator import ReportGenerator
+from core.query_service import QueryService
 
 # Logging configuration
 logging.basicConfig(
@@ -165,8 +164,8 @@ def _generate_runtime_csvs(
 
 
 def _process_query(
-    query_filter: QueryFilter,
-    data_loader: DataLoader,
+    user_query: str,
+    query_service: QueryService,
     validator: DataValidator,
     calculator: OEECalculator,
     resolver: ErrorCodeResolver,
@@ -181,16 +180,23 @@ def _process_query(
         SQL Filter → Validate → OEE Calculate → Error Code Resolve
         → AI Analysis → Business Impact → Runtime CSVs → Console Summary
     """
-    logger.info(f"Processing query: {query_filter.describe()}")
+    logger.info(f"Processing query: {user_query}")
 
-    # 1. Fetch filtered data from SQLite
-    raw_df = data_loader.fetch_filtered_data(query_filter)
+    # 1. NL-to-SQL (Query Service)
+    try:
+        raw_df, valid_sql = query_service.process_query(user_query)
+    except Exception as e:
+        print(f"\n  SQL Generation Failed: {e}")
+        print("  Please try rephrasing your question.\n")
+        return
+
     if raw_df.empty:
-        print(f"\n  No records found for: {query_filter.describe()}")
-        print(f"  Please check your filter criteria and try again.\n")
+        print(f"\n  No records found for your query.")
+        print(f"  SQL Executed:\n  {valid_sql}\n")
         return
 
     logger.info(f"Fetched {len(raw_df)} filtered records.")
+    print(f"\n  Generated SQL:\n  {valid_sql}\n")
 
     # 2. Validate
     logger.info("Validating filtered data...")
@@ -215,10 +221,10 @@ def _process_query(
     # 7. Generate runtime CSVs (filtered data only)
     _generate_runtime_csvs(raw_df, validated_df, oee_df, analysis_df)
 
-    # 8. Display console summary
+    # 8. Display console summary (pass user_query instead of query_filter)
     reporter.display_summary(
         df=analysis_df,
-        query_filter=query_filter,
+        query_filter=None,  # We replaced QueryFilter
         ai_processed=analyzer.ai_processed_count,
         ai_skipped=analyzer.ai_skipped_count,
         groq_response_time=analyzer.groq_response_time,
@@ -249,8 +255,7 @@ def main() -> None:
         available_machines = repo.get_available_machines()
 
         # Initialize pipeline components
-        parser = QueryParser(known_machines=available_machines)
-        data_loader = DataLoader(repo)
+        query_service = QueryService()
         validator = DataValidator()
         calculator = OEECalculator()
         resolver = ErrorCodeResolver()
@@ -276,21 +281,10 @@ def main() -> None:
                 print("\n  Goodbye!\n")
                 break
 
-            # Parse user query
-            query_filter: Optional[QueryFilter] = parser.parse(user_input)
-
-            if query_filter is None:
-                print(
-                    "\n  Could not extract any filters from your query."
-                )
-                print("  Please provide at least a Machine ID.")
-                print("  Example: Show Press_Line_5 Morning Shift\n")
-                continue
-
             # Process the query through the full pipeline
             _process_query(
-                query_filter=query_filter,
-                data_loader=data_loader,
+                user_query=user_input,
+                query_service=query_service,
                 validator=validator,
                 calculator=calculator,
                 resolver=resolver,

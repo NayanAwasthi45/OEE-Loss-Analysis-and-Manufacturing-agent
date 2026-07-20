@@ -132,7 +132,7 @@ class ProductionRepository:
         Returns a sorted list of distinct Machine IDs in the database.
         Used by the query parser for case-insensitive machine name matching.
         """
-        query = f'SELECT DISTINCT "Machine ID" FROM {self._TABLE} ORDER BY "Machine ID"'
+        query = 'SELECT machine_code AS "Machine ID" FROM dim_machine ORDER BY machine_code'
         try:
             with self.db.get_connection() as conn:
                 df = pd.read_sql_query(query, conn)
@@ -148,7 +148,7 @@ class ProductionRepository:
         Returns a sorted list of distinct Shift values in the database.
         Used for validating user-provided shift filters.
         """
-        query = f'SELECT DISTINCT "Shift" FROM {self._TABLE} ORDER BY "Shift"'
+        query = 'SELECT shift_name AS "Shift" FROM dim_shift ORDER BY shift_name'
         try:
             with self.db.get_connection() as conn:
                 df = pd.read_sql_query(query, conn)
@@ -164,7 +164,7 @@ class ProductionRepository:
         Returns a sorted list of distinct Date values in the database.
         Used for validating user-provided date filters.
         """
-        query = f'SELECT DISTINCT "Date" FROM {self._TABLE} ORDER BY "Date"'
+        query = 'SELECT full_date AS "Date" FROM dim_date ORDER BY full_date'
         try:
             with self.db.get_connection() as conn:
                 df = pd.read_sql_query(query, conn)

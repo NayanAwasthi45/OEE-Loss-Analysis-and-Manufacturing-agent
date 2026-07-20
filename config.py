@@ -5,8 +5,8 @@ DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 CSV_FILE_PATH = os.path.join(DATA_DIR, "OEE_Manufacturing_Dataset_1000Rows.xlsx")
 BUSINESS_CONFIG_PATH = os.path.join(PROJECT_ROOT, "business_config.json")
 
-DATABASE_DIR = os.path.join(PROJECT_ROOT, "database")
-DB_FILE_PATH = os.path.join(DATABASE_DIR, "oee.db")
+DATABASE_DIR = DATA_DIR
+DB_FILE_PATH = os.path.join(DATABASE_DIR, "oee_star_enterprise.db")
 
 KNOWLEDGE_DIR = os.path.join(PROJECT_ROOT, "knowledge")
 ERROR_CODES_PATH = os.path.join(KNOWLEDGE_DIR, "error_codes.json")

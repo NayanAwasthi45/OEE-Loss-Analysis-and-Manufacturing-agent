@@ -1,5 +1,7 @@
 # OEE Loss Analysis & Improvement Agent
 
+# OEE Loss Analysis & Improvement Agent
+
 An enterprise-grade OEE (Overall Equipment Effectiveness) Analytics Agent that deterministically calculates OEE metrics from raw operator data and utilizes LLM-based semantic understanding to classify manufacturing losses according to the Six Big Loss Taxonomy.
 
 ## Features

@@ -47,6 +47,22 @@ export default function Dashboard() {
     <DashboardShell>
       {/* ── Hero Query Section ──────────────────────── */}
       <div style={{ gridColumn: "1 / -1" }}>
+        <div style={{ marginBottom: "18px" }}>
+          <h1
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: 800,
+              color: "var(--text-primary)",
+              letterSpacing: "-0.02em",
+              marginBottom: "4px",
+            }}
+          >
+            Manufacturing Performance Overview
+          </h1>
+          <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+            Query any machine or shift to pull live OEE metrics, loss drivers, and AI-validated insights.
+          </p>
+        </div>
         <motion.form
           onSubmit={handleSubmit}
           initial={{ opacity: 0, y: -10 }}
@@ -117,30 +133,6 @@ export default function Dashboard() {
         </>
       )}
 
-      {/* ── Generated SQL Block ───────────────────── */}
-      {queryContext?.generated_sql && (
-        <div style={{ gridColumn: "1 / -1", marginBottom: "8px" }}>
-          <div
-            style={{
-              background: "var(--bg-input)",
-              border: "1px solid var(--border-color)",
-              borderRadius: "var(--radius)",
-              padding: "12px 16px",
-              fontSize: "0.85rem",
-              fontFamily: "monospace",
-              color: "var(--accent-blue)",
-              overflowX: "auto",
-              boxShadow: "inset 0 1px 3px rgba(0,0,0,0.05)"
-            }}
-          >
-            <div style={{ fontSize: "0.7rem", fontWeight: 600, color: "var(--text-muted)", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              AI-Generated SQL Query
-            </div>
-            {queryContext.generated_sql}
-          </div>
-        </div>
-      )}
-
       {/* ── KPI Summary Cards ──────────────────────── */}
       {summary && (
         <>
@@ -185,6 +177,11 @@ export default function Dashboard() {
           </div>
 
           {/* ── Charts Row 1: Gauges + Trend ──────────── */}
+          <div style={{ gridColumn: "1 / -1" }} className="section-label">
+            <span className="bar" />
+            <span className="title">Performance Overview</span>
+            <span className="sub">OEE composition and trend across records</span>
+          </div>
           <div
             style={{
               gridColumn: "1 / -1",
@@ -205,6 +202,11 @@ export default function Dashboard() {
           </div>
 
           {/* ── Charts Row 2: Donut + Bar + Pie ────────── */}
+          <div style={{ gridColumn: "1 / -1" }} className="section-label">
+            <span className="bar" />
+            <span className="title">Loss &amp; Root-Cause Analysis</span>
+            <span className="sub">Where the six big losses are concentrated, and AI confidence in the data</span>
+          </div>
           <div
             style={{
               gridColumn: "1 / -1",
@@ -224,6 +226,11 @@ export default function Dashboard() {
           </div>
 
           {/* ── Production Detail Table ─────────────────── */}
+          <div style={{ gridColumn: "1 / -1" }} className="section-label">
+            <span className="bar" />
+            <span className="title">Production Records</span>
+            <span className="sub">Row-level machine, shift, and business-impact detail</span>
+          </div>
           <div style={{ gridColumn: "1 / -1" }}>
             <ProductionTable records={records} />
           </div>
@@ -232,6 +239,11 @@ export default function Dashboard() {
           <BusinessImpactTable records={records} />
 
           {/* ── Future Phase Placeholders ───────────────── */}
+          <div style={{ gridColumn: "1 / -1" }} className="section-label">
+            <span className="bar" />
+            <span className="title">Roadmap</span>
+            <span className="sub">What's shipping next in the intelligence layer</span>
+          </div>
           <div
             style={{
               gridColumn: "1 / -1",
@@ -250,21 +262,40 @@ export default function Dashboard() {
 
       {/* ── Empty State ────────────────────────────── */}
       {!data && !loading && (
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+          className="card"
           style={{
             gridColumn: "1 / -1",
             textAlign: "center",
-            padding: "80px 20px",
+            padding: "72px 20px",
+            border: "1px dashed var(--border-accent)",
+            background: "var(--bg-card)",
           }}
         >
-          <Gauge size={48} style={{ color: "var(--text-muted)", marginBottom: "16px" }} />
-          <div style={{ fontSize: "1.1rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "8px" }}>
+          <div
+            style={{
+              width: "72px",
+              height: "72px",
+              borderRadius: "18px",
+              background: "linear-gradient(135deg, rgba(217,45,60,0.1), rgba(37,99,235,0.08))",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "0 auto 20px",
+            }}
+          >
+            <Gauge size={30} style={{ color: "var(--accent-rose)" }} />
+          </div>
+          <div style={{ fontSize: "1.15rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "8px" }}>
             Ready for Analysis
           </div>
-          <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", maxWidth: "400px", margin: "0 auto" }}>
+          <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", maxWidth: "420px", margin: "0 auto" }}>
             Enter a manufacturing query above to analyze OEE metrics, identify loss drivers, and get AI-powered insights.
           </div>
-        </div>
+        </motion.div>
       )}
     </DashboardShell>
   );
