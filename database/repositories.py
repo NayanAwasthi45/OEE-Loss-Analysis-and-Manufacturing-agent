@@ -196,7 +196,16 @@ class ProductionRepository:
         Returns a sorted list of distinct Shift values in the database.
         Used for validating user-provided shift filters.
         """
-        query = 'SELECT shift_name AS "Shift" FROM dim_shift ORDER BY shift_name'
+        query = '''
+            SELECT shift_name AS "Shift" FROM dim_shift 
+            ORDER BY 
+                CASE shift_name 
+                    WHEN 'Morning' THEN 1 
+                    WHEN 'Afternoon' THEN 2 
+                    WHEN 'Evening' THEN 3 
+                    ELSE 4 
+                END
+        '''
         try:
             with self.db.get_connection() as conn:
                 df = pd.read_sql_query(query, conn)
