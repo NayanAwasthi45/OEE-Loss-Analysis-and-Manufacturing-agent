@@ -6,7 +6,7 @@ from copilot.dashboard_context import DashboardContext
 logger = logging.getLogger(__name__)
 
 class ScenarioService:
-    def simulate(self, scenario_type: str, improvement_pct: float, analytics_context: Dict[str, Any]) -> Dict[str, Any]:
+    def simulate(self, scenario_type: str, improvement_pct: float, analytics_context: Dict[str, Any], comp_pcts: Dict[str, float] = None) -> Dict[str, Any]:
         logger.info(f"Running simulation for: {scenario_type} with +{improvement_pct}%")
         
         ctx = DashboardContext(analytics_context)
@@ -37,7 +37,9 @@ class ScenarioService:
             best_name = ""
             
             for stype in ["availability", "performance", "quality"]:
-                res = self._run_single_scenario(stype, improvement_pct, current_avail, current_perf, current_qual, current_oee, current_loss)
+                pct = comp_pcts.get(stype, improvement_pct) if comp_pcts else improvement_pct
+                res = self._run_single_scenario(stype, pct, current_avail, current_perf, current_qual, current_oee, current_loss)
+                res["applied_pct"] = pct
                 results["scenarios"][stype.capitalize()] = res
                 if res["Savings"] > best_savings:
                     best_savings = res["Savings"]
@@ -97,8 +99,8 @@ class ScenarioService:
 
     def _parse_currency(self, val_str: str) -> float:
         try:
-            cl = str(val_str).replace("?", "").replace(",", "").strip()
-            return float(cl) if cl else 0.0
+            # Remove common currency symbols and commas
+            cl = str(val_str).replace("₹", "").replace("$", "").replace("€", "").replace("£", "").replace("?", "").replace(",", "").strip()
+            return float(cl)
         except ValueError:
             return 0.0
-

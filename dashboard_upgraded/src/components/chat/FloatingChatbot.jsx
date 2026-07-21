@@ -274,9 +274,9 @@ export default function FloatingChatbot({ analysisData }) {
               <div style={{ background: "rgba(139, 92, 246, 0.1)", padding: "6px", borderRadius: "8px" }}><BarChart3 size={18} color="#8B5CF6" /></div>
               <h4 style={{ margin: 0, color: "var(--text-primary)", fontSize: "0.95rem" }}>📊 Compare All Scenarios</h4>
             </div>
-            <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "16px" }}>Simulate Availability (+10%), Performance (+5%), and Quality (+4%) simultaneously to find the best impact.</div>
+            <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "16px" }}>Simulate Availability (+{availPct}%), Performance (+{perfPct}%), and Quality (+{qualPct}%) simultaneously to find the best impact.</div>
             <button 
-              onClick={() => sendMessage("", `simulate:compare_all:0`)}
+              onClick={() => sendMessage("", `simulate:compare_all:${availPct}:${perfPct}:${qualPct}`)}
               style={{ width: "100%", padding: "8px", background: "linear-gradient(135deg, var(--accent-rose), var(--accent-amber))", border: "none", borderRadius: "8px", color: "white", cursor: "pointer", fontWeight: 700, fontSize: "0.85rem", boxShadow: "0 4px 10px rgba(244, 63, 94, 0.3)" }}>
               [ Run Comparison ]
             </button>

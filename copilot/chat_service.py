@@ -7,6 +7,7 @@ from .scenario_service import ScenarioService
 
 from rag.retriever import Retriever
 from rag.prompt_builder import PromptBuilder
+from copilot.scenario_context_builder import ScenarioContextBuilder
 try:
     import groq
 except ImportError:
@@ -35,6 +36,7 @@ class CopilotChatService:
             self.client = None
 
         self.scenario_service = ScenarioService()
+        self.scenario_context_builder = ScenarioContextBuilder()
 
     def process_message(self, session_id: str, message: str, mode: str, analytics_context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
@@ -49,40 +51,58 @@ class CopilotChatService:
         # Treat 'ask_anything' from older UI state as 'general_chat' if it sneaks through, though UI is updated
         if mode == "ask_anything":
             mode = "general_chat"
-        if "simulate:" in mode:
-            mode = "simulation"
+            
+        is_simulation = mode == "simulation" or mode.startswith("simulate:")
         
-        if mode not in valid_modes and mode != "simulation":
+        if mode not in valid_modes and not is_simulation:
             return {"reply": "Invalid mode selected. Please select a valid module.", "citations": []}
             
         logger.info(f"Routed message to strict mode: {mode}")
 
         # Isolate session memory by mode
-        # If mode was 'simulate:availability', it's still mapped to 'simulation' intent contextually.
-        actual_mode = "simulation" if mode.startswith("simulate:") else mode
+        actual_mode = "simulation" if is_simulation else mode
         mode_session_id = f"{session_id}_{actual_mode}"
 
         # 2. Handle Scenario Simulation
-        # Mode arrives as "simulate:availability:10" or just "simulation"
+        # Mode arrives as "simulate:availability:10" or "simulate:compare_all:10:5:4"
         if actual_mode == "simulation":
             scenario_type = "availability"
             improvement_pct = 10.0
+            comp_pcts = None
             
-            if ":" in mode:
+            if mode.startswith("simulate:"):
                 parts = mode.split(":")
                 if len(parts) >= 2:
                     scenario_type = parts[1].strip().lower()
-                if len(parts) >= 3:
+                if scenario_type == "compare_all" and len(parts) >= 5:
+                    comp_pcts = {
+                        "availability": float(parts[2]),
+                        "performance": float(parts[3]),
+                        "quality": float(parts[4])
+                    }
+                elif len(parts) >= 3:
                     try:
                         improvement_pct = float(parts[2])
                     except ValueError:
                         improvement_pct = 10.0
                         
+            if improvement_pct <= 0:
+                improvement_pct = 5.0  # Prevent 0% math generating identical baselines
+                        
             if scenario_type not in ["availability", "performance", "quality", "compare_all"]:
                 scenario_type = "availability"
                 
+            logger.info("--------------------------------------------------")
+            logger.info(f"Scenario requested:")
+            logger.info(f"KPI: {scenario_type.capitalize()}")
+            if comp_pcts:
+                logger.info(f"Improvement: A(+{comp_pcts['availability']}%) P(+{comp_pcts['performance']}%) Q(+{comp_pcts['quality']}%)")
+            else:
+                logger.info(f"Improvement: +{improvement_pct}%")
+            logger.info(f"Running {scenario_type.capitalize()} simulation...")
+            
             # Deterministic math calculation
-            simulation_json = self.scenario_service.simulate(scenario_type, improvement_pct, analytics_context or {})
+            simulation_json = self.scenario_service.simulate(scenario_type, improvement_pct, analytics_context or {}, comp_pcts=comp_pcts)
             
             if "error" in simulation_json:
                 error_msg = simulation_json["error"]
@@ -90,8 +110,11 @@ class CopilotChatService:
                 self.session_memory.add_message(mode_session_id, "assistant", error_msg)
                 return {"reply": error_msg, "citations": []}
                 
+            # Build Context Using the new Plugin Architecture
+            enriched_context = self.scenario_context_builder.build_context(scenario_type, simulation_json)
+                
             # LLM Generation for explanation and formatting
-            prompt = PromptBuilder.build_simulation_prompt(scenario_type, improvement_pct, simulation_json, analytics_context or {})
+            prompt = PromptBuilder.build_simulation_prompt(scenario_type, improvement_pct, enriched_context, analytics_context or {})
             
             try:
                 response = self.client.chat.completions.create(
@@ -105,6 +128,8 @@ class CopilotChatService:
                 logger.error(f"Groq API error during simulation: {e}")
                 reply_text = f"Simulation math succeeded, but LLM failed to generate explanation. Raw Data:\n{json.dumps(simulation_json, indent=2)}"
                 
+            logger.info(f"Simulation completed successfully.")
+            logger.info("--------------------------------------------------")
             self.session_memory.add_message(mode_session_id, "user", f"Ran scenario simulation for {scenario_type} (+{improvement_pct}%)")
             self.session_memory.add_message(mode_session_id, "assistant", reply_text)
             return {"reply": reply_text, "citations": []}
