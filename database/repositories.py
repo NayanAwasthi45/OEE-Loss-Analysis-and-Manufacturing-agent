@@ -127,15 +127,63 @@ class ProductionRepository:
     # Discovery methods (for query parser & user guidance)
     # ------------------------------------------------------------------
 
-    def get_available_machines(self) -> List[str]:
-        """
-        Returns a sorted list of distinct Machine IDs in the database.
-        Used by the query parser for case-insensitive machine name matching.
-        """
-        query = 'SELECT machine_code AS "Machine ID" FROM dim_machine ORDER BY machine_code'
+    def get_plants(self) -> List[str]:
+        """Returns distinct plant names."""
+        query = 'SELECT DISTINCT plant_name FROM dim_plant ORDER BY plant_name'
         try:
             with self.db.get_connection() as conn:
                 df = pd.read_sql_query(query, conn)
+                return df["plant_name"].tolist()
+        except Exception as e:
+            logger.error(f"Failed to retrieve plants: {e}")
+            raise
+
+    def get_lines(self, plant_name: str = None) -> List[str]:
+        """Returns distinct line names, optionally filtered by plant."""
+        query = 'SELECT DISTINCT dim_line.line_name FROM dim_line'
+        params = []
+        if plant_name:
+            query += ' JOIN dim_plant ON dim_line.plant_id = dim_plant.plant_id WHERE dim_plant.plant_name = ?'
+            params.append(plant_name)
+        query += ' ORDER BY dim_line.line_name'
+        try:
+            with self.db.get_connection() as conn:
+                df = pd.read_sql_query(query, conn, params=params)
+                return df["line_name"].tolist()
+        except Exception as e:
+            logger.error(f"Failed to retrieve lines: {e}")
+            raise
+
+    def get_available_machines(self, line_name: str = None, plant_name: str = None) -> List[str]:
+        """
+        Returns a sorted list of distinct Machine IDs in the database.
+        Optionally filters by line and/or plant.
+        """
+        query = 'SELECT machine_code AS "Machine ID" FROM dim_machine'
+        params = []
+        
+        joins = []
+        wheres = []
+        
+        if line_name or plant_name:
+            joins.append('JOIN dim_line ON dim_machine.line_id = dim_line.line_id')
+            if line_name:
+                wheres.append('dim_line.line_name = ?')
+                params.append(line_name)
+            if plant_name:
+                joins.append('JOIN dim_plant ON dim_line.plant_id = dim_plant.plant_id')
+                wheres.append('dim_plant.plant_name = ?')
+                params.append(plant_name)
+                
+        if joins:
+            query += ' ' + ' '.join(joins)
+        if wheres:
+            query += ' WHERE ' + ' AND '.join(wheres)
+            
+        query += ' ORDER BY machine_code'
+        try:
+            with self.db.get_connection() as conn:
+                df = pd.read_sql_query(query, conn, params=params)
                 machines = df["Machine ID"].tolist()
                 logger.info(f"Discovery: Found {len(machines)} distinct machines.")
                 return machines

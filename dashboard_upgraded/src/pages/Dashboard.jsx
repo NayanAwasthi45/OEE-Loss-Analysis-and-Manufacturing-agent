@@ -18,23 +18,52 @@ import DominantLossBar from "../components/charts/DominantLossBar";
 import AiValidationPie from "../components/charts/AiValidationPie";
 import ProductionTable from "../components/tables/ProductionTable";
 import BusinessImpactTable from "../components/tables/BusinessImpactTable";
+import FloatingChatbot from "../components/chat/FloatingChatbot";
 import { useAnalysis } from "../hooks/useAnalysis";
-import { fetchMachines } from "../services/api";
+import { fetchMachines, fetchPlants, fetchLines, fetchShifts } from "../services/api";
 
 export default function Dashboard() {
   const [query, setQuery] = useState("");
-  const [machines, setMachines] = useState([]);
+  const [plant, setPlant] = useState("");
+  const [line, setLine] = useState("");
+  const [machine, setMachine] = useState("");
+  const [shift, setShift] = useState("");
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+
+  const [plantsOptions, setPlantsOptions] = useState([]);
+  const [linesOptions, setLinesOptions] = useState([]);
+  const [machinesOptions, setMachinesOptions] = useState([]);
+  const [shiftsOptions, setShiftsOptions] = useState([]);
+
   const { data, loading, error, analyze } = useAnalysis();
 
   useEffect(() => {
-    fetchMachines()
-      .then(setMachines)
-      .catch(() => {});
+    fetchPlants().then(setPlantsOptions).catch(() => {});
+    fetchShifts().then(setShiftsOptions).catch(() => {});
   }, []);
+
+  useEffect(() => {
+    fetchLines(plant || null).then(setLinesOptions).catch(() => {});
+    setLine(""); // reset line on plant change
+  }, [plant]);
+
+  useEffect(() => {
+    fetchMachines(line || null, plant || null).then(setMachinesOptions).catch(() => {});
+    setMachine(""); // reset machine on line change
+  }, [line, plant]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    analyze(query);
+    analyze({
+      query,
+      plant: plant || null,
+      line: line || null,
+      machine: machine || null,
+      shift: shift || null,
+      from_date: fromDate || null,
+      to_date: toDate || null,
+    });
   };
 
   const summary = data?.summary;
@@ -90,7 +119,7 @@ export default function Dashboard() {
               list="machine-list"
             />
             <datalist id="machine-list">
-              {machines.map((m) => (
+              {machinesOptions.map((m) => (
                 <option key={m} value={`Show ${m}`} />
               ))}
             </datalist>
@@ -103,6 +132,90 @@ export default function Dashboard() {
             {loading ? "Analyzing..." : "Analyze"}
           </button>
         </motion.form>
+
+        {/* ── OR Divider ────────────────────────────── */}
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", margin: "24px 0" }}>
+          <div style={{ flex: 1, height: "1px", background: "var(--border-color)" }} />
+          <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+            OR Use Filters
+          </div>
+          <div style={{ flex: 1, height: "1px", background: "var(--border-color)" }} />
+        </div>
+
+        {/* ── Explicit Filters Panel ────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          style={{
+            background: "var(--bg-card)",
+            border: "1px solid var(--border-color)",
+            borderRadius: "var(--radius)",
+            padding: "20px",
+            marginBottom: "20px"
+          }}
+        >
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px" }}>
+            {/* Plant */}
+            <div>
+              <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "6px" }}>Plant</label>
+              <select className="query-input" value={plant} onChange={(e) => setPlant(e.target.value)}>
+                <option value="">All Plants</option>
+                {plantsOptions.map(p => <option key={p} value={p}>{p}</option>)}
+              </select>
+            </div>
+            
+            {/* Line */}
+            <div>
+              <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "6px" }}>Line</label>
+              <select className="query-input" value={line} onChange={(e) => setLine(e.target.value)}>
+                <option value="">All Lines</option>
+                {linesOptions.map(l => <option key={l} value={l}>{l}</option>)}
+              </select>
+            </div>
+
+            {/* Machine */}
+            <div>
+              <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "6px" }}>Machine</label>
+              <select className="query-input" value={machine} onChange={(e) => setMachine(e.target.value)}>
+                <option value="">All Machines</option>
+                {machinesOptions.map(m => <option key={m} value={m}>{m}</option>)}
+              </select>
+            </div>
+
+            {/* Shift */}
+            <div>
+              <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "6px" }}>Shift</label>
+              <select className="query-input" value={shift} onChange={(e) => setShift(e.target.value)}>
+                <option value="">All Shifts</option>
+                {shiftsOptions.map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
+            </div>
+
+            {/* From Date */}
+            <div>
+              <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "6px" }}>From Date</label>
+              <input type="date" className="query-input" value={fromDate} onChange={(e) => setFromDate(e.target.value)} />
+            </div>
+
+            {/* To Date */}
+            <div>
+              <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "6px" }}>To Date</label>
+              <input type="date" className="query-input" value={toDate} onChange={(e) => setToDate(e.target.value)} />
+            </div>
+          </div>
+          <div style={{ marginTop: "16px", display: "flex", justifyContent: "flex-end" }}>
+            <button
+              onClick={handleSubmit}
+              className="btn-analyze"
+              disabled={loading || !!query.trim()}
+              style={{ padding: "10px 24px", opacity: query.trim() ? 0.5 : 1, cursor: query.trim() ? "not-allowed" : "pointer" }}
+              title={query.trim() ? "Clear natural language query to use filters" : ""}
+            >
+              {loading ? "Analyzing..." : "Analyze with Filters"}
+            </button>
+          </div>
+        </motion.div>
 
         {/* Error Message */}
         {error && (
@@ -297,6 +410,9 @@ export default function Dashboard() {
           </div>
         </motion.div>
       )}
+
+      {/* ── RAG Floating Chatbot ─────────────────── */}
+      <FloatingChatbot analysisData={data} />
     </DashboardShell>
   );
 }

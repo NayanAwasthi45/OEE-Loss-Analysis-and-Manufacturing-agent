@@ -30,11 +30,22 @@ from database.init_db import initialize_database
 from database.database import Database
 from database.repositories import ProductionRepository
 from core.query_service import QueryService
+from core.filter_service import FilterService
 from core.validator import DataValidator
 from core.oee_calculator import OEECalculator
 from analysis.error_code_resolver import ErrorCodeResolver
 from analysis.loss_analyzer import LossAnalyzer
 from analysis.business_impact import BusinessImpactEngine
+
+from rag.document_loader import DocumentLoader
+from rag.text_chunker import TextChunker
+from rag.embedding_service import EmbeddingService
+from rag.vector_store import VectorStore
+from rag.retriever import Retriever
+
+# Copilot Imports
+from copilot.memory import SessionMemory
+from copilot.chat_service import CopilotChatService
 
 logger = logging.getLogger(__name__)
 
@@ -58,8 +69,20 @@ app.add_middleware(
 # ── Request / Response Models ────────────────────────────────────────
 
 class AnalyzeRequest(BaseModel):
-    query: str
+    query: Optional[str] = ""
+    plant: Optional[str] = None
+    line: Optional[str] = None
+    machine: Optional[str] = None
+    shift: Optional[str] = None
+    from_date: Optional[str] = None
+    to_date: Optional[str] = None
 
+
+class ChatRequest(BaseModel):
+    session_id: str
+    message: str
+    mode: str = "ask_anything" # "ask_anything", "recommendation", "simulation"
+    analytics_context: Optional[dict] = None
 
 class HealthResponse(BaseModel):
     status: str
@@ -82,11 +105,27 @@ class Pipeline:
         self.repo = ProductionRepository(self.db)
         self.available_machines = self.repo.get_available_machines()
         self.query_service = QueryService()
+        self.filter_service = FilterService(DB_FILE_PATH)
         self.validator = DataValidator()
         self.calculator = OEECalculator()
         self.resolver = ErrorCodeResolver()
         self.analyzer = LossAnalyzer()
         self.business_engine = BusinessImpactEngine()
+        
+        # RAG Initialization
+        try:
+            self.document_loader = DocumentLoader(os.path.join(os.path.dirname(os.path.dirname(__file__)), "knowledge", "rag_knowledge"))
+            self.text_chunker = TextChunker()
+            self.embedding_service = EmbeddingService()
+            self.vector_store = VectorStore()
+            self.retriever = Retriever(self.vector_store, self.embedding_service)
+            
+            # Copilot Initialization
+            self.session_memory = SessionMemory()
+            self.chat_service = CopilotChatService(self.retriever, self.session_memory)
+        except Exception as e:
+            logger.error(f"Failed to initialize RAG components: {e}")
+            self.chat_service = None
 
     @classmethod
     def get(cls) -> "Pipeline":
@@ -125,11 +164,32 @@ def health_check() -> dict:
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/api/machines")
-def get_machines() -> dict:
-    """Returns available machine list."""
+@app.get("/api/filters/plants")
+def get_plants() -> dict:
+    """Returns available plants."""
     pipe = Pipeline.get()
-    return {"machines": pipe.available_machines}
+    return {"plants": pipe.repo.get_plants()}
+
+
+@app.get("/api/filters/lines")
+def get_lines(plant: Optional[str] = None) -> dict:
+    """Returns available lines, optionally filtered by plant."""
+    pipe = Pipeline.get()
+    return {"lines": pipe.repo.get_lines(plant)}
+
+
+@app.get("/api/filters/shifts")
+def get_shifts() -> dict:
+    """Returns available shifts."""
+    pipe = Pipeline.get()
+    return {"shifts": pipe.repo.get_available_shifts()}
+
+
+@app.get("/api/machines")
+def get_machines(line: Optional[str] = None, plant: Optional[str] = None) -> dict:
+    """Returns available machine list, optionally filtered by line and/or plant."""
+    pipe = Pipeline.get()
+    return {"machines": pipe.repo.get_available_machines(line, plant)}
 
 
 @app.post("/api/analyze")
@@ -145,13 +205,25 @@ def analyze(request: AnalyzeRequest) -> dict:
     """
     pipe = Pipeline.get()
 
-    # 1. NL-to-SQL (Query Service)
+    # 1. Routing: NL-to-SQL vs Explicit Filters
     try:
-        raw_df, valid_sql = pipe.query_service.process_query(request.query)
+        if request.query and request.query.strip():
+            logger.info("Routing to QueryService (NL-to-SQL)")
+            raw_df, valid_sql = pipe.query_service.process_query(request.query)
+        else:
+            logger.info("Routing to FilterService (Explicit Filters)")
+            raw_df, valid_sql = pipe.filter_service.process_filters(
+                plant=request.plant,
+                line=request.line,
+                machine=request.machine,
+                shift=request.shift,
+                from_date=request.from_date,
+                to_date=request.to_date
+            )
     except Exception as e:
         raise HTTPException(
             status_code=400,
-            detail=f"Failed to generate valid SQL for your query: {e}",
+            detail=f"Failed to process query/filters: {e}",
         )
 
     if raw_df.empty:
@@ -238,3 +310,47 @@ def analyze(request: AnalyzeRequest) -> dict:
             "generated_sql": valid_sql
         },
     }
+
+# ── RAG Chat Endpoints ───────────────────────────────────────────────
+
+@app.post("/api/chat/ingest")
+def ingest_knowledge() -> dict:
+    """Admin endpoint to ingest PDFs into ChromaDB."""
+    pipe = Pipeline.get()
+    if not pipe.chat_service:
+        raise HTTPException(status_code=500, detail="RAG system failed to initialize.")
+        
+    try:
+        docs = pipe.document_loader.load_all_documents()
+        if not docs:
+            return {"status": "success", "message": "No documents found to ingest.", "count": 0}
+            
+        chunks = pipe.text_chunker.chunk_documents(docs)
+        texts = [c["text"] for c in chunks]
+        embeddings = pipe.embedding_service.embed_texts(texts)
+        
+        pipe.vector_store.add_documents(chunks, embeddings)
+        count = pipe.vector_store.get_collection_count()
+        return {"status": "success", "message": "Ingestion complete", "total_vectors": count}
+    except Exception as e:
+        logger.error(f"Ingestion failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/chat/message")
+def chat_message(request: ChatRequest) -> dict:
+    """Main interaction endpoint for the AI Assistant."""
+    pipe = Pipeline.get()
+    if not pipe.chat_service:
+        raise HTTPException(status_code=500, detail="RAG system is offline.")
+        
+    try:
+        response = pipe.chat_service.process_message(
+            session_id=request.session_id,
+            message=request.message,
+            mode=request.mode,
+            analytics_context=request.analytics_context
+        )
+        return response
+    except Exception as e:
+        logger.error(f"Chat failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
