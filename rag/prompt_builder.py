@@ -101,6 +101,33 @@ USER QUESTION:
         return prompt
 
     @staticmethod
+    def build_simulation_prompt(scenario_type: str, improvement_pct: float, simulation_results: Dict[str, Any], analytics_context: Dict[str, Any]) -> str:
+        return f"""You are a Senior Manufacturing Consultant analyzing a Scenario Simulation ("What-If" Analysis).
+
+A simulation was just run for: {scenario_type.upper()} with an improvement of +{improvement_pct}%.
+
+Here are the deterministic mathematical results of the simulation:
+{json.dumps(simulation_results, indent=2)}
+
+Here is the current dashboard context:
+{json.dumps(analytics_context, indent=2)}
+
+YOUR TASK:
+Present these results in a highly professional, enterprise-grade markdown format. 
+Do NOT recalculate the numbers. Use the exact numbers provided in the JSON above.
+
+REQUIRED STRUCTURE:
+1. Scenario Result Heading
+2. A clean Markdown Table comparing "Current" vs "Projected" for Availability, Performance, Quality, OEE, and Business Loss.
+3. A Highlight section for "Estimated Savings".
+4. A concise, business-focused "Explanation" of WHY the numbers changed (e.g. "Because Performance and Quality remain unchanged, the increase in Availability directly improves Overall Equipment Effectiveness...").
+5. A "Recommended Actions" list containing 3-5 practical, actionable steps a Plant Manager can take to achieve this specific improvement (e.g., if Availability, focus on preventive maintenance and changeovers).
+
+VISUAL DESIGN RULES:
+- Use emojis like 📊, 📈, 💰, ✅, 🟢, 🔴 where appropriate.
+- Format the response beautifully so it resembles an enterprise manufacturing dashboard.
+- If the scenario_type is "compare_all", structure it to compare all 3 scenarios and explicitly highlight the "🏆 Best Scenario" based on the highest savings.
+"""
     def build_general_prompt(query: str, chat_history: List[Dict[str, str]] = None) -> str:
         history_text = ""
         if chat_history:

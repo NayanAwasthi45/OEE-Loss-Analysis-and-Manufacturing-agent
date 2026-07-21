@@ -1,5 +1,6 @@
 import os
 import logging
+import threading
 import uuid
 from typing import List, Dict, Any
 import chromadb
@@ -12,7 +13,21 @@ class VectorStore:
     Manages the ChromaDB instance for storing and retrieving document embeddings.
     """
 
+    _instance = None
+    _lock = threading.Lock()
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            with cls._lock:
+                if not cls._instance:
+                    cls._instance = super(VectorStore, cls).__new__(cls)
+                    cls._instance._initialized = False
+        return cls._instance
+
     def __init__(self, db_path: str = "data/chroma_db", collection_name: str = "manufacturing_knowledge"):
+        if getattr(self, '_initialized', False):
+            return
+            
         self.db_path = db_path
         self.collection_name = collection_name
         
@@ -29,6 +44,8 @@ class VectorStore:
         except Exception as e:
             logger.error(f"Failed to initialize ChromaDB: {e}")
             raise
+            
+        self._initialized = True
 
     def add_documents(self, chunks: List[Dict[str, Any]], embeddings: List[List[float]]):
         """

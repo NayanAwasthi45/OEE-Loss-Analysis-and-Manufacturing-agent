@@ -10,6 +10,7 @@ tailored to the current production record.
 import json
 import logging
 import os
+import threading
 from typing import Dict, Any, Optional
 
 from config import KNOWLEDGE_DIR
@@ -27,7 +28,22 @@ class KnowledgeInjectionEngine:
     expert-level validation and insight.
     """
 
+    _instance = None
+    _lock = threading.Lock()
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            with cls._lock:
+                if not cls._instance:
+                    cls._instance = super(KnowledgeInjectionEngine, cls).__new__(cls)
+                    cls._instance._initialized = False
+        return cls._instance
+
     def __init__(self) -> None:
+        if getattr(self, '_initialized', False):
+            return
+            
+        """Loads all domain knowledge JSON files into memory."""
         """Loads all domain knowledge JSON files into memory."""
         self.domain_dir = os.path.join(KNOWLEDGE_DIR, "Domain_knowledge")
 
@@ -36,6 +52,7 @@ class KnowledgeInjectionEngine:
         self.playbook = self._load_json("manufacturing_playbook.json")
         self.oee_guidelines = self._load_json("oee_guidelines.json")
         self.six_big_losses = self._load_json("six_big_losses.json")
+        self._initialized = True
         logger.info("Domain knowledge loaded successfully.")
 
     def _load_json(self, filename: str) -> Dict[str, Any]:

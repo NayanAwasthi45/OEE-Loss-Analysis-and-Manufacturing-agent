@@ -1,6 +1,7 @@
 import os
 import logging
 from typing import Dict, Any, Optional
+import json
 from copilot.memory import SessionMemory
 from .scenario_service import ScenarioService
 
@@ -61,17 +62,52 @@ class CopilotChatService:
         actual_mode = "simulation" if mode.startswith("simulate:") else mode
         mode_session_id = f"{session_id}_{actual_mode}"
 
-        # 2. Handle Scenario Simulation (Deterministic, No RAG, No LLM generation needed)
-        # Note: In the UI, the mode is "simulate:availability"
+        # 2. Handle Scenario Simulation
+        # Mode arrives as "simulate:availability:10" or just "simulation"
         if actual_mode == "simulation":
-            scenario_type = str(mode).replace("simulate:", "").strip().lower()
-            if scenario_type not in ["availability", "performance", "quality"]:
+            scenario_type = "availability"
+            improvement_pct = 10.0
+            
+            if ":" in mode:
+                parts = mode.split(":")
+                if len(parts) >= 2:
+                    scenario_type = parts[1].strip().lower()
+                if len(parts) >= 3:
+                    try:
+                        improvement_pct = float(parts[2])
+                    except ValueError:
+                        improvement_pct = 10.0
+                        
+            if scenario_type not in ["availability", "performance", "quality", "compare_all"]:
                 scenario_type = "availability"
                 
-            reply = self.scenario_service.simulate(scenario_type, analytics_context or {})
-            self.session_memory.add_message(mode_session_id, "user", f"Ran scenario simulation for {scenario_type}")
-            self.session_memory.add_message(mode_session_id, "assistant", reply)
-            return {"reply": reply, "citations": []}
+            # Deterministic math calculation
+            simulation_json = self.scenario_service.simulate(scenario_type, improvement_pct, analytics_context or {})
+            
+            if "error" in simulation_json:
+                error_msg = simulation_json["error"]
+                self.session_memory.add_message(mode_session_id, "user", f"Run scenario simulation for {scenario_type} (+{improvement_pct}%)")
+                self.session_memory.add_message(mode_session_id, "assistant", error_msg)
+                return {"reply": error_msg, "citations": []}
+                
+            # LLM Generation for explanation and formatting
+            prompt = PromptBuilder.build_simulation_prompt(scenario_type, improvement_pct, simulation_json, analytics_context or {})
+            
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0.3,
+                    max_tokens=1500
+                )
+                reply_text = response.choices[0].message.content.strip()
+            except Exception as e:
+                logger.error(f"Groq API error during simulation: {e}")
+                reply_text = f"Simulation math succeeded, but LLM failed to generate explanation. Raw Data:\n{json.dumps(simulation_json, indent=2)}"
+                
+            self.session_memory.add_message(mode_session_id, "user", f"Ran scenario simulation for {scenario_type} (+{improvement_pct}%)")
+            self.session_memory.add_message(mode_session_id, "assistant", reply_text)
+            return {"reply": reply_text, "citations": []}
 
         chat_history = self.session_memory.get_history(mode_session_id)
         retrieved_docs = []

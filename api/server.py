@@ -14,6 +14,7 @@ import os
 import sys
 import logging
 import time
+import threading
 from typing import Optional
 
 import pandas as pd
@@ -96,6 +97,7 @@ class Pipeline:
     """Singleton that initializes pipeline components once."""
 
     _instance: Optional["Pipeline"] = None
+    _lock = threading.Lock()
 
     def __init__(self) -> None:
         if not os.path.exists(DB_FILE_PATH):
@@ -114,11 +116,25 @@ class Pipeline:
         
         # RAG Initialization
         try:
-            self.document_loader = DocumentLoader(os.path.join(os.path.dirname(os.path.dirname(__file__)), "knowledge", "rag_knowledge"))
+            self.document_loader = DocumentLoader(os.path.join(os.path.dirname(os.path.dirname(__file__)), "knowledge"))
             self.text_chunker = TextChunker()
             self.embedding_service = EmbeddingService()
             self.vector_store = VectorStore()
             self.retriever = Retriever(self.vector_store, self.embedding_service)
+            
+            # Auto-ingest if empty
+            try:
+                if self.vector_store.get_collection_count() == 0:
+                    logger.info("ChromaDB is empty. Auto-ingesting documents...")
+                    docs = self.document_loader.load_all_documents()
+                    if docs:
+                        chunks = self.text_chunker.chunk_documents(docs)
+                        texts = [c["text"] for c in chunks]
+                        embeddings = self.embedding_service.embed_texts(texts)
+                        self.vector_store.add_documents(chunks, embeddings)
+                        logger.info(f"Auto-ingestion complete. {len(texts)} vectors added.")
+            except Exception as ingest_e:
+                logger.error(f"Auto-ingestion failed during startup: {ingest_e}")
             
             # Copilot Initialization
             self.session_memory = SessionMemory()
@@ -130,7 +146,9 @@ class Pipeline:
     @classmethod
     def get(cls) -> "Pipeline":
         if cls._instance is None:
-            cls._instance = cls()
+            with cls._lock:
+                if cls._instance is None:
+                    cls._instance = cls()
         return cls._instance
 
 

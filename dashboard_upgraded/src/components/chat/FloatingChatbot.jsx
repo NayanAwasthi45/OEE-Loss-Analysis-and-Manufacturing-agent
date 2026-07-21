@@ -22,6 +22,11 @@ export default function FloatingChatbot({ analysisData }) {
   const [view, setView] = useState("home");
   const [chatMode, setChatMode] = useState("general_chat");
   
+  // Local state for Simulation Menu
+  const [availPct, setAvailPct] = useState(10);
+  const [perfPct, setPerfPct] = useState(5);
+  const [qualPct, setQualPct] = useState(4);
+  
   const messages = messagesByMode[chatMode] || [];
   const messagesEndRef = useRef(null);
 
@@ -131,7 +136,7 @@ export default function FloatingChatbot({ analysisData }) {
       initial={{ opacity: 0, x: -20 }} 
       animate={{ opacity: 1, x: 0 }} 
       exit={{ opacity: 0, x: 20 }}
-      style={{ padding: "20px", overflowY: "auto", flex: 1 }}
+      style={{ padding: "20px", overflowY: "auto", flex: 1, display: "flex", flexDirection: "column", width: "100%" }}
     >
       <div style={{ textAlign: "center", marginBottom: "24px" }}>
         <div style={{ fontSize: "2.5rem", marginBottom: "8px" }}>🤖</div>
@@ -176,47 +181,111 @@ export default function FloatingChatbot({ analysisData }) {
     </motion.div>
   )};
 
-  const renderSimulationMenu = () => (
-    <motion.div 
-      initial={{ opacity: 0, x: 20 }} 
-      animate={{ opacity: 1, x: 0 }} 
-      exit={{ opacity: 0, x: -20 }}
-      style={{ padding: "20px", overflowY: "auto", flex: 1 }}
-    >
-      <button 
-        onClick={() => setView("home")}
-        style={{ background: "none", border: "none", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "6px", cursor: "pointer", marginBottom: "20px", padding: 0 }}
+  const renderSimulationMenu = () => {
+    return (
+      <motion.div 
+        initial={{ opacity: 0, x: 20 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        exit={{ opacity: 0, x: -20 }}
+        style={{ padding: "20px", overflowY: "auto", flex: 1, display: "flex", flexDirection: "column", width: "100%" }}
       >
-        <ArrowLeft size={16} /> Back
-      </button>
-      
-      <h3 style={{ color: "var(--text-primary)", margin: "0 0 8px 0", fontSize: "1.1rem" }}>Choose a Scenario</h3>
-      <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "20px" }}>
-        Select a KPI to improve by 10%. The Copilot will project the impact on OEE and Business Loss based on current dashboard data.
-      </p>
+        <button 
+          onClick={() => setView("home")}
+          style={{ background: "none", border: "none", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: "6px", cursor: "pointer", marginBottom: "20px", padding: 0 }}
+        >
+          <ArrowLeft size={16} /> Back
+        </button>
+        
+        <h3 style={{ color: "var(--text-primary)", margin: "0 0 8px 0", fontSize: "1.1rem" }}>📈 OEE Scenario Simulation</h3>
+        <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "20px" }}>
+          Select an improvement strategy. The Copilot will project the impact on OEE, Business Loss and Savings using the latest dashboard analytics.
+        </p>
 
-      <div style={{ display: "grid", gap: "12px" }}>
-        <ActionCard 
-          icon={<Activity size={20} color="#10B981" />}
-          title="🟢 Availability Improvement"
-          desc="Reduce downtime and improve machine utilization."
-          onClick={() => sendMessage("", "simulate:availability")}
-        />
-        <ActionCard 
-          icon={<Zap size={20} color="#F59E0B" />}
-          title="🟡 Performance Improvement"
-          desc="Reduce speed losses and minor stops."
-          onClick={() => sendMessage("", "simulate:performance")}
-        />
-        <ActionCard 
-          icon={<Target size={20} color="#3B82F6" />}
-          title="🔵 Quality Improvement"
-          desc="Reduce scrap and rework."
-          onClick={() => sendMessage("", "simulate:quality")}
-        />
-      </div>
-    </motion.div>
-  );
+        <div style={{ display: "grid", gap: "16px" }}>
+          {/* Availability Card */}
+          <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+              <div style={{ background: "rgba(16, 185, 129, 0.1)", padding: "6px", borderRadius: "8px" }}><Activity size={18} color="#10B981" /></div>
+              <h4 style={{ margin: 0, color: "var(--text-primary)", fontSize: "0.95rem" }}>🟢 Availability Improvement</h4>
+            </div>
+            <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "12px" }}>Focus: Reduce downtime, reduce breakdowns, optimize preventive maintenance</div>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
+              {[5, 10, 15].map(val => (
+                <label key={val} style={{ fontSize: "0.85rem", display: "flex", alignItems: "center", gap: "4px", color: "var(--text-primary)", cursor: "pointer" }}>
+                  <input type="radio" name="avail" value={val} checked={availPct === val} onChange={() => setAvailPct(val)} />
+                  +{val}%
+                </label>
+              ))}
+            </div>
+            <button 
+              onClick={() => sendMessage("", `simulate:availability:${availPct}`)}
+              style={{ width: "100%", padding: "8px", background: "var(--bg-shell)", border: "1px solid var(--border-color)", borderRadius: "8px", color: "var(--text-primary)", cursor: "pointer", fontWeight: 600, fontSize: "0.85rem" }}>
+              [ Run Simulation ]
+            </button>
+          </div>
+
+          {/* Performance Card */}
+          <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+              <div style={{ background: "rgba(245, 158, 11, 0.1)", padding: "6px", borderRadius: "8px" }}><Zap size={18} color="#F59E0B" /></div>
+              <h4 style={{ margin: 0, color: "var(--text-primary)", fontSize: "0.95rem" }}>🟡 Performance Improvement</h4>
+            </div>
+            <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "12px" }}>Focus: Reduce minor stops, optimize cycle time, increase operating speed</div>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
+              {[3, 5, 8].map(val => (
+                <label key={val} style={{ fontSize: "0.85rem", display: "flex", alignItems: "center", gap: "4px", color: "var(--text-primary)", cursor: "pointer" }}>
+                  <input type="radio" name="perf" value={val} checked={perfPct === val} onChange={() => setPerfPct(val)} />
+                  +{val}%
+                </label>
+              ))}
+            </div>
+            <button 
+              onClick={() => sendMessage("", `simulate:performance:${perfPct}`)}
+              style={{ width: "100%", padding: "8px", background: "var(--bg-shell)", border: "1px solid var(--border-color)", borderRadius: "8px", color: "var(--text-primary)", cursor: "pointer", fontWeight: 600, fontSize: "0.85rem" }}>
+              [ Run Simulation ]
+            </button>
+          </div>
+
+          {/* Quality Card */}
+          <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+              <div style={{ background: "rgba(59, 130, 246, 0.1)", padding: "6px", borderRadius: "8px" }}><Target size={18} color="#3B82F6" /></div>
+              <h4 style={{ margin: 0, color: "var(--text-primary)", fontSize: "0.95rem" }}>🔵 Quality Improvement</h4>
+            </div>
+            <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "12px" }}>Focus: Reduce scrap, reduce rework, improve first-pass yield</div>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
+              {[2, 4, 6].map(val => (
+                <label key={val} style={{ fontSize: "0.85rem", display: "flex", alignItems: "center", gap: "4px", color: "var(--text-primary)", cursor: "pointer" }}>
+                  <input type="radio" name="qual" value={val} checked={qualPct === val} onChange={() => setQualPct(val)} />
+                  +{val}%
+                </label>
+              ))}
+            </div>
+            <button 
+              onClick={() => sendMessage("", `simulate:quality:${qualPct}`)}
+              style={{ width: "100%", padding: "8px", background: "var(--bg-shell)", border: "1px solid var(--border-color)", borderRadius: "8px", color: "var(--text-primary)", cursor: "pointer", fontWeight: 600, fontSize: "0.85rem" }}>
+              [ Run Simulation ]
+            </button>
+          </div>
+          
+          {/* Compare All Scenarios */}
+          <div style={{ background: "linear-gradient(to right, rgba(244,63,94,0.05), rgba(37,99,235,0.05))", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+              <div style={{ background: "rgba(139, 92, 246, 0.1)", padding: "6px", borderRadius: "8px" }}><BarChart3 size={18} color="#8B5CF6" /></div>
+              <h4 style={{ margin: 0, color: "var(--text-primary)", fontSize: "0.95rem" }}>📊 Compare All Scenarios</h4>
+            </div>
+            <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "16px" }}>Simulate Availability (+10%), Performance (+5%), and Quality (+4%) simultaneously to find the best impact.</div>
+            <button 
+              onClick={() => sendMessage("", `simulate:compare_all:0`)}
+              style={{ width: "100%", padding: "8px", background: "linear-gradient(135deg, var(--accent-rose), var(--accent-amber))", border: "none", borderRadius: "8px", color: "white", cursor: "pointer", fontWeight: 700, fontSize: "0.85rem", boxShadow: "0 4px 10px rgba(244, 63, 94, 0.3)" }}>
+              [ Run Comparison ]
+            </button>
+          </div>
+
+        </div>
+      </motion.div>
+    );
+  };
 
   return (
     <>
@@ -314,8 +383,8 @@ export default function FloatingChatbot({ analysisData }) {
             {/* Content Area */}
             <div style={{ flex: 1, overflowY: "hidden", display: "flex", flexDirection: "column", background: "var(--bg-shell)" }}>
               <AnimatePresence mode="wait">
-                {view === "home" && <motion.div key="home" style={{ flex: 1, display: "flex" }}>{renderHome()}</motion.div>}
-                {view === "simulation_menu" && <motion.div key="sim" style={{ flex: 1, display: "flex" }}>{renderSimulationMenu()}</motion.div>}
+                {view === "home" && <motion.div key="home" style={{ flex: 1, display: "flex", flexDirection: "column", width: "100%", overflow: "hidden" }}>{renderHome()}</motion.div>}
+                {view === "simulation_menu" && <motion.div key="sim" style={{ flex: 1, display: "flex", flexDirection: "column", width: "100%", overflow: "hidden" }}>{renderSimulationMenu()}</motion.div>}
                 {view === "chat" && (
                   <motion.div key="chat" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ flex: 1, padding: "20px", overflowY: "auto", display: "flex", flexDirection: "column", gap: "16px" }}>
                     {messages.length === 0 && <div style={{ textAlign: "center", color: "var(--text-muted)", marginTop: "20px" }}>Start typing below to chat.</div>}
