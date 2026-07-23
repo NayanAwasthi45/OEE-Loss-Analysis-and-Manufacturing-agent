@@ -37,6 +37,7 @@ class ScenarioContextBuilder:
         # Merge plugin data into the math context
         context = {
             "deterministic_math": simulation_math,
+            "evidence": plugin.analyze_evidence(simulation_math),
             "business_story": plugin.get_business_story(),
             "root_problem": plugin.root_problem,
             "focus_areas": plugin.get_focus_areas(),
@@ -68,6 +69,8 @@ class ScenarioContextBuilder:
                 smath["confidence"] = plugin.calculate_confidence(proj_oee)
                 smath["implementation_difficulty"] = risk
                 smath["priorities"] = plugin.get_priorities()
+                
+                smath["evidence"] = plugin.analyze_evidence({"scenarios": {stype: smath}})
             
             enriched_scenarios[stype] = smath
             

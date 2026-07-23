@@ -28,6 +28,14 @@ class BaseScenarioPlugin(ABC):
         pass
 
     @abstractmethod
+    def analyze_evidence(self, simulation_math: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Parses debug CSVs to extract deterministic root cause, AI analysis, 
+        and Business Impact for the dominant machines based on the scenario.
+        """
+        pass
+
+    @abstractmethod
     def get_business_story(self) -> Dict[str, str]:
         """Returns Business Objective and Expected Outcome."""
         pass

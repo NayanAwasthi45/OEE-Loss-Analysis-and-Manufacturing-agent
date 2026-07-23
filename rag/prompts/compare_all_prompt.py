@@ -13,35 +13,156 @@ Here is the current dashboard context:
 {json.dumps(analytics_context, indent=2)}
 
 YOUR TASK:
-Present these deterministic results in a highly professional, enterprise-grade visually rich markdown format.
-Do NOT recalculate the numbers. Use the exact numbers provided in the JSON above. Format all percentages to exactly 2 decimal places. Format all currency values properly.
+Present these deterministic simulation results in a highly professional, enterprise-grade markdown report.
 
-CRITICAL INSTRUCTIONS FOR LAYOUT:
-You MUST extract the values for Availability, Performance, and Quality EXACTLY from the `scenarios` dictionary in the JSON provided above. Do NOT hallucinate the savings. You MUST use Markdown bullet points (-) and bold text (**) to ensure every item appears on a NEW LINE. DO NOT squash text onto one line.
+Do NOT recalculate any numbers.
+Use ONLY the exact values available in the JSON.
+Format all percentages to exactly 2 decimal places (e.g., 88.96%).
+Format all currency values using ₹ with comma separators (e.g., ₹13,884).
 
-Format "Compare All" EXACTLY like this layout below. Replace `[Applied Pct]` with the `applied_pct` from the JSON for each scenario:
+CRITICAL INSTRUCTIONS:
+
+1. Extract Availability, Performance and Quality ONLY from the `scenarios` dictionary.
+2. Do NOT hallucinate any values.
+3. Use Markdown bullet points (-) and bold text (**).
+4. Every bullet MUST appear on a new line.
+5. Do NOT create Markdown tables.
+6. Rank scenarios by **Estimated Savings (Highest First)**.
+7. Mention the exact SOP filename retrieved from RAG wherever available.
+
+═════════════════════════
+Scenario: **Compare All Improvements**
+═════════════════════════
+
+═════════════════════════
+**Simulation Baseline & Logic**
+═════════════════════════
+
+- **Data Grounding:** 100% Verified
+- **Calculation Method:** Hard-Coded OEE Simulation Engine
+- **Metrics Boundary:** Capped at 100% Feasibility
+- **Comparison Basis:** Availability vs Performance vs Quality
+- **Decision Logic:** Highest Business Impact
+
+═════════════════════════
+**Scenario Ranking**
+═════════════════════════
+
+Rank all scenarios from highest Estimated Savings to lowest.
+
+Display EVERY scenario using EXACTLY this format.
 
 🥇 **[Best Scenario Name] (+[Applied Pct]%)**
-- **Projected OEE:** [Value]%
-- **Savings:** [Value]
-- **ROI:** [High/Medium/Low]
-- **Implementation Difficulty:** [Risk Level]
 
-────────────────────────
+- **Projected OEE:** [Value]%
+- **Estimated Savings:** ₹[Value]
+- **Current Loss:** ₹[Value]
+- **Projected Loss:** ₹[Value]
+- **ROI:** [High/Medium/Low]
+- **Implementation Difficulty:** [Low/Medium/High]
+- **Dominant Machine:** [Extract machine_id from evidence.dominant_contributors]
+- **Root Cause:** [Extract likely_root_cause from evidence.dominant_contributors]
+- **Business Driver:** [Extract primary_business_driver]
+- **Priority:** [Extract priority]
+- **Recommended SOP:** [Extract filename from retrieved domain knowledge]
+
+═════════════════════════
 
 🥈 **[Second Best Scenario Name] (+[Applied Pct]%)**
-- **Projected OEE:** [Value]%
-- **Savings:** [Value]
-- **ROI:** [High/Medium/Low]
-- **Implementation Difficulty:** [Risk Level]
 
-────────────────────────
+- **Projected OEE:** [Value]%
+- **Estimated Savings:** ₹[Value]
+- **Current Loss:** ₹[Value]
+- **Projected Loss:** ₹[Value]
+- **ROI:** [High/Medium/Low]
+- **Implementation Difficulty:** [Low/Medium/High]
+- **Dominant Machine:** [Extract machine_id from evidence.dominant_contributors]
+- **Root Cause:** [Extract likely_root_cause from evidence.dominant_contributors]
+- **Business Driver:** [Extract primary_business_driver]
+- **Priority:** [Extract priority]
+- **Recommended SOP:** [Extract filename from retrieved domain knowledge]
+
+═════════════════════════
 
 🥉 **[Third Best Scenario Name] (+[Applied Pct]%)**
-- **Projected OEE:** [Value]%
-- **Savings:** [Value]
-- **ROI:** [High/Medium/Low]
-- **Implementation Difficulty:** [Risk Level]
 
-At the end of Compare All, explicitly explain WHY the first scenario is recommended as the 🏆 Best Scenario. Base your reasoning on the ROI, Implementation Difficulty, and total Savings provided in the JSON.
+- **Projected OEE:** [Value]%
+- **Estimated Savings:** ₹[Value]
+- **Current Loss:** ₹[Value]
+- **Projected Loss:** ₹[Value]
+- **ROI:** [High/Medium/Low]
+- **Implementation Difficulty:** [Low/Medium/High]
+- **Dominant Machine:** [Extract machine_id from evidence.dominant_contributors]
+- **Root Cause:** [Extract likely_root_cause from evidence.dominant_contributors]
+- **Business Driver:** [Extract primary_business_driver]
+- **Priority:** [Extract priority]
+- **Recommended SOP:** [Extract filename from retrieved domain knowledge]
+
+═════════════════════════
+**Business Comparison Summary**
+═════════════════════════
+
+🟢 **Availability**
+- **Projected OEE:** [Value]%
+- **Estimated Savings:** ₹[Value]
+- **ROI:** [High/Medium/Low]
+- **Implementation Difficulty:** [Low/Medium/High]
+
+🔵 **Performance**
+- **Projected OEE:** [Value]%
+- **Estimated Savings:** ₹[Value]
+- **ROI:** [High/Medium/Low]
+- **Implementation Difficulty:** [Low/Medium/High]
+
+🟣 **Quality**
+- **Projected OEE:** [Value]%
+- **Estimated Savings:** ₹[Value]
+- **ROI:** [High/Medium/Low]
+- **Implementation Difficulty:** [Low/Medium/High]
+
+═════════════════════════
+**Executive Recommendation**
+═════════════════════════
+
+Recommend ONLY the highest-ranked scenario.
+
+- **Best Scenario:** [Scenario Name]
+
+**Reason:**
+
+- Highest achievable savings (₹[Value])
+- Highest projected OEE improvement
+- Better ROI than the remaining scenarios
+- Lower implementation difficulty (if applicable)
+- Strongest business impact based on validated evidence
+
+═════════════════════════
+**Implementation Guidance**
+═════════════════════════
+
+Provide recommendations ONLY for the selected Best Scenario.
+
+- **Primary Action:** [Based strictly on manufacturing_insight + likely_root_cause]
+- **Expected Outcome:** [Use business_story.outcome]
+- **Source Document:** [Exact SOP filename from RAG]
+
+CRITICAL CONSTRAINTS:
+
+- Never invent recommendations.
+- Base recommendations ONLY on:
+  - likely_root_cause
+  - manufacturing_insight
+  - retrieved domain knowledge
+- Mention the exact SOP filename.
+- If no SOP is retrieved, write:
+  **No matching SOP found.**
+
+═════════════════════════
+**Validation Sources**
+═════════════════════════
+
+- ✓ validated_data.csv (Pareto Analysis)
+- ✓ ai_analysis.csv (Root Cause & Insight)
+- ✓ business_impact.csv (Loss & Priority)
+- ✓ domain_knowledge (RAG retrieval)
 """

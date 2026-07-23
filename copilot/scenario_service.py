@@ -1,5 +1,7 @@
 import logging
 import json
+import os
+import pandas as pd
 from typing import Dict, Any, Tuple
 from copilot.dashboard_context import DashboardContext
 
@@ -14,7 +16,17 @@ class ScenarioService:
         current_perf = self._parse_percentage(ctx.performance)
         current_qual = self._parse_percentage(ctx.quality)
         current_oee = self._parse_percentage(ctx.oee)
+        
+        # UI is bugged and passes single-row loss instead of total loss. Override it from the database.
         current_loss = self._parse_currency(ctx.business_loss)
+        try:
+            biz_path = os.path.join(os.path.dirname(__file__), "..", "debug", "05_business_impact.csv")
+            if os.path.exists(biz_path):
+                df_biz = pd.read_csv(biz_path)
+                if "Estimated Business Loss" in df_biz.columns:
+                    current_loss = round(float(df_biz["Estimated Business Loss"].sum()), 2)
+        except Exception as e:
+            logger.error(f"Failed to read true business loss: {e}")
 
         if current_oee == 0:
             return {"error": "Cannot run simulation: Current OEE is 0 or invalid in the dashboard."}
@@ -39,6 +51,9 @@ class ScenarioService:
             for stype in ["availability", "performance", "quality"]:
                 pct = comp_pcts.get(stype, improvement_pct) if comp_pcts else improvement_pct
                 res = self._run_single_scenario(stype, pct, current_avail, current_perf, current_qual, current_oee, current_loss)
+                if "error" in res:
+                    results["scenarios"][stype.capitalize()] = res
+                    continue
                 res["applied_pct"] = pct
                 results["scenarios"][stype.capitalize()] = res
                 if res["Savings"] > best_savings:
@@ -65,11 +80,17 @@ class ScenarioService:
         p_a, p_p, p_q = c_a, c_p, c_q
         
         if scenario_type == "availability":
-            p_a = min(100.0, c_a + pct)
+            p_a = c_a + pct
+            if p_a > 100.0:
+                return {"error": f"Infeasible: Projected Availability exceeds 100% ({p_a:.2f}%)."}
         elif scenario_type == "performance":
-            p_p = min(100.0, c_p + pct)
+            p_p = c_p + pct
+            if p_p > 100.0:
+                return {"error": f"Infeasible: Projected Performance exceeds 100% ({p_p:.2f}%)."}
         elif scenario_type == "quality":
-            p_q = min(100.0, c_q + pct)
+            p_q = c_q + pct
+            if p_q > 100.0:
+                return {"error": f"Infeasible: Projected Quality exceeds 100% ({p_q:.2f}%)."}
             
         p_oee = (p_a / 100.0) * (p_p / 100.0) * (p_q / 100.0) * 100.0
         

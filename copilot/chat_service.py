@@ -113,8 +113,51 @@ class CopilotChatService:
             # Build Context Using the new Plugin Architecture
             enriched_context = self.scenario_context_builder.build_context(scenario_type, simulation_json)
                 
+            # Precision Knowledge Retrieval (RAG)
+            rag_context = ""
+            try:
+                if scenario_type != "compare_all":
+                    contributors = enriched_context.get("evidence", {}).get("dominant_contributors", [])
+                    if contributors:
+                        machine_id = contributors[0].get("machine_id", "")
+                        error_code = contributors[0].get("error_code", "")
+                        root_cause = contributors[0].get("likely_root_cause", "")
+                        query_str = f"{machine_id} {error_code} {root_cause} {scenario_type}"
+                        docs = self.retriever.retrieve(query_str, top_k=2)
+                        if docs:
+                            formatted_docs = [f"Source SOP Document: {doc['metadata'].get('source', 'Unknown')}\n{doc['text']}" for doc in docs]
+                            rag_context = "\n\n=== RETRIEVED DOMAIN KNOWLEDGE ===\n" + "\n---\n".join(formatted_docs)
+                else:
+                    # For Compare All, get RAG context for all 3 scenarios
+                    scenarios_dict = enriched_context.get("deterministic_math", {}).get("scenarios", {})
+                    rag_chunks = []
+                    for s_name, s_data in scenarios_dict.items():
+                        contributors = s_data.get("evidence", {}).get("dominant_contributors", [])
+                        if contributors:
+                            machine_id = contributors[0].get("machine_id", "")
+                            error_code = contributors[0].get("error_code", "")
+                            root_cause = contributors[0].get("likely_root_cause", "")
+                            query_str = f"{machine_id} {error_code} {root_cause} {s_name}"
+                            logger.info(f"Compare All RAG Query for {s_name}: '{query_str}'")
+                            docs = self.retriever.retrieve(query_str, top_k=2)
+                            if docs:
+                                logger.info(f"Compare All RAG found {len(docs)} docs for {s_name}")
+                                formatted_docs = [f"Source SOP Document: {doc['metadata'].get('source', 'Unknown')}\n{doc['text']}" for doc in docs]
+                                rag_chunks.append(f"=== RETRIEVED DOMAIN KNOWLEDGE ({s_name.upper()}) ===\n" + "\n---\n".join(formatted_docs))
+                            else:
+                                logger.info(f"Compare All RAG found 0 docs for {s_name}")
+                        else:
+                            logger.info(f"Compare All RAG skipped for {s_name}: No dominant contributors.")
+                            
+                    if rag_chunks:
+                        rag_context = "\n\n" + "\n\n".join(rag_chunks)
+                        logger.info(f"Final Compare All RAG Context length: {len(rag_context)}")
+            except Exception as e:
+                logger.error(f"Failed to retrieve RAG context for simulation: {e}")
+                
             # LLM Generation for explanation and formatting
             prompt = PromptBuilder.build_simulation_prompt(scenario_type, improvement_pct, enriched_context, analytics_context or {})
+            prompt += rag_context
             
             try:
                 response = self.client.chat.completions.create(
