@@ -56,3 +56,20 @@ export async function checkHealth() {
   if (!res.ok) throw new Error("API unhealthy");
   return res.json();
 }
+
+export async function createTicket(payload) {
+  const res = await fetch(`${API_BASE}/tickets`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("Failed to create ticket");
+  return res.json();
+}
+
+export async function fetchTickets() {
+  const res = await fetch(`${API_BASE}/tickets`);
+  if (!res.ok) throw new Error("Failed to fetch tickets");
+  const data = await res.json();
+  return data.tickets;
+}

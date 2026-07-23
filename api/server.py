@@ -15,6 +15,7 @@ import sys
 import logging
 import time
 import threading
+import sqlite3
 from typing import Optional
 
 import pandas as pd
@@ -84,6 +85,13 @@ class ChatRequest(BaseModel):
     message: str
     mode: str = "ask_anything" # "ask_anything", "recommendation", "simulation"
     analytics_context: Optional[dict] = None
+
+class TicketCreate(BaseModel):
+    date: str
+    shift: str
+    line: Optional[str] = "Unknown"
+    machine_id: str
+    ticket_status: Optional[str] = "Open"
 
 class HealthResponse(BaseModel):
     status: str
@@ -208,6 +216,38 @@ def get_machines(line: Optional[str] = None, plant: Optional[str] = None) -> dic
     """Returns available machine list, optionally filtered by line and/or plant."""
     pipe = Pipeline.get()
     return {"machines": pipe.repo.get_available_machines(line, plant)}
+
+@app.post("/api/tickets")
+def create_ticket(ticket: TicketCreate) -> dict:
+    """Creates a new maintenance ticket."""
+    pipe = Pipeline.get()
+    try:
+        with pipe.db.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                INSERT INTO ticket (date, shift, line, machine_id, ticket_status)
+                VALUES (?, ?, ?, ?, ?)
+            ''', (ticket.date, ticket.shift, ticket.line, ticket.machine_id, ticket.ticket_status))
+            conn.commit()
+            return {"status": "success", "message": "Ticket raised successfully", "ticket_id": cursor.lastrowid}
+    except Exception as e:
+        logger.error(f"Failed to create ticket: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/tickets")
+def get_tickets() -> dict:
+    """Retrieves all tickets."""
+    pipe = Pipeline.get()
+    try:
+        with pipe.db.get_connection() as conn:
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM ticket ORDER BY created_at DESC")
+            rows = cursor.fetchall()
+            return {"tickets": [dict(row) for row in rows]}
+    except Exception as e:
+        logger.error(f"Failed to fetch tickets: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/api/analyze")

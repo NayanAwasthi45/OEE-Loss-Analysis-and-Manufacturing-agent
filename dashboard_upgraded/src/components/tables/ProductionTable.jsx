@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight, Ticket, CheckCircle2 } from "lucide-react";
 import { getValidationBadge, formatPercent } from "../../lib/utils";
+import { createTicket, fetchTickets } from "../../services/api";
 
 export default function ProductionTable({ records }) {
   const [expandedRow, setExpandedRow] = useState(null);
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => {
+    fetchTickets().then(setTickets).catch(console.error);
+  }, [records]);
 
   if (!records || records.length === 0) return null;
 
@@ -49,6 +55,8 @@ export default function ProductionTable({ records }) {
                 idx={idx}
                 isExpanded={expandedRow === idx}
                 onToggle={() => toggleRow(idx)}
+                tickets={tickets}
+                onTicketCreated={(newTicket) => setTickets(prev => [newTicket, ...prev])}
               />
             ))}
           </tbody>
@@ -58,9 +66,40 @@ export default function ProductionTable({ records }) {
   );
 }
 
-function TableRow({ record, idx, isExpanded, onToggle }) {
+function TableRow({ record, idx, isExpanded, onToggle, tickets, onTicketCreated }) {
   const r = record;
   const validation = r["AI Validation"] || "Skipped";
+  const [isRaising, setIsRaising] = useState(false);
+
+  const existingTicket = tickets.find(t => 
+    t.date === r["Date"] && 
+    t.shift === r["Shift"] && 
+    t.machine_id === r["Machine ID"]
+  );
+
+  const canRaiseTicket = validation === "Mismatch" || validation === "Partially Verified";
+
+  const handleRaiseTicket = async (e) => {
+    e.stopPropagation(); // prevent row toggle
+    if (isRaising || existingTicket) return;
+    
+    setIsRaising(true);
+    try {
+      const payload = {
+        date: r["Date"],
+        shift: r["Shift"],
+        machine_id: r["Machine ID"],
+        ticket_status: "Open"
+      };
+      await createTicket(payload);
+      onTicketCreated(payload); // Optimistic UI update
+    } catch (err) {
+      console.error(err);
+      alert("Failed to raise ticket.");
+    } finally {
+      setIsRaising(false);
+    }
+  };
 
   return (
     <>
@@ -118,6 +157,45 @@ function TableRow({ record, idx, isExpanded, onToggle }) {
                   <DetailItem label="Dominant Loss" value={r["Dominant Loss"]} />
                   <DetailItem label="Priority" value={`${r["Priority"] || "—"} (Score: ${r["Priority Score"] || 0})`} />
                 </div>
+                
+                {/* Raise Ticket Action Bar */}
+                {canRaiseTicket && (
+                  <div style={{ padding: "12px 24px", background: "rgba(245, 158, 11, 0.05)", borderTop: "1px solid var(--border-color)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "6px" }}>
+                      <Ticket size={14} style={{ color: "var(--accent-amber)" }} />
+                      This observation requires maintenance attention.
+                    </div>
+                    
+                    {existingTicket ? (
+                      <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "0.85rem", fontWeight: 600, color: "var(--accent-emerald)" }}>
+                        <CheckCircle2 size={16} />
+                        Ticket Raised (Open)
+                      </div>
+                    ) : (
+                      <button
+                        onClick={handleRaiseTicket}
+                        disabled={isRaising}
+                        style={{
+                          background: "var(--accent-amber)",
+                          color: "white",
+                          border: "none",
+                          padding: "6px 14px",
+                          borderRadius: "6px",
+                          fontSize: "0.8rem",
+                          fontWeight: 600,
+                          cursor: isRaising ? "not-allowed" : "pointer",
+                          opacity: isRaising ? 0.7 : 1,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "6px",
+                          boxShadow: "0 2px 4px rgba(245, 158, 11, 0.2)"
+                        }}
+                      >
+                        {isRaising ? "Raising..." : "Raise Ticket"}
+                      </button>
+                    )}
+                  </div>
+                )}
               </motion.div>
             </td>
           </tr>
