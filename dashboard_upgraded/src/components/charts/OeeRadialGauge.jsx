@@ -9,8 +9,10 @@ export default function OeeRadialGauge({ value }) {
     { name: "Remaining", value: Math.max(0, 100 - numValue) },
   ];
 
+  const status = numValue >= 85 ? "Excellent" : numValue >= 65 ? "Good" : "Critical";
+
   return (
-    <div className="card" style={{ padding: "20px", textAlign: "center" }}>
+    <div className="card" style={{ padding: "20px", textAlign: "center", position: "relative" }}>
       <div
         style={{
           fontSize: "0.72rem",
@@ -32,11 +34,14 @@ export default function OeeRadialGauge({ value }) {
               cy="50%"
               startAngle={220}
               endAngle={-40}
-              innerRadius="70%"
+              innerRadius="75%"
               outerRadius="90%"
               paddingAngle={0}
               dataKey="value"
               stroke="none"
+              animationBegin={0}
+              animationDuration={1500}
+              animationEasing="ease-out"
             >
               <Cell fill={color} />
               <Cell fill="var(--gauge-track)" />
@@ -52,10 +57,16 @@ export default function OeeRadialGauge({ value }) {
             textAlign: "center",
           }}
         >
-          <div style={{ fontSize: "2rem", fontWeight: 800, color, letterSpacing: "-0.03em" }}>
+          <div style={{ fontSize: "2rem", fontWeight: 800, color, letterSpacing: "-0.03em", lineHeight: 1, marginBottom: "4px" }}>
             {numValue.toFixed(1)}%
           </div>
+          <div style={{ fontSize: "0.85rem", fontWeight: 700, color, marginTop: "2px" }}>
+            {status}
+          </div>
         </div>
+      </div>
+      <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "4px", fontWeight: 500 }}>
+        Target: 90%
       </div>
     </div>
   );

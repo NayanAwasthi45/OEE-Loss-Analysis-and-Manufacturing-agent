@@ -47,117 +47,76 @@ class AvailabilityScenario(BaseScenarioPlugin):
             df_ai = pd.read_csv(ai_csv) if os.path.exists(ai_csv) else pd.DataFrame()
             df_biz = pd.read_csv(business_csv) if os.path.exists(business_csv) else pd.DataFrame()
             
-            # 1. Required Recovery Calculation
             applied_pct = 5.0
             if "scenarios" in simulation_math and "Availability" in simulation_math["scenarios"]:
                 applied_pct = simulation_math["scenarios"]["Availability"].get("applied_pct", 5.0)
             elif "improvement_pct" in simulation_math:
                 applied_pct = simulation_math.get("improvement_pct", 5.0)
-                
-            if "Planned Time (min)" in df_val.columns and "Downtime (min)" in df_val.columns:
-                    total_planned = df_val["Planned Time (min)"].sum()
-                    total_downtime = df_val["Downtime (min)"].sum()
-                    
-                    if total_planned > 0:
-                        current_avail_pct = ((total_planned - total_downtime) / total_planned) * 100
-                        target_avail_pct = current_avail_pct + applied_pct
-                        
-                        new_downtime = total_planned - (target_avail_pct / 100.0 * total_planned)
-                        required_recovery = total_downtime - new_downtime
-                        evidence["required_recovery_value"] = round(max(0, required_recovery), 2)
-            
-            # 2. Pareto Analysis on Downtime (min) grouped by Machine ID
-            df_val_dt = df_val[df_val["Downtime (min)"] > 0]
-            if not df_val_dt.empty and "Machine ID" in df_val_dt.columns and "Error Code" in df_val_dt.columns:
-                # Filter to only downtime error codes to avoid cross-pollination
-                df_val_dt = df_val_dt[df_val_dt["Error Code"].astype(str).str.startswith("DT-")]
-                
-                if not df_val_dt.empty:
-                    # Group by Machine ID first to get overall machine contribution
-                    machine_gb = df_val_dt.groupby("Machine ID")["Downtime (min)"].sum().reset_index()
-                    machine_gb = machine_gb.sort_values(by="Downtime (min)", ascending=False)
-                    
-                    # Take top 2 machines
-                    top_machines = machine_gb.head(2)
-                    remaining_recovery = evidence.get("required_recovery_value", 0)
-                    
-                    for _, top_row in top_machines.iterrows():
-                        machine_id = str(top_row["Machine ID"])
-                        
-                        # Find the dominant Error Code for this specific machine
-                        machine_df = df_val_dt[df_val_dt["Machine ID"] == machine_id]
-                        error_gb = machine_df.groupby("Error Code")["Downtime (min)"].sum().reset_index()
-                        error_gb = error_gb.sort_values(by="Downtime (min)", ascending=False)
-                        
-                        if not error_gb.empty:
-                            error_code = str(error_gb.iloc[0]["Error Code"])
-                            error_contribution = round(float(error_gb.iloc[0]["Downtime (min)"]), 2)
-                        else:
-                            error_code = "Unknown"
-                            error_contribution = round(float(top_row["Downtime (min)"]), 2)
-                        
-                        contributor = {
-                            "machine_id": machine_id,
-                            "error_code": error_code,
-                            "downtime_contribution": error_contribution,
-                            "ai_validation": "Unknown",
-                            "validation_reason": "None",
-                            "likely_root_cause": "Unknown",
-                            "manufacturing_insight": "None",
-                            "estimated_business_loss": 0.0,
-                            "primary_business_driver": "Unknown",
-                            "priority": "Low"
-                        }
-                        
-                        # 3. AI Validation
-                        if not df_ai.empty and "Machine ID" in df_ai.columns and "Dominant Loss" in df_ai.columns:
-                            ai_match = df_ai[(df_ai["Machine ID"] == machine_id) & (df_ai["Error Code"] == error_code) & (df_ai["Dominant Loss"] == "Availability")]
-                            if not ai_match.empty:
-                                contributor["ai_validation"] = str(ai_match.iloc[0].get("AI Validation", "Unknown"))
-                                contributor["validation_reason"] = str(ai_match.iloc[0].get("Validation Reason", "None"))
-                                contributor["likely_root_cause"] = str(ai_match.iloc[0].get("Likely Root Cause", "Unknown"))
-                                contributor["manufacturing_insight"] = str(ai_match.iloc[0].get("Manufacturing Insight", "None"))
-                            else:
-                                contributor["ai_validation"] = "N/A"
-                                contributor["validation_reason"] = "No availability-specific AI analysis available for this error code."
-                                contributor["likely_root_cause"] = "Mechanical or electrical failure."
-                                contributor["manufacturing_insight"] = "Availability loss typically points to unplanned downtime. Refer to generic machine profile knowledge."
-                        
-                        # 4. Business Impact
-                        contributor["estimated_business_loss"] = 0.0
-                        contributor["estimated_savings"] = 0.0
-                        contributor["projected_loss"] = 0.0
-                        if not df_biz.empty and not df_val.empty and "Machine ID" in df_biz.columns and "Machine ID" in df_val.columns:
-                            try:
-                                df_merged = pd.merge(df_biz, df_val, on=["Machine ID", "Date", "Shift"])
-                                biz_match = df_merged[(df_merged["Machine ID"] == machine_id) & (df_merged["Error Code"] == error_code)]
-                            except KeyError:
-                                biz_match = df_biz[df_biz["Machine ID"] == machine_id] # fallback if merge fails
 
-                            if not biz_match.empty:
-                                if "Downtime Cost" in biz_match.columns:
-                                    hist_loss = round(float(biz_match["Downtime Cost"].sum()), 2)
-                                else:
-                                    hist_loss = round(float(biz_match["Estimated Business Loss"].sum()), 2)
-                                contributor["estimated_business_loss"] = hist_loss
-                                contributor["primary_business_driver"] = str(biz_match.iloc[0].get("Primary Business Driver", "Unknown"))
-                                contributor["priority"] = str(biz_match.iloc[0].get("Priority", "Low"))
-                                
-                        # Calculate Savings per machine
-                        rate = 0
-                        if contributor["downtime_contribution"] > 0:
-                            rate = contributor["estimated_business_loss"] / contributor["downtime_contribution"]
-                        
-                        recoverable = min(remaining_recovery, contributor["downtime_contribution"])
-                        machine_savings = recoverable * rate
-                        contributor["estimated_savings"] = round(machine_savings, 2)
-                        contributor["projected_loss"] = round(contributor["estimated_business_loss"] - machine_savings, 2)
-                        
-                        remaining_recovery -= recoverable
-                        if remaining_recovery < 0:
-                            remaining_recovery = 0
-                                
-                        evidence["dominant_contributors"].append(contributor)
+            if not df_val.empty and not df_biz.empty:
+                df_merged = pd.merge(df_val, df_biz, on=["Machine ID", "Date", "Shift"])
+                
+                machine_gb = df_merged.sort_values(by=["Downtime Cost", "Downtime (min)"], ascending=[False, False])
+                top_machines = machine_gb.head(2)
+
+                top2_current_loss = 0.0
+                top2_estimated_saving = 0.0
+                total_recovered = 0.0
+
+                for _, top_row in top_machines.iterrows():
+                    machine_id = f"{top_row['Machine ID']} ({top_row['Date']})"
+                    raw_machine_id = str(top_row["Machine ID"])
+                    m_planned = float(top_row["Planned Time (min)"])
+                    m_downtime = float(top_row["Downtime (min)"])
+                    m_downtime_cost = float(top_row["Downtime Cost"])
+                    error_code = str(top_row.get("Error Code", "Unknown"))
+                    
+                    top2_current_loss += m_downtime_cost
+                    
+                    # Machine-Specific Deterministic Math
+                    m_op = m_planned - m_downtime
+                    m_c_avail = m_op / m_planned if m_planned > 0 else 0.0
+                    m_t_avail = min(m_c_avail + (applied_pct / 100.0), 1.0)
+                    m_req_op = m_t_avail * m_planned
+                    m_req_down = m_planned - m_req_op
+                    m_rec_down = min(max(m_downtime - m_req_down, 0), m_downtime)
+                    
+                    cpm = m_downtime_cost / m_downtime if m_downtime > 0 else 0.0
+                    m_est_saving = m_rec_down * cpm
+                    
+                    top2_estimated_saving += m_est_saving
+                    total_recovered += m_rec_down
+                    
+                    contributor = {
+                        "machine_id": machine_id,
+                        "error_code": error_code,
+                        "downtime_contribution": round(m_downtime, 2),
+                        "estimated_business_loss": round(m_downtime_cost, 2),
+                        "estimated_savings": round(m_est_saving, 2),
+                        "projected_loss": round(max(m_downtime_cost - m_est_saving, 0), 2),
+                        "recovered_value": round(m_rec_down, 2)
+                    }
+
+                    # AI Context
+                    if not df_ai.empty:
+                        ai_match = df_ai[(df_ai["Machine ID"] == raw_machine_id) & (df_ai["Error Code"] == error_code) & (df_ai["Dominant Loss"] == "Availability")]
+                        if not ai_match.empty:
+                            contributor["ai_validation"] = str(ai_match.iloc[0].get("AI Validation", "Unknown"))
+                            contributor["validation_reason"] = str(ai_match.iloc[0].get("Validation Reason", "None"))
+                            contributor["likely_root_cause"] = str(ai_match.iloc[0].get("Likely Root Cause", "Unknown"))
+                            contributor["manufacturing_insight"] = str(ai_match.iloc[0].get("Manufacturing Insight", "None"))
+                        else:
+                            contributor["ai_validation"] = "N/A"
+                            contributor["validation_reason"] = "No availability AI context found."
+                            contributor["likely_root_cause"] = "Mechanical or electrical failure."
+                            contributor["manufacturing_insight"] = "Typically points to unplanned downtime."
+
+                    evidence["dominant_contributors"].append(contributor)
+
+                evidence["top2_current_loss"] = round(top2_current_loss, 2)
+                evidence["top2_estimated_saving"] = round(top2_estimated_saving, 2)
+                evidence["top2_projected_loss"] = round(max(top2_current_loss - top2_estimated_saving, 0), 2)
+                evidence["required_recovery_value"] = round(total_recovered, 2)
                     
         except Exception as e:
             print(f"Error in analyze_evidence (Availability): {e}")

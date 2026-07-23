@@ -62,8 +62,6 @@ Display EVERY scenario using EXACTLY this format.
 - **Implementation Difficulty:** [Low/Medium/High]
 - **Dominant Machine:** [Extract machine_id from evidence.dominant_contributors]
 - **Root Cause:** [Extract likely_root_cause from evidence.dominant_contributors]
-- **Business Driver:** [Extract primary_business_driver]
-- **Priority:** [Extract priority]
 - **Recommended SOP:** [Extract filename from retrieved domain knowledge]
 
 ═════════════════════════
@@ -78,8 +76,6 @@ Display EVERY scenario using EXACTLY this format.
 - **Implementation Difficulty:** [Low/Medium/High]
 - **Dominant Machine:** [Extract machine_id from evidence.dominant_contributors]
 - **Root Cause:** [Extract likely_root_cause from evidence.dominant_contributors]
-- **Business Driver:** [Extract primary_business_driver]
-- **Priority:** [Extract priority]
 - **Recommended SOP:** [Extract filename from retrieved domain knowledge]
 
 ═════════════════════════
@@ -94,8 +90,6 @@ Display EVERY scenario using EXACTLY this format.
 - **Implementation Difficulty:** [Low/Medium/High]
 - **Dominant Machine:** [Extract machine_id from evidence.dominant_contributors]
 - **Root Cause:** [Extract likely_root_cause from evidence.dominant_contributors]
-- **Business Driver:** [Extract primary_business_driver]
-- **Priority:** [Extract priority]
 - **Recommended SOP:** [Extract filename from retrieved domain knowledge]
 
 ═════════════════════════

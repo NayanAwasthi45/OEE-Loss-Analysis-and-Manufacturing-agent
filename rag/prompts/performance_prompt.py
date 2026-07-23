@@ -70,15 +70,18 @@ For each contributor in `evidence.dominant_contributors`, display it as follows 
 
 ---
 
-## 🔍 Historical Impact (Per Machine)
+## 🔍 Top-2 Machine Summary
+- **Current Loss:** ₹{context.get("evidence", {}).get("top2_current_loss", 0):,.2f}
+- **Projected Loss:** ₹{context.get("evidence", {}).get("top2_projected_loss", 0):,.2f}
+- **Estimated Savings:** ₹{context.get("evidence", {}).get("top2_estimated_saving", 0):,.2f}
+
 For each contributor in `evidence.dominant_contributors`:
 
 ### [🥇/🥈] Dominant Machine: [machine_id]
-- **Estimated Business Loss:** Extract estimated_business_loss
-- **Estimated Savings:** Extract estimated_savings
-- **Projected Loss:** Extract projected_loss
-- **Primary Business Driver:** Extract primary_business_driver
-- **Priority:** Extract priority
+- **Estimated Business Loss:** ₹[Extract estimated_business_loss]
+- **Estimated Savings:** ₹[Extract estimated_savings]
+- **Projected Loss:** ₹[Extract projected_loss]
+- **Recovered Value:** [Extract recovered_value] units
 
 ---
 

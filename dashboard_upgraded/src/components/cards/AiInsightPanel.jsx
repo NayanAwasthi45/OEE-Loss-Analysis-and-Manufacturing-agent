@@ -5,21 +5,15 @@ import { getValidationBadge } from "../../lib/utils";
 export default function AiInsightPanel({ records }) {
   if (!records || records.length === 0) return null;
 
-  // Show the first non-skipped AI record, or fallback to first record
-  const aiRecord =
-    records.find((r) => r["AI Validation"] !== "Skipped") || records[0];
-
-  const validation = aiRecord["AI Validation"] || "Skipped";
-  const reason = aiRecord["Validation Reason"] || "—";
-  const rootCause = aiRecord["Likely Root Cause"] || "—";
-  const insight = aiRecord["Manufacturing Insight"] || "—";
-
-  const validationIcon = {
-    Verified: <ShieldCheck size={16} />,
-    "Partially Verified": <AlertTriangle size={16} />,
-    Mismatch: <AlertTriangle size={16} />,
-    Skipped: <Search size={16} />,
-  };
+  const capabilities = [
+    "Analyzes manufacturing error codes",
+    "Identifies dominant loss categories",
+    "Detects recurring failure patterns",
+    "Predicts likely root causes",
+    "Validates manufacturing anomalies",
+    "Prioritizes maintenance actions",
+    "Generates recommendations to improve OEE and reduce downtime"
+  ];
 
   return (
     <motion.div
@@ -67,84 +61,19 @@ export default function AiInsightPanel({ records }) {
             Groq-powered manufacturing analysis
           </div>
         </div>
-        <div style={{ marginLeft: "auto" }}>
-          <span className={`badge ${getValidationBadge(validation)}`}>
-            {validationIcon[validation]}
-            {validation}
-          </span>
-        </div>
       </div>
 
-      {/* Content Grid */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "16px",
-        }}
-      >
-        {/* Validation Reason */}
-        <InfoBlock
-          icon={<ShieldCheck size={14} />}
-          label="Validation Reason"
-          text={reason}
-        />
-        {/* Root Cause */}
-        <InfoBlock
-          icon={<Search size={14} />}
-          label="Likely Root Cause"
-          text={rootCause}
-          highlight
-        />
-        {/* Manufacturing Insight */}
-        <div style={{ gridColumn: "1 / -1" }}>
-          <InfoBlock
-            icon={<MessageSquareText size={14} />}
-            label="Manufacturing Insight"
-            text={insight}
-          />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "12px", background: "var(--bg-primary)", padding: "16px", borderRadius: "12px", border: "1px solid var(--border-color)" }}>
+          <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "4px" }}>
+            Engine Capabilities
+          </div>
+          {capabilities.map((cap, idx) => (
+            <div key={idx} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
+              <div style={{ marginTop: "5px", width: "5px", height: "5px", borderRadius: "50%", background: "var(--accent-rose)", flexShrink: 0 }} />
+              <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>{cap}</span>
+            </div>
+          ))}
         </div>
-      </div>
     </motion.div>
-  );
-}
-
-function InfoBlock({ icon, label, text, highlight = false }) {
-  return (
-    <div
-      style={{
-        background: "var(--bg-primary)",
-        border: "1px solid var(--border-color)",
-        borderLeft: highlight ? "3px solid var(--accent-cyan)" : "3px solid var(--border-accent)",
-        borderRadius: "8px",
-        padding: "14px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "6px",
-          marginBottom: "6px",
-          color: "var(--text-muted)",
-          fontSize: "0.7rem",
-          fontWeight: 600,
-          textTransform: "uppercase",
-          letterSpacing: "0.05em",
-        }}
-      >
-        {icon}
-        {label}
-      </div>
-      <div
-        style={{
-          fontSize: "0.85rem",
-          color: highlight ? "var(--accent-cyan)" : "var(--text-primary)",
-          lineHeight: 1.55,
-        }}
-      >
-        {text}
-      </div>
-    </div>
   );
 }

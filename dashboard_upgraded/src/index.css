@@ -23,8 +23,8 @@
   --gauge-track: #e7ebf2;
   --shadow-glow: 0 8px 20px rgba(159, 28, 46, 0.12);
   --shadow-card: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.04);
-  --shadow-elevated: 0 12px 32px -8px rgba(16,24,40,0.12), 0 4px 10px -4px rgba(16,24,40,0.06);
-  --radius: 14px;
+  --shadow-elevated: 0 16px 32px -12px rgba(16,24,40,0.12), 0 4px 12px -4px rgba(16,24,40,0.06);
+  --radius: 16px;
 
   color-scheme: light;
 }
@@ -77,6 +77,49 @@ body {
   border-color: var(--border-accent);
   box-shadow: var(--shadow-elevated);
   transform: translateY(-2px);
+}
+
+/* ── Utilities ── */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Animations ────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes fill-bar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* ── Section Label ─────────────────────────────────────── */

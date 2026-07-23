@@ -47,55 +47,68 @@ class PerformanceScenario(BaseScenarioPlugin):
             df_ai = pd.read_csv(ai_csv) if os.path.exists(ai_csv) else pd.DataFrame()
             df_val = pd.read_csv(validated_csv)
             
-            # 1. Required Recovery Calculation
-            req_recovery = simulation_math.get("Projected Performance", 0) - simulation_math.get("current", {}).get("Performance", 0)
-            # Convert to units using some basic math (approximation if needed)
-            if req_recovery > 0:
-                evidence["required_recovery"] = "Increase Performance by " + str(round(req_recovery, 2)) + "%"
-                evidence["required_recovery_value"] = round(req_recovery * 10, 1) # simple unit conversion approximation
-                req_recovery = evidence["required_recovery_value"]
-            else:
-                evidence["required_recovery"] = "Maintain Performance"
-                evidence["required_recovery_value"] = 0
-                req_recovery = 0
+            applied_pct = 5.0
+            if "scenarios" in simulation_math and "Performance" in simulation_math["scenarios"]:
+                applied_pct = simulation_math["scenarios"]["Performance"].get("applied_pct", 5.0)
+            elif "improvement_pct" in simulation_math:
+                applied_pct = simulation_math.get("improvement_pct", 5.0)
+
+            if not df_val.empty and not df_biz.empty:
+                df_merged = pd.merge(df_val, df_biz, on=["Machine ID", "Date", "Shift"])
                 
-            if not df_val.empty and "Production Loss (units)" in df_val.columns:
-                # Filter only performance loss codes
-                df_val_perf = df_val[(~df_val["Error Code"].astype(str).str.startswith("DT-")) & (~df_val["Error Code"].astype(str).str.startswith("DEF-"))]
-                machine_gb = df_val_perf.groupby("Machine ID")["Production Loss (units)"].sum().reset_index()
-                machine_gb = machine_gb.sort_values(by="Production Loss (units)", ascending=False)
-                
-                # Take top 2 machines
+                machine_gb = df_merged.sort_values(by=["Production Loss Cost", "Production Loss (units)"], ascending=[False, False])
                 top_machines = machine_gb.head(2)
-                remaining_recovery = req_recovery
-                
+
+                top2_current_loss = 0.0
+                top2_estimated_saving = 0.0
+                total_recovered = 0.0
+
                 for _, top_row in top_machines.iterrows():
-                    machine_id = str(top_row["Machine ID"])
+                    # For record-level granularity, include the Date
+                    machine_id = f"{top_row['Machine ID']} ({top_row['Date']})"
+                    raw_machine_id = str(top_row["Machine ID"])
+                    m_planned = float(top_row["Planned Time (min)"])
+                    m_downtime = float(top_row["Downtime (min)"])
+                    m_prod_loss_cost = float(top_row["Production Loss Cost"])
+                    m_total_parts = float(top_row["Total Parts Produced"])
+                    m_ideal_cycle = float(top_row["Ideal Cycle Time (min/unit)"])
+                    m_prod_loss_units = float(top_row["Production Loss (units)"])
+                    raw_error_code = str(top_row.get("Error Code", ""))
+                    if raw_error_code.startswith("DT-") or raw_error_code.startswith("DEF-"):
+                        error_code = "N/A (Speed Loss)"
+                    else:
+                        error_code = raw_error_code if raw_error_code else "N/A (Speed Loss)"
                     
-                    # Get error code from validated data, but exclude Downtime codes
-                    error_contribution = round(float(top_row["Production Loss (units)"]), 2)
-                    error_code_val = "N/A (Speed Loss)"
+                    top2_current_loss += m_prod_loss_cost
                     
-                    if not df_val.empty and "Machine ID" in df_val.columns and "Error Code" in df_val.columns:
-                        val_match = df_val[(df_val["Machine ID"] == machine_id) & (~df_val["Error Code"].astype(str).str.startswith("DT-")) & (~df_val["Error Code"].astype(str).str.startswith("DEF-"))]
-                        if not val_match.empty and not pd.isna(val_match.iloc[0].get("Error Code")):
-                            # get the most frequent non-DT/DEF error code for this machine
-                            error_gb = val_match.groupby("Error Code")["Production Loss (units)"].sum().reset_index()
-                            error_gb = error_gb.sort_values(by="Production Loss (units)", ascending=False)
-                            if not error_gb.empty:
-                                error_code_val = str(error_gb.iloc[0]["Error Code"])
-                                error_contribution = round(float(error_gb.iloc[0]["Production Loss (units)"]), 2)
-                                
+                    # Machine-Specific Deterministic Math
+                    m_op = m_planned - m_downtime
+                    m_c_perf = (m_ideal_cycle * m_total_parts) / m_op if m_op > 0 else 0.0
+                    m_t_perf = min(m_c_perf + (applied_pct / 100.0), 1.0)
+                    
+                    m_req_prod = (m_t_perf * m_op) / m_ideal_cycle if m_ideal_cycle > 0 else 0.0
+                    m_add_units = max(m_req_prod - m_total_parts, 0)
+                    m_rec_units = min(m_add_units, m_prod_loss_units)
+                    
+                    lpu = m_prod_loss_cost / m_prod_loss_units if m_prod_loss_units > 0 else 0.0
+                    m_est_saving = m_rec_units * lpu
+                    
+                    top2_estimated_saving += m_est_saving
+                    total_recovered += m_rec_units
+                    
                     contributor = {
                         "machine_id": machine_id,
-                        "error_code": error_code_val,
-                        "production_loss_contribution": error_contribution,
-                        "ai_validation": "Unknown",
+                        "error_code": error_code,
+                        "production_loss_contribution": round(m_prod_loss_units, 2),
+                        "estimated_business_loss": round(m_prod_loss_cost, 2),
+                        "estimated_savings": round(m_est_saving, 2),
+                        "projected_loss": round(max(m_prod_loss_cost - m_est_saving, 0), 2),
+                        "recovered_value": round(m_rec_units, 2)
                     }
-                    
-                    # 3. AI Validation
-                    if not df_ai.empty and "Machine ID" in df_ai.columns and "Dominant Loss" in df_ai.columns:
-                        ai_match = df_ai[(df_ai["Machine ID"] == machine_id) & (df_ai["Dominant Loss"] == "Performance")]
+
+                    # AI Context
+                    if not df_ai.empty:
+                        ai_match = df_ai[(df_ai["Machine ID"] == raw_machine_id) & (df_ai["Dominant Loss"] == "Performance")]
                         if not ai_match.empty:
                             contributor["ai_validation"] = str(ai_match.iloc[0].get("AI Validation", "Unknown"))
                             contributor["validation_reason"] = str(ai_match.iloc[0].get("Validation Reason", "None"))
@@ -103,45 +116,16 @@ class PerformanceScenario(BaseScenarioPlugin):
                             contributor["manufacturing_insight"] = str(ai_match.iloc[0].get("Manufacturing Insight", "None"))
                         else:
                             contributor["ai_validation"] = "N/A"
-                            contributor["validation_reason"] = "No performance-specific AI analysis available."
+                            contributor["validation_reason"] = "No performance AI context found."
                             contributor["likely_root_cause"] = "Speed loss due to minor stops, operator inefficiency, or suboptimal machine settings."
-                            contributor["manufacturing_insight"] = "Performance loss typically points to cycle time deviations. Refer to generic machine profile knowledge."
-                    
-                    # 4. Business Impact
-                    contributor["estimated_business_loss"] = 0.0
-                    contributor["estimated_savings"] = 0.0
-                    contributor["projected_loss"] = 0.0
-                    if not df_biz.empty and not df_val.empty and "Machine ID" in df_biz.columns and "Machine ID" in df_val.columns:
-                        try:
-                            df_merged = pd.merge(df_biz, df_val, on=["Machine ID", "Date", "Shift"])
-                            biz_match = df_merged[(df_merged["Machine ID"] == machine_id) & (df_merged["Error Code"] == error_code_val)]
-                        except KeyError:
-                            biz_match = df_biz[df_biz["Machine ID"] == machine_id] # fallback if merge fails
+                            contributor["manufacturing_insight"] = "Performance loss typically points to cycle time deviations."
 
-                        if not biz_match.empty:
-                            if "Production Loss Cost" in biz_match.columns:
-                                hist_loss = round(float(biz_match["Production Loss Cost"].sum()), 2)
-                            else:
-                                hist_loss = round(float(biz_match["Estimated Business Loss"].sum()), 2)
-                            contributor["estimated_business_loss"] = hist_loss
-                            contributor["primary_business_driver"] = str(biz_match.iloc[0].get("Primary Business Driver", "Unknown"))
-                            contributor["priority"] = str(biz_match.iloc[0].get("Priority", "Low"))
-                            
-                    # Calculate Savings per machine
-                    rate = 0
-                    if contributor["production_loss_contribution"] > 0:
-                        rate = contributor["estimated_business_loss"] / contributor["production_loss_contribution"]
-                    
-                    recoverable = min(remaining_recovery, contributor["production_loss_contribution"])
-                    machine_savings = recoverable * rate
-                    contributor["estimated_savings"] = round(machine_savings, 2)
-                    contributor["projected_loss"] = round(contributor["estimated_business_loss"] - machine_savings, 2)
-                    
-                    remaining_recovery -= recoverable
-                    if remaining_recovery < 0:
-                        remaining_recovery = 0
-                            
                     evidence["dominant_contributors"].append(contributor)
+
+                evidence["top2_current_loss"] = round(top2_current_loss, 2)
+                evidence["top2_estimated_saving"] = round(top2_estimated_saving, 2)
+                evidence["top2_projected_loss"] = round(max(top2_current_loss - top2_estimated_saving, 0), 2)
+                evidence["required_recovery_value"] = round(total_recovered, 2)
                     
         except Exception as e:
             print(f"Error in analyze_evidence (Performance): {e}")

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Factory, Activity } from "lucide-react";
+import { Factory, Activity, Bell, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { checkHealth } from "../../services/api";
 
@@ -99,11 +99,19 @@ export default function Navbar() {
           <div style={{ fontSize: "0.68rem", color: "var(--text-muted)" }}>{timeLabel}</div>
         </div>
 
+        <div style={{ textAlign: "right", lineHeight: 1.2 }}>
+          <div style={{ fontSize: "0.78rem", fontWeight: 600, color: "var(--text-secondary)" }}>
+            Last Sync
+          </div>
+          <div style={{ fontSize: "0.68rem", color: "var(--accent-emerald)" }}>{timeLabel}</div>
+        </div>
+
         <div
           style={{
             width: "1px",
             height: "28px",
             background: "var(--border-color)",
+            margin: "0 4px"
           }}
         />
 
@@ -129,6 +137,33 @@ export default function Navbar() {
             <Activity size={13} />
           </motion.div>
           <span>{health ? "System Online" : "Connecting..."}</span>
+        </div>
+
+        <div
+          style={{
+            width: "1px",
+            height: "28px",
+            background: "var(--border-color)",
+            margin: "0 4px"
+          }}
+        />
+
+        {/* Notifications & Profile */}
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", color: "var(--text-secondary)" }}>
+          <button style={{ background: "none", border: "none", cursor: "pointer", position: "relative" }}>
+            <Bell size={18} color="var(--text-secondary)" />
+            <span style={{ position: "absolute", top: -2, right: -2, width: 8, height: 8, background: "var(--accent-rose)", borderRadius: "50%" }}></span>
+          </button>
+          
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
+            <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <User size={16} color="var(--text-muted)" />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
+              <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "var(--text-primary)" }}>Admin User</span>
+              <span style={{ fontSize: "0.65rem", color: "var(--text-muted)" }}>Plant Manager</span>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
