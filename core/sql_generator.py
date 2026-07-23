@@ -58,8 +58,9 @@ CRITICAL REQUIREMENTS:
    - Use LEFT JOINs for downtime to preserve production records that ran perfectly.
 
 4. Apply the user's natural language filters in the WHERE clause:
-   - For string matching (e.g. machine codes, shifts, plants), ALWAYS use case-insensitive matching like `LIKE '%word%'` or `LOWER(column) = LOWER('word')`.
-   - Examples of shifts in db: 'Morning', 'Afternoon', 'Night'. If user says 'nightshift', map it to 'Night' via `LOWER(dim_shift.shift_name) LIKE '%night%'`.
+   - For string matching (e.g. machine codes, shifts, plants), ALWAYS reference the "UNIQUE VALUES FOR ENTITY RESOLUTION" provided at the end of the schema.
+   - Use exact string matches (e.g. `dim_machine.machine_code = 'CNC_Milling_1'`) whenever possible to match the unique values.
+   - If the user's query is fuzzy, map it to the closest unique value. Examples of shifts in db: 'Morning', 'Afternoon', 'Night'. If user says 'nightshift', map it to 'Night' via `dim_shift.shift_name = 'Night'`.
 
 ==========================================================
 DATABASE METADATA

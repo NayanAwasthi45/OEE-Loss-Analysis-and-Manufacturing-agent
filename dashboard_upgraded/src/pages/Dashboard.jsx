@@ -110,14 +110,16 @@ export default function Dashboard() {
             </p>
           </div>
           
-          <div style={{ display: "flex", gap: "10px" }}>
-            <button onClick={() => window.print()} style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 16px", borderRadius: "8px", border: "1px solid var(--border-color)", background: "var(--bg-card)", color: "var(--text-secondary)", fontWeight: 600, fontSize: "0.85rem", cursor: "pointer", boxShadow: "var(--shadow-card)" }}>
-              <FileText size={14} /> Export PDF
-            </button>
-            <button style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 16px", borderRadius: "8px", border: "1px solid var(--border-color)", background: "var(--bg-card)", color: "var(--text-secondary)", fontWeight: 600, fontSize: "0.85rem", cursor: "pointer", boxShadow: "var(--shadow-card)" }} onClick={() => alert("Export to PowerPoint (PPTX) requires backend service.")}>
-              <BarChart3 size={14} /> Export PPT
-            </button>
-          </div>
+          {data && !loading && (
+            <div style={{ display: "flex", gap: "10px" }}>
+              <button onClick={() => window.print()} style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 16px", borderRadius: "8px", border: "1px solid var(--border-color)", background: "var(--bg-card)", color: "var(--text-secondary)", fontWeight: 600, fontSize: "0.85rem", cursor: "pointer", boxShadow: "var(--shadow-card)" }}>
+                <FileText size={14} /> Export PDF
+              </button>
+              <button style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 16px", borderRadius: "8px", border: "1px solid var(--border-color)", background: "var(--bg-card)", color: "var(--text-secondary)", fontWeight: 600, fontSize: "0.85rem", cursor: "pointer", boxShadow: "var(--shadow-card)" }} onClick={() => alert("Export to PowerPoint (PPTX) requires backend service.")}>
+                <BarChart3 size={14} /> Export PPT
+              </button>
+            </div>
+          )}
         </div>
 
         <motion.div

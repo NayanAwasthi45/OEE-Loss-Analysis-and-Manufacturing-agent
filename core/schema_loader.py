@@ -42,6 +42,32 @@ class SchemaLoader:
                         schema_text.append(clean_sql)
                     schema_text.append("")
 
+                # Fetch unique values for key mapping
+                schema_text.append("==========================================================")
+                schema_text.append("UNIQUE VALUES FOR ENTITY RESOLUTION")
+                schema_text.append("Use these exact string values when applying WHERE filters.")
+                
+                try:
+                    cursor.execute("SELECT DISTINCT plant_name FROM dim_plant")
+                    plants = [row[0] for row in cursor.fetchall() if row[0]]
+                    schema_text.append(f"dim_plant.plant_name values: {plants}")
+                except Exception:
+                    pass
+                
+                try:
+                    cursor.execute("SELECT DISTINCT machine_code FROM dim_machine")
+                    machines = [row[0] for row in cursor.fetchall() if row[0]]
+                    schema_text.append(f"dim_machine.machine_code values: {machines}")
+                except Exception:
+                    pass
+                
+                try:
+                    cursor.execute("SELECT DISTINCT shift_name FROM dim_shift")
+                    shifts = [row[0] for row in cursor.fetchall() if row[0]]
+                    schema_text.append(f"dim_shift.shift_name values: {shifts}")
+                except Exception:
+                    pass
+
             return "\n".join(schema_text)
 
         except Exception as e:
