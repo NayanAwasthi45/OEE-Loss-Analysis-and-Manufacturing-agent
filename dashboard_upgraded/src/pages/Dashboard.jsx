@@ -22,7 +22,7 @@ import FloatingChatbot from "../components/chat/FloatingChatbot";
 import { useAnalysis } from "../hooks/useAnalysis";
 import { fetchMachines, fetchPlants, fetchLines, fetchShifts } from "../services/api";
 
-export default function Dashboard() {
+export default function Dashboard({ analysisProps }) {
   const [query, setQuery] = useState("");
   const [plant, setPlant] = useState("");
   const [line, setLine] = useState("");
@@ -36,7 +36,7 @@ export default function Dashboard() {
   const [machinesOptions, setMachinesOptions] = useState([]);
   const [shiftsOptions, setShiftsOptions] = useState([]);
 
-  const { data, loading, error, analyze } = useAnalysis();
+  const { data, loading, error, analyze } = analysisProps;
   
   const [loadingStep, setLoadingStep] = useState(0);
 
@@ -91,9 +91,15 @@ export default function Dashboard() {
 
   const summary = data?.summary;
   const records = data?.records;
-  const aiDist = data?.ai_distribution;
-  const lossDist = data?.loss_distribution;
-  const aiStats = data?.ai_stats;
+  const lossDist = data?.loss_distribution || {};
+  const aiStats = data?.ai_stats || null;
+  const aiDist = data?.ai_distribution || {};
+
+  // Financial Aggregations
+  const totalBusinessLoss = records?.reduce((sum, r) => sum + (r["Estimated Business Loss"] || 0), 0) || 0;
+  const totalAvailabilityLoss = records?.reduce((sum, r) => sum + (r["Downtime Cost"] || 0), 0) || 0;
+  const totalPerformanceLoss = records?.reduce((sum, r) => sum + (r["Production Loss Cost"] || 0), 0) || 0;
+  const totalQualityLoss = records?.reduce((sum, r) => sum + (r["Scrap Cost"] || 0), 0) || 0;
 
   return (
     <DashboardShell>
@@ -394,6 +400,47 @@ export default function Dashboard() {
           </div>
           <div style={{ gridColumn: "1 / -1" }}>
             <ProductionTable records={records} />
+          </div>
+
+          {/* ── Financial Impact Summary ─────────────────── */}
+          <div style={{ gridColumn: "1 / -1" }} className="section-label">
+            <span className="bar" style={{ background: "var(--accent-rose)" }} />
+            <span className="title">Aggregated Financial Loss</span>
+            <span className="sub">Total business cost breakdown across Availability, Performance, and Quality</span>
+          </div>
+          <div
+            style={{
+              gridColumn: "1 / -1",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: "16px",
+              marginBottom: "24px"
+            }}
+          >
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="card" style={{ padding: "20px", borderTop: "4px solid var(--accent-rose)", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div style={{ fontSize: "0.80rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Total Business Loss</div>
+              <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--text-primary)" }}>
+                ₹{totalBusinessLoss.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.05 }} className="card" style={{ padding: "20px", borderTop: "4px solid var(--accent-amber)", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div style={{ fontSize: "0.80rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Availability Loss</div>
+              <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--text-primary)" }}>
+                ₹{totalAvailabilityLoss.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.1 }} className="card" style={{ padding: "20px", borderTop: "4px solid var(--accent-blue)", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div style={{ fontSize: "0.80rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Performance Loss</div>
+              <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--text-primary)" }}>
+                ₹{totalPerformanceLoss.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.15 }} className="card" style={{ padding: "20px", borderTop: "4px solid var(--accent-emerald)", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div style={{ fontSize: "0.80rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Quality Loss</div>
+              <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--text-primary)" }}>
+                ₹{totalQualityLoss.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </div>
+            </motion.div>
           </div>
 
           {/* ── Business Impact Detail Table ────────────── */}

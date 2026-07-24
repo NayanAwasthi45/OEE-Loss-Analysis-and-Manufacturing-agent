@@ -56,12 +56,21 @@ class AvailabilityScenario(BaseScenarioPlugin):
             if not df_val.empty and not df_biz.empty:
                 df_merged = pd.merge(df_val, df_biz, on=["Machine ID", "Date", "Shift"])
                 
+                # 1. Required Recovery Calculation
+                if "Planned Time (min)" in df_val.columns:
+                    total_planned = float(df_val["Planned Time (min)"].sum())
+                    overall_required_recovery = round(total_planned * (applied_pct / 100.0), 2)
+                    evidence["required_recovery_value"] = overall_required_recovery
+                else:
+                    overall_required_recovery = 0.0
+                    evidence["required_recovery_value"] = 0.0
+
                 machine_gb = df_merged.sort_values(by=["Downtime Cost", "Downtime (min)"], ascending=[False, False])
                 top_machines = machine_gb.head(2)
 
                 top2_current_loss = 0.0
-                top2_estimated_saving = 0.0
                 total_recovered = 0.0
+                total_plant_loss_units = float(df_merged["Downtime (min)"].sum())
 
                 for _, top_row in top_machines.iterrows():
                     machine_id = f"{top_row['Machine ID']} ({top_row['Date']})"
@@ -73,18 +82,18 @@ class AvailabilityScenario(BaseScenarioPlugin):
                     
                     top2_current_loss += m_downtime_cost
                     
-                    # Machine-Specific Deterministic Math
-                    m_op = m_planned - m_downtime
-                    m_c_avail = m_op / m_planned if m_planned > 0 else 0.0
-                    m_t_avail = min(m_c_avail + (applied_pct / 100.0), 1.0)
-                    m_req_op = m_t_avail * m_planned
-                    m_req_down = m_planned - m_req_op
-                    m_rec_down = min(max(m_downtime - m_req_down, 0), m_downtime)
+                    # Proportional Recovery Math
+                    if total_plant_loss_units > 0:
+                        proportion = m_downtime / total_plant_loss_units
+                    else:
+                        proportion = 0.0
+                        
+                    m_rec_down = proportion * overall_required_recovery
+                    m_rec_down = min(m_rec_down, m_downtime) # cannot recover more than lost
                     
                     cpm = m_downtime_cost / m_downtime if m_downtime > 0 else 0.0
                     m_est_saving = m_rec_down * cpm
                     
-                    top2_estimated_saving += m_est_saving
                     total_recovered += m_rec_down
                     
                     contributor = {
@@ -99,7 +108,11 @@ class AvailabilityScenario(BaseScenarioPlugin):
 
                     # AI Context
                     if not df_ai.empty:
-                        ai_match = df_ai[(df_ai["Machine ID"] == raw_machine_id) & (df_ai["Error Code"] == error_code) & (df_ai["Dominant Loss"] == "Availability")]
+                        ai_match = df_ai[
+                            (df_ai["Machine ID"] == raw_machine_id) & 
+                            (df_ai["Date"] == top_row["Date"]) & 
+                            (df_ai["Shift"] == top_row["Shift"])
+                        ]
                         if not ai_match.empty:
                             contributor["ai_validation"] = str(ai_match.iloc[0].get("AI Validation", "Unknown"))
                             contributor["validation_reason"] = str(ai_match.iloc[0].get("Validation Reason", "None"))
@@ -108,15 +121,16 @@ class AvailabilityScenario(BaseScenarioPlugin):
                         else:
                             contributor["ai_validation"] = "N/A"
                             contributor["validation_reason"] = "No availability AI context found."
-                            contributor["likely_root_cause"] = "Mechanical or electrical failure."
-                            contributor["manufacturing_insight"] = "Typically points to unplanned downtime."
+                            contributor["likely_root_cause"] = "Check generic machine profile for general wear and tear issues."
+                            contributor["manufacturing_insight"] = "Downtime loss typically points to mechanical or electrical failures."
 
                     evidence["dominant_contributors"].append(contributor)
 
+                top2_estimated_saving = sum(c["estimated_savings"] for c in evidence["dominant_contributors"])
                 evidence["top2_current_loss"] = round(top2_current_loss, 2)
                 evidence["top2_estimated_saving"] = round(top2_estimated_saving, 2)
                 evidence["top2_projected_loss"] = round(max(top2_current_loss - top2_estimated_saving, 0), 2)
-                evidence["required_recovery_value"] = round(total_recovered, 2)
+                evidence["top2_recovered_value"] = round(total_recovered, 2)
                     
         except Exception as e:
             print(f"Error in analyze_evidence (Availability): {e}")

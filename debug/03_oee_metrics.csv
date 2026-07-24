@@ -1,4 +1,1555 @@
 Machine ID,Availability,Performance,Quality,OEE,Availability Loss,Performance Loss,Quality Loss,Dominant Loss,Description,Typical Downtime
+Press_Line_11,51.46,97.97,99.1,49.96,48.54,2.03,0.9,Availability,Mechanical Breakdown,30-240
+Press_Line_6,50.42,92.36,97.16,45.24,49.58,7.64,2.84,Availability,Mechanical Breakdown,30-240
+Press_Line_14,52.08,99.79,98.27,51.08,47.92,0.21,1.73,Availability,Mechanical Breakdown,30-240
+Press_Line_12,50.83,97.87,98.99,49.25,49.17,2.13,1.01,Availability,Mechanical Breakdown,30-240
+Assembly_Line_5,51.88,96.11,96.89,48.31,48.12,3.89,3.11,Availability,Mechanical Breakdown,30-240
+Assembly_Line_6,50.83,96.84,100.0,49.22,49.17,3.16,0.0,Availability,Mechanical Breakdown,30-240
+Assembly_Line_11,52.29,93.04,97.62,47.49,47.71,6.96,2.38,Availability,Mechanical Breakdown,30-240
+Assembly_Line_9,51.25,94.54,97.39,47.18,48.75,5.46,2.61,Availability,Mechanical Breakdown,30-240
+CNC_Milling_6,52.5,94.1,98.59,48.71,47.5,5.9,1.41,Availability,Mechanical Breakdown,30-240
+CNC_Milling_1,51.67,94.23,98.37,47.9,48.33,5.77,1.63,Availability,Mechanical Breakdown,30-240
+Press_Line_4,60.83,92.2,97.17,54.5,39.17,7.8,2.83,Availability,Mechanical Breakdown,30-240
+CNC_Milling_15,55.0,92.82,98.62,50.35,45.0,7.18,1.38,Availability,Mechanical Breakdown,30-240
+Assembly_Line_10,57.29,98.86,97.97,55.49,42.71,1.14,2.03,Availability,Mechanical Breakdown,30-240
+Press_Line_11,61.67,94.64,97.28,56.77,38.33,5.36,2.72,Availability,Mechanical Breakdown,30-240
+Press_Line_16,60.83,92.34,97.74,54.9,39.17,7.66,2.26,Availability,Mechanical Breakdown,30-240
+Assembly_Line_15,57.71,93.29,98.24,52.88,42.29,6.71,1.76,Availability,Mechanical Breakdown,30-240
+Press_Line_20,63.75,96.41,97.63,60.0,36.25,3.59,2.37,Availability,Mechanical Breakdown,30-240
+Press_Line_17,62.08,99.86,97.8,60.63,37.92,0.14,2.2,Availability,Mechanical Breakdown,30-240
+CNC_Milling_15,56.88,98.43,96.86,54.22,43.12,1.57,3.14,Availability,Mechanical Breakdown,30-240
+Assembly_Line_4,60.42,97.03,99.05,58.07,39.58,2.97,0.95,Availability,Mechanical Breakdown,30-240
+Press_Line_14,65.0,92.42,98.88,59.4,35.0,7.58,1.12,Availability,Mechanical Breakdown,30-240
+CNC_Milling_6,59.17,97.02,99.39,57.06,40.83,2.98,0.61,Availability,Mechanical Breakdown,30-240
+Press_Line_14,64.79,98.97,98.25,63.0,35.21,1.03,1.75,Availability,Mechanical Breakdown,30-240
+Assembly_Line_12,62.5,99.23,98.25,60.94,37.5,0.77,1.75,Availability,Mechanical Breakdown,30-240
+Assembly_Line_1,61.25,94.9,99.44,57.8,38.75,5.1,0.56,Availability,Mechanical Breakdown,30-240
+CNC_Milling_10,60.42,92.48,97.32,54.37,39.58,7.52,2.68,Availability,Mechanical Breakdown,30-240
+Press_Line_6,64.38,94.53,99.13,60.33,35.62,5.47,0.87,Availability,Mechanical Breakdown,30-240
+Assembly_Line_9,62.71,96.45,97.91,59.22,37.29,3.55,2.09,Availability,Mechanical Breakdown,30-240
+CNC_Milling_16,61.46,94.13,97.44,56.37,38.54,5.87,2.56,Availability,Mechanical Breakdown,30-240
+Assembly_Line_12,65.42,93.98,98.24,60.4,34.58,6.02,1.76,Availability,Mechanical Breakdown,30-240
+Press_Line_18,65.42,98.33,98.8,63.55,34.58,1.67,1.2,Availability,Mechanical Breakdown,30-240
+CNC_Milling_14,60.42,97.44,98.59,58.04,39.58,2.56,1.41,Availability,Mechanical Breakdown,30-240
+CNC_Milling_4,64.17,92.85,99.45,59.25,35.83,7.15,0.55,Availability,Mechanical Breakdown,30-240
+Assembly_Line_20,66.04,94.27,97.21,60.52,33.96,5.73,2.79,Availability,Mechanical Breakdown,30-240
+Assembly_Line_13,66.67,93.93,97.79,61.24,33.33,6.07,2.21,Availability,Mechanical Breakdown,30-240
+Assembly_Line_19,67.71,91.77,97.0,60.27,32.29,8.23,3.0,Availability,Mechanical Breakdown,30-240
+Press_Line_20,71.04,93.26,98.43,65.21,28.96,6.74,1.57,Availability,Mechanical Breakdown,30-240
+Assembly_Line_12,67.5,93.89,98.29,62.29,32.5,6.11,1.71,Availability,Mechanical Breakdown,30-240
+Assembly_Line_11,66.04,98.22,99.55,64.58,33.96,1.78,0.45,Availability,Mechanical Breakdown,30-240
+Assembly_Line_12,68.12,93.03,98.72,62.56,31.88,6.97,1.28,Availability,Mechanical Breakdown,30-240
+CNC_Milling_20,64.38,98.48,99.41,63.02,35.62,1.52,0.59,Availability,Mechanical Breakdown,30-240
+CNC_Milling_17,65.21,93.36,97.39,59.29,34.79,6.64,2.61,Availability,Mechanical Breakdown,30-240
+Assembly_Line_7,70.62,94.03,96.86,64.32,29.38,5.97,3.14,Availability,Mechanical Breakdown,30-240
+CNC_Milling_7,67.29,98.85,98.06,65.23,32.71,1.15,1.94,Availability,Mechanical Breakdown,30-240
+CNC_Milling_12,65.62,98.61,100.0,64.71,34.38,1.39,0.0,Availability,Mechanical Breakdown,30-240
+Assembly_Line_16,71.04,93.26,99.53,65.94,28.96,6.74,0.47,Availability,Mechanical Breakdown,30-240
+CNC_Milling_12,69.17,94.12,97.62,63.55,30.83,5.88,2.38,Availability,Mechanical Breakdown,30-240
+CNC_Milling_5,68.96,95.71,96.88,63.94,31.04,4.29,3.12,Availability,Mechanical Breakdown,30-240
+Assembly_Line_18,71.25,96.7,98.58,67.92,28.75,3.3,1.42,Availability,Mechanical Breakdown,30-240
+Assembly_Line_12,73.12,98.89,97.38,70.42,26.88,1.11,2.62,Availability,Mechanical Breakdown,30-240
+CNC_Milling_18,71.88,91.81,99.43,65.61,28.12,8.19,0.57,Availability,Mechanical Breakdown,30-240
+Press_Line_9,74.58,98.7,99.34,73.12,25.42,1.3,0.66,Availability,Mechanical Breakdown,30-240
+CNC_Milling_7,72.29,98.72,99.55,71.04,27.71,1.28,0.45,Availability,Mechanical Breakdown,30-240
+Assembly_Line_17,74.38,97.92,99.26,72.29,25.62,2.08,0.74,Availability,Mechanical Breakdown,30-240
+CNC_Milling_13,73.12,98.84,99.49,71.91,26.88,1.16,0.51,Availability,Mechanical Breakdown,30-240
+Press_Line_3,78.96,92.84,97.48,71.46,21.04,7.16,2.52,Availability,Mechanical Breakdown,30-240
+CNC_Milling_17,73.12,97.4,98.32,70.03,26.88,2.6,1.68,Availability,Mechanical Breakdown,30-240
+Assembly_Line_5,77.29,94.59,99.29,72.59,22.71,5.41,0.71,Availability,Mechanical Breakdown,30-240
+Press_Line_13,80.42,91.84,98.29,72.59,19.58,8.16,1.71,Availability,Mechanical Breakdown,30-240
+Assembly_Line_13,77.92,92.1,97.68,70.1,22.08,7.9,2.32,Availability,Mechanical Breakdown,30-240
+Press_Line_15,77.5,97.55,97.92,74.02,22.5,2.45,2.08,Availability,Mechanical Breakdown,30-240
+Press_Line_9,80.21,91.78,98.34,72.39,19.79,8.22,1.66,Availability,Mechanical Breakdown,30-240
+Assembly_Line_18,76.46,98.62,98.71,74.42,23.54,1.38,1.29,Availability,Mechanical Breakdown,30-240
+Press_Line_17,79.17,98.67,99.71,77.89,20.83,1.33,0.29,Availability,Mechanical Breakdown,30-240
+Assembly_Line_7,81.04,91.9,99.3,73.96,18.96,8.1,0.7,Availability,Material / Operator Shortage,Variable
+Press_Line_13,81.25,97.63,99.2,78.7,18.75,2.37,0.8,Availability,Electrical / Control Fault,10-90
+Press_Line_9,81.25,94.8,99.05,76.29,18.75,5.2,0.95,Availability,Electrical / Control Fault,10-90
+CNC_Milling_13,78.75,92.71,99.49,72.64,21.25,7.29,0.51,Availability,Mechanical Breakdown,30-240
+CNC_Milling_16,78.75,94.18,99.5,73.8,21.25,5.82,0.5,Availability,Mechanical Breakdown,30-240
+Press_Line_11,82.08,97.93,97.74,78.57,17.92,2.07,2.26,Availability,Electrical / Control Fault,10-90
+Assembly_Line_9,79.79,97.23,99.18,76.95,20.21,2.77,0.82,Availability,Mechanical Breakdown,30-240
+Press_Line_20,83.54,95.26,98.69,78.54,16.46,4.74,1.31,Availability,Electrical / Control Fault,10-90
+CNC_Milling_10,80.0,93.28,98.49,73.5,20.0,6.72,1.51,Availability,Mechanical Breakdown,30-240
+CNC_Milling_18,78.96,98.38,98.06,76.17,21.04,1.62,1.94,Availability,Material / Operator Shortage,Variable
+Assembly_Line_6,81.67,97.99,99.31,79.48,18.33,2.01,0.69,Availability,Electrical / Control Fault,10-90
+Press_Line_7,81.88,98.97,98.25,79.62,18.12,1.03,1.75,Availability,Electrical / Control Fault,10-90
+Press_Line_9,82.92,98.19,99.4,80.92,17.08,1.81,0.6,Availability,Electrical / Control Fault,10-90
+Press_Line_9,83.96,94.65,99.39,78.97,16.04,5.35,0.61,Availability,Material / Operator Shortage,Variable
+Assembly_Line_15,82.5,93.66,99.18,76.63,17.5,6.34,0.82,Availability,Material / Operator Shortage,Variable
+Assembly_Line_3,83.33,96.29,97.28,78.05,16.67,3.71,2.72,Availability,Electrical / Control Fault,10-90
+Press_Line_7,83.54,94.28,98.56,77.63,16.46,5.72,1.44,Availability,Mechanical Breakdown,30-240
+Press_Line_10,86.25,92.22,99.74,79.33,13.75,7.78,0.26,Availability,Electrical / Control Fault,10-90
+CNC_Milling_3,82.29,94.28,97.76,75.85,17.71,5.72,2.24,Availability,Material / Operator Shortage,Variable
+Press_Line_19,83.12,97.26,98.3,79.48,16.88,2.74,1.7,Availability,Electrical / Control Fault,10-90
+Press_Line_20,98.33,62.29,98.64,60.42,1.67,37.71,1.36,Performance,Reduced Speed Loss,Variable
+Assembly_Line_9,82.08,98.76,99.61,80.75,17.92,1.24,0.39,Availability,Electrical / Control Fault,10-90
+CNC_Milling_9,81.25,97.97,96.98,77.2,18.75,2.03,3.02,Availability,Electrical / Control Fault,10-90
+Press_Line_14,96.67,63.54,99.27,60.98,3.33,36.46,0.73,Performance,Reduced Speed Loss,Variable
+CNC_Milling_20,82.71,91.98,99.51,75.7,17.29,8.02,0.49,Availability,Mechanical Breakdown,30-240
+Assembly_Line_4,85.0,92.62,98.23,77.33,15.0,7.38,1.77,Availability,Electrical / Control Fault,10-90
+Press_Line_3,85.42,96.11,99.44,81.63,14.58,3.89,0.56,Availability,Electrical / Control Fault,10-90
+Press_Line_15,85.83,92.36,99.01,78.49,14.17,7.64,0.99,Availability,Electrical / Control Fault,10-90
+Assembly_Line_15,84.38,93.08,99.19,77.9,15.62,6.92,0.81,Availability,Electrical / Control Fault,10-90
+CNC_Milling_17,82.5,95.5,98.48,77.59,17.5,4.5,1.52,Availability,Electrical / Control Fault,10-90
+CNC_Milling_9,82.71,96.24,97.49,77.6,17.29,3.76,2.51,Availability,Mechanical Breakdown,30-240
+CNC_Milling_5,83.33,93.56,97.35,75.9,16.67,6.44,2.65,Availability,Mechanical Breakdown,30-240
+Assembly_Line_9,84.38,96.08,97.27,78.85,15.62,3.92,2.73,Availability,Mechanical Breakdown,30-240
+Assembly_Line_16,85.21,92.42,98.81,77.81,14.79,7.58,1.19,Availability,Electrical / Control Fault,10-90
+CNC_Milling_5,83.54,92.83,97.34,75.49,16.46,7.17,2.66,Availability,Electrical / Control Fault,10-90
+Assembly_Line_12,86.25,92.32,98.64,78.54,13.75,7.68,1.36,Availability,Material / Operator Shortage,Variable
+Press_Line_3,95.83,68.77,97.54,64.29,4.17,31.23,2.46,Performance,Reduced Speed Loss,Variable
+CNC_Milling_10,84.17,92.67,99.04,77.25,15.83,7.33,0.96,Availability,Electrical / Control Fault,10-90
+Press_Line_4,99.79,59.85,98.1,58.59,0.21,40.15,1.9,Performance,Reduced Speed Loss,Variable
+Assembly_Line_11,84.58,97.92,98.95,81.95,15.42,2.08,1.05,Availability,Electrical / Control Fault,10-90
+Press_Line_20,87.92,93.84,98.99,81.67,12.08,6.16,1.01,Availability,Changeover / Setup Delay,10-60
+Assembly_Line_11,95.83,60.43,98.5,57.05,4.17,39.57,1.5,Performance,Reduced Speed Loss,Variable
+Press_Line_1,96.46,63.68,98.72,60.64,3.54,36.32,1.28,Performance,Reduced Speed Loss,Variable
+CNC_Milling_16,84.17,96.05,99.08,80.1,15.83,3.95,0.92,Availability,Material / Operator Shortage,Variable
+CNC_Milling_2,83.75,97.1,98.58,80.17,16.25,2.9,1.42,Availability,Electrical / Control Fault,10-90
+Press_Line_8,98.75,66.28,97.7,63.95,1.25,33.72,2.3,Performance,Reduced Speed Loss,Variable
+Press_Line_15,85.83,97.86,97.81,82.16,14.17,2.14,2.19,Availability,Mechanical Breakdown,30-240
+Assembly_Line_18,84.79,97.36,99.21,81.9,15.21,2.64,0.79,Availability,Mechanical Breakdown,30-240
+Press_Line_6,86.67,94.64,99.35,81.49,13.33,5.36,0.65,Availability,Electrical / Control Fault,10-90
+CNC_Milling_9,84.38,95.76,97.03,78.4,15.62,4.24,2.97,Availability,Electrical / Control Fault,10-90
+CNC_Milling_20,85.0,93.45,99.53,79.06,15.0,6.55,0.47,Availability,Electrical / Control Fault,10-90
 CNC_Milling_1,83.96,98.06,98.08,80.75,16.04,1.94,1.92,Availability,Electrical / Control Fault,10-90
+Press_Line_1,97.08,64.08,99.58,61.95,2.92,35.92,0.42,Performance,Reduced Speed Loss,Variable
+CNC_Milling_10,85.62,93.28,97.65,78.0,14.38,6.72,2.35,Availability,Material / Operator Shortage,Variable
+CNC_Milling_16,85.0,95.54,99.54,80.84,15.0,4.46,0.46,Availability,Electrical / Control Fault,10-90
+Assembly_Line_18,86.46,93.22,98.39,79.3,13.54,6.78,1.61,Availability,Electrical / Control Fault,10-90
+Press_Line_19,86.04,98.76,98.06,83.32,13.96,1.24,1.94,Availability,Mechanical Breakdown,30-240
+CNC_Milling_4,85.42,97.88,97.64,81.63,14.58,2.12,2.36,Availability,Electrical / Control Fault,10-90
+Press_Line_10,88.54,95.06,99.75,83.96,11.46,4.94,0.25,Availability,Electrical / Control Fault,10-90
+Assembly_Line_12,87.5,93.79,99.67,81.79,12.5,6.21,0.33,Availability,Electrical / Control Fault,10-90
+Press_Line_18,87.5,95.95,97.23,81.63,12.5,4.05,2.77,Availability,Mechanical Breakdown,30-240
+Assembly_Line_10,87.08,95.74,98.62,82.22,12.92,4.26,1.38,Availability,Mechanical Breakdown,30-240
+Press_Line_10,90.0,92.12,99.49,82.48,10.0,7.88,0.51,Mixed Loss - Availability (10.00%) + Performance (7.88%),Mechanical Breakdown,30-240
+Press_Line_19,87.92,95.09,97.04,81.13,12.08,4.91,2.96,Availability,Electrical / Control Fault,10-90
+Press_Line_15,87.71,95.77,99.38,83.48,12.29,4.23,0.62,Availability,Electrical / Control Fault,10-90
+Press_Line_20,88.75,96.48,99.51,85.21,11.25,3.52,0.49,Availability,Material / Operator Shortage,Variable
+Press_Line_5,87.5,96.44,98.73,83.31,12.5,3.56,1.27,Availability,Electrical / Control Fault,10-90
+Press_Line_8,87.92,99.09,98.77,86.05,12.08,0.91,1.23,Availability,Electrical / Control Fault,10-90
+Press_Line_8,97.08,74.71,98.82,71.67,2.92,25.29,1.18,Performance,Reduced Speed Loss,Variable
+CNC_Milling_16,86.25,97.17,97.79,81.95,13.75,2.83,2.21,Availability,Mechanical Breakdown,30-240
+Assembly_Line_1,97.08,60.2,99.45,58.13,2.92,39.8,0.55,Performance,Reduced Speed Loss,Variable
+Assembly_Line_8,87.92,95.58,99.0,83.19,12.08,4.42,1.0,Availability,Changeover / Setup Delay,10-60
+Press_Line_19,97.29,66.42,99.57,64.35,2.71,33.58,0.43,Performance,Reduced Speed Loss,Variable
+Press_Line_16,87.71,98.53,99.12,85.65,12.29,1.47,0.88,Availability,Electrical / Control Fault,10-90
+Assembly_Line_2,87.5,99.63,98.54,85.91,12.5,0.37,1.46,Availability,Changeover / Setup Delay,10-60
+Assembly_Line_12,96.46,70.19,98.8,66.9,3.54,29.81,1.2,Performance,Reduced Speed Loss,Variable
+Press_Line_12,89.17,95.33,97.65,83.0,10.83,4.67,2.35,Availability,Changeover / Setup Delay,10-60
+Press_Line_20,89.58,96.28,99.76,86.04,10.42,3.72,0.24,Availability,Electrical / Control Fault,10-90
+CNC_Milling_3,88.33,91.77,98.71,80.02,11.67,8.23,1.29,Mixed Loss - Availability (11.67%) + Performance (8.23%),Changeover / Setup Delay,10-60
+Press_Line_20,90.62,94.71,97.57,83.75,9.38,5.29,2.43,Mixed Loss - Availability (9.38%) + Performance (5.29%),Changeover / Setup Delay,10-60
+Press_Line_16,89.38,94.98,97.6,82.86,10.62,5.02,2.4,Availability,Electrical / Control Fault,10-90
+CNC_Milling_6,88.12,93.57,97.89,80.72,11.88,6.43,2.11,Availability,Changeover / Setup Delay,10-60
+CNC_Milling_20,86.46,99.2,99.13,85.02,13.54,0.8,0.87,Availability,Electrical / Control Fault,10-90
+Assembly_Line_2,88.54,97.6,99.41,85.91,11.46,2.4,0.59,Availability,Changeover / Setup Delay,10-60
+Press_Line_1,88.12,99.19,98.8,86.36,11.88,0.81,1.2,Availability,Mechanical Breakdown,30-240
+Press_Line_1,90.21,92.83,97.49,81.64,9.79,7.17,2.51,Mixed Loss - Availability (9.79%) + Performance (7.17%),Changeover / Setup Delay,10-60
+Assembly_Line_10,89.38,93.93,97.6,81.94,10.62,6.07,2.4,Mixed Loss - Availability (10.62%) + Performance (6.07%),Electrical / Control Fault,10-90
+Press_Line_3,90.83,93.18,97.54,82.56,9.17,6.82,2.46,Mixed Loss - Availability (9.17%) + Performance (6.82%),Changeover / Setup Delay,10-60
+Press_Line_2,89.38,98.88,98.57,87.11,10.62,1.12,1.43,Availability,Electrical / Control Fault,10-90
+Assembly_Line_8,97.5,68.43,99.16,66.16,2.5,31.57,0.84,Performance,Reduced Speed Loss,Variable
+CNC_Milling_17,86.67,98.71,99.53,85.15,13.33,1.29,0.47,Availability,Electrical / Control Fault,10-90
+Assembly_Line_18,96.88,66.76,96.98,62.73,3.12,33.24,3.02,Performance,Reduced Speed Loss,Variable
+Assembly_Line_16,97.29,66.49,98.07,63.44,2.71,33.51,1.93,Performance,Reduced Speed Loss,Variable
+Assembly_Line_1,88.12,97.84,99.25,85.57,11.88,2.16,0.75,Availability,Changeover / Setup Delay,10-60
+CNC_Milling_10,88.54,94.87,97.77,82.12,11.46,5.13,2.23,Availability,Changeover / Setup Delay,10-60
+Press_Line_9,90.83,93.92,98.29,83.85,9.17,6.08,1.71,Mixed Loss - Availability (9.17%) + Performance (6.08%),Changeover / Setup Delay,10-60
+Assembly_Line_13,96.67,73.67,97.28,69.27,3.33,26.33,2.72,Performance,Reduced Speed Loss,Variable
+CNC_Milling_9,88.75,92.85,97.57,80.4,11.25,7.15,2.43,Mixed Loss - Availability (11.25%) + Performance (7.15%),Electrical / Control Fault,10-90
+Assembly_Line_11,88.75,98.87,97.36,85.43,11.25,1.13,2.64,Availability,Mechanical Breakdown,30-240
+CNC_Milling_17,88.96,92.15,97.57,79.98,11.04,7.85,2.43,Mixed Loss - Availability (11.04%) + Performance (7.85%),Electrical / Control Fault,10-90
+Assembly_Line_2,91.04,92.69,98.49,83.11,8.96,7.31,1.51,Mixed Loss - Availability (8.96%) + Performance (7.31%),Changeover / Setup Delay,10-60
+Assembly_Line_1,88.96,95.83,99.24,84.6,11.04,4.17,0.76,Availability,Mechanical Breakdown,30-240
+Assembly_Line_14,95.83,68.98,97.89,64.71,4.17,31.02,2.11,Performance,Reduced Speed Loss,Variable
+Press_Line_7,90.42,94.01,97.33,82.73,9.58,5.99,2.67,Mixed Loss - Availability (9.58%) + Performance (5.99%),Electrical / Control Fault,10-90
+Assembly_Line_10,90.62,92.32,99.31,83.09,9.38,7.68,0.69,Mixed Loss - Availability (9.38%) + Performance (7.68%),Electrical / Control Fault,10-90
+Assembly_Line_13,89.79,96.9,97.45,84.79,10.21,3.1,2.55,Availability,Changeover / Setup Delay,10-60
+Assembly_Line_1,90.21,92.36,98.45,82.02,9.79,7.64,1.55,Mixed Loss - Availability (9.79%) + Performance (7.64%),Changeover / Setup Delay,10-60
+CNC_Milling_10,88.12,98.72,97.41,84.75,11.88,1.28,2.59,Availability,Changeover / Setup Delay,10-60
+CNC_Milling_19,89.38,92.23,97.07,80.01,10.62,7.77,2.93,Mixed Loss - Availability (10.62%) + Performance (7.77%),Changeover / Setup Delay,10-60
+Assembly_Line_10,97.08,72.55,97.55,68.71,2.92,27.45,2.45,Performance,Reduced Speed Loss,Variable
+CNC_Milling_18,87.92,99.94,98.28,86.35,12.08,0.06,1.72,Availability,Electrical / Control Fault,10-90
+Press_Line_20,92.08,94.12,99.28,86.04,7.92,5.88,0.72,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_11,88.33,98.14,97.72,84.71,11.67,1.86,2.28,Availability,Changeover / Setup Delay,10-60
+Assembly_Line_9,97.71,67.74,99.52,65.87,2.29,32.26,0.48,Performance,Reduced Speed Loss,Variable
+CNC_Milling_11,96.67,63.88,96.79,59.77,3.33,36.12,3.21,Performance,Reduced Speed Loss,Variable
+CNC_Milling_18,88.54,98.38,97.4,84.84,11.46,1.62,2.6,Availability,Changeover / Setup Delay,10-60
+CNC_Milling_6,89.58,95.15,97.96,83.5,10.42,4.85,2.04,Availability,Electrical / Control Fault,10-90
+Press_Line_16,90.0,98.56,97.99,86.92,10.0,1.44,2.01,Availability,Electrical / Control Fault,10-90
+Assembly_Line_7,90.62,95.98,99.1,86.2,9.38,4.02,0.9,Availability,Changeover / Setup Delay,10-60
+Assembly_Line_6,90.83,95.06,98.41,84.98,9.17,4.94,1.59,Mixed Loss - Availability (9.17%) + Performance (4.94%),Electrical / Control Fault,10-90
+CNC_Milling_6,89.17,97.94,97.21,84.89,10.83,2.06,2.79,Availability,Electrical / Control Fault,10-90
+Assembly_Line_20,98.54,69.06,99.15,67.47,1.46,30.94,0.85,Performance,Reduced Speed Loss,Variable
+Assembly_Line_19,100.0,68.27,97.66,66.67,0.0,31.73,2.34,Performance,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,68.27,97.66,66.67,0.0,31.73,2.34,Performance,No Fault / Normal Operation,0
+CNC_Milling_6,88.75,99.18,98.81,86.98,11.25,0.82,1.19,Availability,Changeover / Setup Delay,10-60
+Assembly_Line_15,98.75,66.38,97.1,63.65,1.25,33.62,2.9,Performance,Reduced Speed Loss,Variable
+Press_Line_7,91.88,91.9,97.32,82.17,8.12,8.1,2.68,Mixed Loss - Availability (8.12%) + Performance (8.10%),Changeover / Setup Delay,10-60
+CNC_Milling_17,88.54,99.32,98.19,86.35,11.46,0.68,1.81,Availability,Mechanical Breakdown,30-240
+Assembly_Line_14,96.04,73.18,97.03,68.19,3.96,26.82,2.97,Performance,Reduced Speed Loss,Variable
+Press_Line_9,90.83,98.48,97.82,87.51,9.17,1.52,2.18,Availability,Material / Operator Shortage,Variable
+CNC_Milling_9,89.38,96.67,98.61,85.2,10.62,3.33,1.39,Availability,Electrical / Control Fault,10-90
+Press_Line_7,99.17,69.71,98.77,68.28,0.83,30.29,1.23,Performance,Reduced Speed Loss,Variable
+CNC_Milling_14,90.42,92.16,97.01,80.84,9.58,7.84,2.99,Mixed Loss - Availability (9.58%) + Performance (7.84%),Changeover / Setup Delay,10-60
+CNC_Milling_16,96.88,68.14,100.0,66.01,3.12,31.86,0.0,Performance,Reduced Speed Loss,Variable
+Press_Line_11,91.46,98.08,97.22,87.2,8.54,1.92,2.78,Availability,Mechanical Breakdown,30-240
+Press_Line_16,91.67,95.66,97.68,85.65,8.33,4.34,2.32,Mixed Loss - Availability (8.33%) + Performance (4.34%),Material / Operator Shortage,Variable
+CNC_Milling_1,90.62,92.6,97.64,81.94,9.38,7.4,2.36,Mixed Loss - Availability (9.38%) + Performance (7.40%),Mechanical Breakdown,30-240
+CNC_Milling_11,90.62,93.03,98.12,82.73,9.38,6.97,1.88,Mixed Loss - Availability (9.38%) + Performance (6.97%),Electrical / Control Fault,10-90
+Assembly_Line_16,90.0,99.31,97.9,87.5,10.0,0.69,2.1,Availability,Changeover / Setup Delay,10-60
+Assembly_Line_14,90.42,95.43,99.19,85.59,9.58,4.57,0.81,Availability,Material / Operator Shortage,Variable
+CNC_Milling_11,98.33,61.99,98.05,59.77,1.67,38.01,1.95,Performance,Reduced Speed Loss,Variable
+Press_Line_13,92.08,97.34,98.36,88.16,7.92,2.66,1.64,No Significant Loss,Material / Operator Shortage,Variable
+CNC_Milling_5,89.79,96.01,98.56,84.98,10.21,3.99,1.44,Availability,Mechanical Breakdown,30-240
+Press_Line_5,91.25,96.9,98.48,87.08,8.75,3.1,1.52,Availability,Electrical / Control Fault,10-90
+Assembly_Line_17,90.42,99.57,99.1,89.22,9.58,0.43,0.9,Availability,Electrical / Control Fault,10-90
+Press_Line_2,93.33,94.69,97.14,85.85,6.67,5.31,2.86,No Significant Loss,Electrical / Control Fault,10-90
+CNC_Milling_8,97.92,70.9,99.53,69.1,2.08,29.1,0.47,Performance,Reduced Speed Loss,Variable
+Assembly_Line_15,97.92,71.47,99.55,69.67,2.08,28.53,0.45,Performance,Reduced Speed Loss,Variable
+CNC_Milling_7,91.67,93.35,98.11,83.96,8.33,6.65,1.89,Mixed Loss - Availability (8.33%) + Performance (6.65%),Changeover / Setup Delay,10-60
 CNC_Milling_1,89.58,98.98,98.66,87.48,10.42,1.02,1.34,Availability,Electrical / Control Fault,10-90
+Press_Line_6,92.92,92.26,98.77,84.67,7.08,7.74,1.23,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_11,92.08,93.09,99.66,85.43,7.92,6.91,0.34,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_16,91.88,96.55,97.71,86.67,8.12,3.45,2.29,Mixed Loss - Availability (8.12%) + Performance (3.45%),Mechanical Breakdown,30-240
+Assembly_Line_12,92.5,93.11,99.06,85.31,7.5,6.89,0.94,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_16,91.46,97.82,98.01,87.69,8.54,2.18,1.99,Availability,Electrical / Control Fault,10-90
+CNC_Milling_15,90.0,98.97,98.42,87.67,10.0,1.03,1.58,Availability,Changeover / Setup Delay,10-60
+Press_Line_6,91.04,99.68,97.08,88.11,8.96,0.32,2.92,Availability,Changeover / Setup Delay,10-60
+Press_Line_13,93.12,96.03,97.18,86.9,6.88,3.97,2.82,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_18,92.08,93.18,97.35,83.53,7.92,6.82,2.65,No Significant Loss,Mechanical Breakdown,30-240
+CNC_Milling_13,90.62,96.84,97.9,85.92,9.38,3.16,2.1,Availability,Changeover / Setup Delay,10-60
+CNC_Milling_2,90.42,97.19,98.68,86.72,9.58,2.81,1.32,Availability,Electrical / Control Fault,10-90
+Press_Line_14,93.54,94.05,98.21,86.4,6.46,5.95,1.79,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_2,94.38,94.09,95.26,84.59,5.62,5.91,4.74,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_1,91.25,98.67,99.71,89.78,8.75,1.33,0.29,Availability,Material / Operator Shortage,Variable
+Press_Line_17,97.29,84.03,97.22,79.48,2.71,15.97,2.78,Performance,Reduced Speed Loss,Variable
+Press_Line_3,95.0,92.26,92.35,80.94,5.0,7.74,7.65,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_20,91.25,94.81,98.28,85.02,8.75,5.19,1.72,Mixed Loss - Availability (8.75%) + Performance (5.19%),Mechanical Breakdown,30-240
+Press_Line_11,91.67,99.09,99.5,90.38,8.33,0.91,0.5,Availability,Mechanical Breakdown,30-240
+Assembly_Line_18,92.08,94.59,97.76,85.15,7.92,5.41,2.24,No Significant Loss,Electrical / Control Fault,10-90
+CNC_Milling_19,96.46,72.53,99.43,69.56,3.54,27.47,0.57,Performance,Reduced Speed Loss,Variable
+Assembly_Line_12,92.92,94.73,97.54,85.85,7.08,5.27,2.46,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_13,96.25,76.62,98.0,72.28,3.75,23.38,2.0,Performance,Reduced Speed Loss,Variable
+Press_Line_15,97.5,81.58,98.02,77.96,2.5,18.42,1.98,Performance,Minor Stoppage,1-15
+Press_Line_12,92.92,95.78,99.16,88.25,7.08,4.22,0.84,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_2,99.58,76.06,98.99,74.98,0.42,23.94,1.01,Performance,Reduced Speed Loss,Variable
+Press_Line_11,93.75,96.89,94.0,85.38,6.25,3.11,6.0,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_20,97.29,72.83,99.47,70.48,2.71,27.17,0.53,Performance,Reduced Speed Loss,Variable
+Assembly_Line_20,92.71,94.64,99.67,87.45,7.29,5.36,0.33,No Significant Loss,Electrical / Control Fault,10-90
+CNC_Milling_5,99.79,60.76,97.96,59.4,0.21,39.24,2.04,Performance,Reduced Speed Loss,Variable
+Press_Line_9,93.33,95.85,97.82,87.51,6.67,4.15,2.18,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_1,93.54,94.57,97.33,86.1,6.46,5.43,2.67,No Significant Loss,Electrical / Control Fault,10-90
+CNC_Milling_19,91.88,94.09,98.6,85.24,8.12,5.91,1.4,Mixed Loss - Availability (8.12%) + Performance (5.91%),Material / Operator Shortage,Variable
+CNC_Milling_20,91.88,95.39,97.87,85.77,8.12,4.61,2.13,Mixed Loss - Availability (8.12%) + Performance (4.61%),Changeover / Setup Delay,10-60
+CNC_Milling_6,91.04,98.98,99.61,89.76,8.96,1.02,0.39,Availability,Changeover / Setup Delay,10-60
+Assembly_Line_3,91.67,99.44,99.7,90.88,8.33,0.56,0.3,Availability,Changeover / Setup Delay,10-60
+CNC_Milling_15,92.08,96.35,97.22,86.26,7.92,3.65,2.78,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_13,99.58,66.65,97.78,64.9,0.42,33.35,2.22,Performance,Reduced Speed Loss,Variable
+Assembly_Line_7,93.96,93.96,97.35,85.94,6.04,6.04,2.65,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_16,92.5,93.41,99.14,85.66,7.5,6.59,0.86,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_9,98.33,81.31,99.7,79.71,1.67,18.69,0.3,Performance,Minor Stoppage,1-15
+CNC_Milling_16,92.08,95.44,98.73,86.78,7.92,4.56,1.27,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_9,97.29,84.93,97.94,80.92,2.71,15.07,2.06,Performance,Minor Stoppage,1-15
+Press_Line_9,98.33,81.55,99.39,79.71,1.67,18.45,0.61,Performance,Reduced Speed Loss,Variable
+CNC_Milling_18,92.08,95.41,98.28,86.35,7.92,4.59,1.72,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_4,94.38,92.29,97.76,85.15,5.62,7.71,2.24,No Significant Loss,Material / Operator Shortage,Variable
+Press_Line_6,93.96,96.59,93.29,84.67,6.04,3.41,6.71,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Assembly_Line_8,93.75,94.1,98.73,87.1,6.25,5.9,1.27,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_10,92.08,97.33,97.49,87.37,7.92,2.67,2.51,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_20,96.46,79.25,98.54,75.33,3.54,20.75,1.46,Performance,Reduced Speed Loss,Variable
+Assembly_Line_6,94.79,93.13,94.7,83.6,5.21,6.87,5.3,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_13,98.75,84.17,99.24,82.48,1.25,15.83,0.76,Performance,Reduced Speed Loss,Variable
+Assembly_Line_12,97.29,83.51,99.33,80.71,2.71,16.49,0.67,Performance,Minor Stoppage,1-15
+Assembly_Line_7,94.79,93.13,97.05,85.68,5.21,6.87,2.95,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_18,93.12,97.92,98.3,89.64,6.88,2.08,1.7,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_14,99.58,70.57,99.5,69.93,0.42,29.43,0.5,Performance,Reduced Speed Loss,Variable
+Press_Line_13,97.08,95.58,85.03,78.91,2.92,4.42,14.97,Quality,Startup / Warm-up Loss,5-20
+CNC_Milling_13,93.33,92.85,99.57,86.29,6.67,7.15,0.43,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_1,94.38,97.07,92.55,84.79,5.62,2.93,7.45,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_16,95.21,92.37,97.69,85.91,4.79,7.63,2.31,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_14,99.38,66.33,99.37,65.5,0.62,33.67,0.63,Performance,Reduced Speed Loss,Variable
+CNC_Milling_7,97.29,81.65,97.97,77.82,2.71,18.35,2.03,Performance,Reduced Speed Loss,Variable
+Press_Line_4,95.62,92.14,99.23,87.43,4.38,7.86,0.77,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_6,93.75,95.92,98.78,88.82,6.25,4.08,1.22,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_18,97.71,80.16,98.34,77.03,2.29,19.84,1.66,Performance,Minor Stoppage,1-15
+CNC_Milling_16,99.38,71.27,97.38,68.98,0.62,28.73,2.62,Performance,Reduced Speed Loss,Variable
+Press_Line_8,94.38,99.13,93.81,87.76,5.62,0.87,6.19,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_10,94.17,98.1,97.49,90.06,5.83,1.9,2.51,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_16,95.83,92.93,86.32,76.88,4.17,7.07,13.68,Quality,Startup / Warm-up Loss,5-20
+Press_Line_2,95.62,95.5,94.93,86.69,4.38,4.5,5.07,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_5,94.58,94.62,97.9,87.61,5.42,5.38,2.1,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_1,95.83,94.77,89.88,81.64,4.17,5.23,10.12,Mixed Loss - Quality (10.12%) + Performance (5.23%),Startup / Warm-up Loss,5-20
+Assembly_Line_18,97.29,82.18,99.19,79.3,2.71,17.82,0.81,Performance,Minor Stoppage,1-15
+Press_Line_11,97.29,89.16,97.38,84.48,2.71,10.84,2.62,Performance,Minor Stoppage,1-15
+Assembly_Line_19,95.21,92.15,99.7,87.47,4.79,7.85,0.3,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_9,97.92,86.13,98.27,82.88,2.08,13.87,1.73,Performance,Minor Stoppage,1-15
+Press_Line_18,97.71,85.4,99.38,82.92,2.29,14.6,0.62,Performance,Minor Stoppage,1-15
+Assembly_Line_14,94.58,92.33,96.02,83.85,5.42,7.67,3.98,No Significant Loss,Calibration / Instrumentation Fault,5-30
 CNC_Milling_1,93.33,94.58,99.1,87.48,6.67,5.42,0.9,No Significant Loss,Mechanical Breakdown,30-240
+CNC_Milling_14,93.12,94.38,100.0,87.89,6.88,5.62,0.0,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_13,99.17,85.3,98.76,83.54,0.83,14.7,1.24,Performance,Minor Stoppage,1-15
+Press_Line_7,94.58,94.66,98.1,87.83,5.42,5.34,1.9,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_2,93.54,99.18,97.81,90.74,6.46,0.82,2.19,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_6,98.96,81.15,99.32,79.75,1.04,18.85,0.68,Performance,Minor Stoppage,1-15
+Assembly_Line_4,94.38,97.91,93.35,86.26,5.62,2.09,6.65,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_7,100.0,77.92,98.55,76.78,0.0,22.08,1.45,Performance,No Fault / Normal Operation,0
+Press_Line_7,100.0,77.92,98.55,76.78,0.0,22.08,1.45,Performance,No Fault / Normal Operation,0
+CNC_Milling_7,97.08,84.15,99.6,81.38,2.92,15.85,0.4,Performance,Reduced Speed Loss,Variable
+Press_Line_18,98.12,85.83,97.24,81.89,1.88,14.17,2.76,Performance,Minor Stoppage,1-15
+Assembly_Line_19,99.58,80.87,97.68,78.67,0.42,19.13,2.32,Performance,Minor Stoppage,1-15
+Assembly_Line_14,97.71,81.19,97.37,77.24,2.29,18.81,2.63,Performance,Minor Stoppage,1-15
+CNC_Milling_18,92.71,98.84,98.77,90.5,7.29,1.16,1.23,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_2,94.58,96.74,97.22,88.96,5.42,3.26,2.78,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_2,96.04,92.1,97.7,86.42,3.96,7.9,2.3,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_3,97.71,88.52,98.13,84.87,2.29,11.48,1.87,Performance,Minor Stoppage,1-15
+Press_Line_9,95.21,96.52,94.96,87.26,4.79,3.48,5.04,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_10,94.38,92.58,99.14,86.63,5.62,7.42,0.86,No Significant Loss,Material / Operator Shortage,Variable
+CNC_Milling_12,96.46,84.36,97.14,79.05,3.54,15.64,2.86,Performance,Reduced Speed Loss,Variable
+Press_Line_9,96.88,93.1,92.16,83.12,3.12,6.9,7.84,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_5,94.17,92.87,97.64,85.39,5.83,7.13,2.36,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_19,97.71,87.33,97.19,82.93,2.29,12.67,2.81,Performance,Minor Stoppage,1-15
+Press_Line_20,97.29,95.5,89.91,83.54,2.71,4.5,10.09,Quality,Startup / Warm-up Loss,5-20
+Press_Line_18,96.88,94.67,88.45,81.12,3.12,5.33,11.55,Quality,Startup / Warm-up Loss,5-20
+Assembly_Line_19,94.17,97.98,99.13,91.47,5.83,2.02,0.87,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_13,98.54,83.79,99.33,82.02,1.46,16.21,0.67,Performance,Minor Stoppage,1-15
+CNC_Milling_13,94.17,97.51,93.17,85.55,5.83,2.49,6.83,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_5,95.83,94.51,95.25,86.27,4.17,5.49,4.75,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_12,97.71,92.88,88.98,80.75,2.29,7.12,11.02,Mixed Loss - Quality (11.02%) + Performance (7.12%),Startup / Warm-up Loss,5-20
+Assembly_Line_15,97.08,87.74,97.03,82.65,2.92,12.26,2.97,Performance,Minor Stoppage,1-15
+Press_Line_1,96.04,94.84,94.81,86.36,3.96,5.16,5.19,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_7,94.79,95.95,99.38,90.38,5.21,4.05,0.62,No Significant Loss,Material / Operator Shortage,Variable
+Press_Line_5,99.38,82.48,99.67,81.7,0.62,17.52,0.33,Performance,Minor Stoppage,1-15
+Assembly_Line_9,96.04,97.27,85.76,80.12,3.96,2.73,14.24,Quality,Startup / Warm-up Loss,5-20
+CNC_Milling_9,94.79,93.26,97.74,86.4,5.21,6.74,2.26,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_19,95.83,99.86,86.21,82.5,4.17,0.14,13.79,Quality,Startup / Warm-up Loss,5-20
+CNC_Milling_19,94.38,95.01,98.65,88.46,5.62,4.99,1.35,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_7,95.62,95.86,97.16,89.06,4.38,4.14,2.84,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_10,98.12,90.06,99.52,87.95,1.88,9.94,0.48,Performance,Minor Stoppage,1-15
+Assembly_Line_4,98.12,87.06,97.39,83.19,1.88,12.94,2.61,Performance,Minor Stoppage,1-15
+Press_Line_19,95.83,94.12,98.78,89.1,4.17,5.88,1.22,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_18,98.33,83.62,98.42,80.92,1.67,16.38,1.58,Performance,Minor Stoppage,1-15
+CNC_Milling_14,93.96,96.63,99.09,89.96,6.04,3.37,0.91,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_9,96.25,93.77,93.33,84.23,3.75,6.23,6.67,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_6,97.71,88.82,99.39,86.25,2.29,11.18,0.61,Performance,Minor Stoppage,1-15
+CNC_Milling_10,98.33,81.23,98.59,78.75,1.67,18.77,1.41,Performance,Minor Stoppage,1-15
+Press_Line_3,97.08,94.56,94.46,86.72,2.92,5.44,5.54,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Assembly_Line_9,95.0,96.0,98.96,90.25,5.0,4.0,1.04,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_8,97.29,90.39,97.46,85.7,2.71,9.61,2.54,Performance,Minor Stoppage,1-15
+Assembly_Line_3,98.12,92.62,87.39,79.42,1.88,7.38,12.61,Quality,Startup / Warm-up Loss,5-20
+Press_Line_20,96.88,99.57,88.55,85.42,3.12,0.43,11.45,Quality,Startup / Warm-up Loss,5-20
+Assembly_Line_8,97.5,89.62,98.72,86.26,2.5,10.38,1.28,Performance,Minor Stoppage,1-15
+CNC_Milling_5,95.21,93.58,97.22,86.62,4.79,6.42,2.78,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_5,95.0,98.73,97.71,91.64,5.0,1.27,2.29,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_20,97.71,84.73,98.65,81.67,2.29,15.27,1.35,Performance,Minor Stoppage,1-15
+Press_Line_17,97.08,97.77,89.71,85.16,2.92,2.23,10.29,Quality,Startup / Warm-up Loss,5-20
+Press_Line_12,97.08,97.85,87.63,83.25,2.92,2.15,12.37,Quality,Startup / Warm-up Loss,5-20
+Assembly_Line_5,95.83,96.77,97.21,90.16,4.17,3.23,2.79,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_4,99.58,86.65,99.21,85.61,0.42,13.35,0.79,Performance,Minor Stoppage,1-15
+Assembly_Line_13,98.12,92.9,88.75,80.91,1.88,7.1,11.25,Mixed Loss - Quality (11.25%) + Performance (7.10%),Startup / Warm-up Loss,5-20
+Assembly_Line_10,96.88,94.67,92.79,85.1,3.12,5.33,7.21,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_4,95.83,97.55,91.2,85.25,4.17,2.45,8.8,Mixed Loss - Quality (8.80%) + Availability (4.17%),Startup / Warm-up Loss,5-20
+Assembly_Line_20,95.83,95.49,98.1,89.77,4.17,4.51,1.9,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_8,97.5,97.5,89.84,85.4,2.5,2.5,10.16,Quality,Startup / Warm-up Loss,5-20
+Press_Line_15,97.29,92.27,97.95,87.94,2.71,7.73,2.05,No Significant Loss,Minor Stoppage,1-15
+CNC_Milling_2,97.08,87.34,98.64,83.64,2.92,12.66,1.36,Performance,Minor Stoppage,1-15
+CNC_Milling_12,95.21,94.83,99.57,89.9,4.79,5.17,0.43,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_13,95.21,97.79,99.7,92.82,4.79,2.21,0.3,No Significant Loss,Electrical / Control Fault,10-90
+CNC_Milling_20,94.79,97.56,98.79,91.36,5.21,2.44,1.21,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_13,97.08,92.47,98.77,88.67,2.92,7.53,1.23,No Significant Loss,Electrical / Control Fault,10-90
+CNC_Milling_10,98.75,82.03,99.54,80.62,1.25,17.97,0.46,Performance,Reduced Speed Loss,Variable
+CNC_Milling_9,94.79,99.16,94.89,89.2,5.21,0.84,5.11,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_19,99.38,78.9,97.95,76.8,0.62,21.1,2.05,Performance,Reduced Speed Loss,Variable
+CNC_Milling_13,95.83,95.81,94.38,86.66,4.17,4.19,5.62,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_5,98.33,88.82,99.69,87.07,1.67,11.18,0.31,Performance,Minor Stoppage,1-15
+Press_Line_20,97.08,98.07,93.22,88.75,2.92,1.93,6.78,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_11,97.71,85.88,98.58,82.73,2.29,14.12,1.42,Performance,Minor Stoppage,1-15
+Assembly_Line_1,95.83,97.04,95.83,89.13,4.17,2.96,4.17,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_13,97.5,94.31,98.86,90.9,2.5,5.69,1.14,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_5,96.04,98.78,94.05,89.22,3.96,1.22,5.95,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_10,97.92,86.17,98.67,83.25,2.08,13.83,1.33,Performance,Minor Stoppage,1-15
+CNC_Milling_13,97.08,89.64,98.31,85.55,2.92,10.36,1.69,Performance,Minor Stoppage,1-15
+CNC_Milling_15,97.5,93.17,88.76,80.63,2.5,6.83,11.24,Mixed Loss - Quality (11.24%) + Performance (6.83%),Startup / Warm-up Loss,5-20
+Assembly_Line_7,96.67,99.68,89.19,85.94,3.33,0.32,10.81,Quality,Startup / Warm-up Loss,5-20
+CNC_Milling_8,97.5,90.09,98.9,86.86,2.5,9.91,1.1,Performance,Minor Stoppage,1-15
+Assembly_Line_11,99.79,84.15,98.62,82.82,0.21,15.85,1.38,Performance,Minor Stoppage,1-15
+CNC_Milling_17,95.42,97.59,94.44,87.94,4.58,2.41,5.56,No Significant Loss,Calibration / Instrumentation Fault,5-30
+CNC_Milling_7,95.83,96.03,98.95,91.06,4.17,3.97,1.05,No Significant Loss,Electrical / Control Fault,10-90
+CNC_Milling_16,95.42,96.77,98.8,91.22,4.58,3.23,1.2,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_16,96.88,93.78,92.65,84.18,3.12,6.22,7.35,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Assembly_Line_15,99.58,83.95,98.48,82.33,0.42,16.05,1.52,Performance,Minor Stoppage,1-15
+Assembly_Line_1,97.92,89.04,99.26,86.54,2.08,10.96,0.74,Performance,Minor Stoppage,1-15
+CNC_Milling_19,95.0,98.19,98.71,92.08,5.0,1.81,1.29,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_18,97.08,90.89,97.86,86.35,2.92,9.11,2.14,Performance,Minor Stoppage,1-15
+Assembly_Line_3,99.17,87.79,98.43,85.7,0.83,12.21,1.57,Performance,Minor Stoppage,1-15
+CNC_Milling_11,98.75,84.18,97.14,80.75,1.25,15.82,2.86,Performance,Minor Stoppage,1-15
+Press_Line_5,97.71,92.69,98.22,88.96,2.29,7.31,1.78,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_9,99.58,84.27,99.25,83.28,0.42,15.73,0.75,Performance,Minor Stoppage,1-15
+CNC_Milling_20,97.29,91.99,94.58,84.65,2.71,8.01,5.42,Mixed Loss - Performance (8.01%) + Quality (5.42%),Calibration / Instrumentation Fault,5-30
+CNC_Milling_14,98.96,82.53,96.95,79.19,1.04,17.47,3.05,Performance,Minor Stoppage,1-15
+CNC_Milling_3,97.08,96.04,89.55,83.5,2.92,3.96,10.45,Quality,Startup / Warm-up Loss,5-20
+Assembly_Line_16,99.17,86.34,98.18,84.06,0.83,13.66,1.82,Performance,Minor Stoppage,1-15
+CNC_Milling_18,96.25,95.2,97.12,88.99,3.75,4.8,2.88,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_10,98.33,96.48,85.45,81.07,1.67,3.52,14.55,Quality,Startup / Warm-up Loss,5-20
+Press_Line_12,98.54,96.66,87.14,83.0,1.46,3.34,12.86,Quality,Startup / Warm-up Loss,5-20
+CNC_Milling_17,96.67,94.27,94.76,86.35,3.33,5.73,5.24,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_18,99.58,88.46,97.65,86.02,0.42,11.54,2.35,Performance,Minor Stoppage,1-15
+Press_Line_15,97.71,93.49,98.56,90.04,2.29,6.51,1.44,No Significant Loss,Electrical / Control Fault,10-90
+CNC_Milling_8,98.96,87.78,97.03,84.28,1.04,12.22,2.97,Performance,Minor Stoppage,1-15
+CNC_Milling_11,95.62,97.28,99.15,92.23,4.38,2.72,0.85,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_5,95.62,96.63,99.11,91.57,4.38,3.37,0.89,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_2,95.83,99.72,98.14,93.79,4.17,0.28,1.86,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_5,99.17,82.78,96.98,79.61,0.83,17.22,3.02,Performance,Minor Stoppage,1-15
+Press_Line_15,99.58,88.31,98.21,86.36,0.42,11.69,1.79,Performance,Minor Stoppage,1-15
+CNC_Milling_9,97.08,96.41,88.03,82.4,2.92,3.59,11.97,Quality,Startup / Warm-up Loss,5-20
+Press_Line_11,99.38,90.72,97.98,88.34,0.62,9.28,2.02,Performance,Minor Stoppage,1-15
+CNC_Milling_4,97.08,94.6,97.49,89.53,2.92,5.4,2.51,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_9,99.58,88.85,99.72,88.24,0.42,11.15,0.28,Performance,Minor Stoppage,1-15
+CNC_Milling_20,97.5,91.79,97.08,86.89,2.5,8.21,2.92,Performance,Minor Stoppage,1-15
+Press_Line_8,96.46,99.66,97.54,93.77,3.54,0.34,2.46,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_1,98.96,88.43,98.15,85.9,1.04,11.57,1.85,Performance,Minor Stoppage,1-15
+CNC_Milling_9,97.29,92.09,97.77,87.6,2.71,7.91,2.23,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_10,99.58,91.07,99.07,89.85,0.42,8.93,0.93,Performance,Minor Stoppage,1-15
+CNC_Milling_3,98.12,93.61,90.91,83.5,1.88,6.39,9.09,Mixed Loss - Quality (9.09%) + Performance (6.39%),Startup / Warm-up Loss,5-20
+CNC_Milling_7,97.92,98.28,85.57,82.34,2.08,1.72,14.43,Quality,Startup / Warm-up Loss,5-20
+CNC_Milling_14,97.71,94.2,89.19,82.09,2.29,5.8,10.81,Quality,Startup / Warm-up Loss,5-20
+CNC_Milling_10,97.5,92.69,97.51,88.12,2.5,7.31,2.49,No Significant Loss,Minor Stoppage,1-15
+CNC_Milling_19,99.17,84.34,99.52,83.23,0.83,15.66,0.48,Performance,Minor Stoppage,1-15
+Assembly_Line_14,99.58,85.95,97.56,83.5,0.42,14.05,2.44,Performance,Minor Stoppage,1-15
+Assembly_Line_11,96.88,96.85,98.77,92.67,3.12,3.15,1.23,No Significant Loss,Changeover / Setup Delay,10-60
+Assembly_Line_16,98.12,91.72,99.65,89.69,1.88,8.28,0.35,Performance,Minor Stoppage,1-15
+CNC_Milling_5,96.25,97.29,97.36,91.16,3.75,2.71,2.64,No Significant Loss,Changeover / Setup Delay,10-60
+CNC_Milling_18,99.17,86.32,98.24,84.09,0.83,13.68,1.76,Performance,Minor Stoppage,1-15
+CNC_Milling_13,98.33,90.38,97.93,87.02,1.67,9.62,2.07,Performance,Minor Stoppage,1-15
+Assembly_Line_8,98.54,97.45,88.08,84.59,1.46,2.55,11.92,Quality,Startup / Warm-up Loss,5-20
+CNC_Milling_7,96.67,98.21,97.96,93.0,3.33,1.79,2.04,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_14,98.96,92.11,91.6,83.5,1.04,7.89,8.4,Mixed Loss - Quality (8.40%) + Performance (7.89%),Startup / Warm-up Loss,5-20
+Press_Line_2,100.0,91.95,97.48,89.64,0.0,8.05,2.52,Performance,No Fault / Normal Operation,0
+Press_Line_2,100.0,91.95,97.48,89.64,0.0,8.05,2.52,Performance,No Fault / Normal Operation,0
+CNC_Milling_19,97.29,94.64,97.82,90.07,2.71,5.36,2.18,No Significant Loss,Minor Stoppage,1-15
+CNC_Milling_3,96.88,97.69,97.06,91.85,3.12,2.31,2.94,No Significant Loss,Electrical / Control Fault,10-90
+Assembly_Line_5,98.54,94.11,98.33,91.19,1.46,5.89,1.67,No Significant Loss,Minor Stoppage,1-15
+CNC_Milling_4,97.92,93.79,99.28,91.18,2.08,6.21,0.72,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_3,98.75,93.91,99.5,92.27,1.25,6.09,0.5,No Significant Loss,Minor Stoppage,1-15
+Assembly_Line_9,98.96,91.2,98.25,88.67,1.04,8.8,1.75,Performance,Minor Stoppage,1-15
+Press_Line_10,100.0,92.58,97.05,89.85,0.0,7.42,2.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,92.58,97.05,89.85,0.0,7.42,2.95,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,98.12,99.15,90.33,87.88,1.88,0.85,9.67,Quality,Startup / Warm-up Loss,5-20
+Press_Line_17,97.29,99.2,97.41,94.01,2.71,0.8,2.59,No Significant Loss,Electrical / Control Fault,10-90
+Press_Line_13,100.0,91.95,98.86,90.9,0.0,8.05,1.14,Performance,No Fault / Normal Operation,0
+Press_Line_13,100.0,91.95,98.86,90.9,0.0,8.05,1.14,Performance,No Fault / Normal Operation,0
+CNC_Milling_17,98.54,95.7,87.34,82.37,1.46,4.3,12.66,Quality,Startup / Warm-up Loss,5-20
+Press_Line_20,100.0,92.71,97.98,90.83,0.0,7.29,2.02,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,92.71,97.98,90.83,0.0,7.29,2.02,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_8,100.0,92.49,98.14,90.77,0.0,7.51,1.86,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_8,100.0,92.49,98.14,90.77,0.0,7.51,1.86,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,91.89,97.08,89.21,0.0,8.11,2.92,Performance,No Fault / Normal Operation,0
+Assembly_Line_18,98.33,97.5,91.19,87.42,1.67,2.5,8.81,Quality,Startup / Warm-up Loss,5-20
+Press_Line_9,100.0,91.89,97.08,89.21,0.0,8.11,2.92,Performance,No Fault / Normal Operation,0
+Assembly_Line_1,99.58,90.47,97.13,87.51,0.42,9.53,2.87,Performance,Minor Stoppage,1-15
+Assembly_Line_16,99.79,89.56,98.25,87.81,0.21,10.44,1.75,Performance,Minor Stoppage,1-15
+Press_Line_14,100.0,92.25,98.05,90.45,0.0,7.75,1.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,92.25,98.05,90.45,0.0,7.75,1.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,93.21,97.52,90.9,0.0,6.79,2.48,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,93.21,97.52,90.9,0.0,6.79,2.48,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,92.65,97.55,90.38,0.0,7.35,2.45,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,92.65,97.55,90.38,0.0,7.35,2.45,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,93.54,97.55,91.25,0.0,6.46,2.45,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,92.88,97.31,90.38,0.0,7.12,2.69,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,92.88,97.31,90.38,0.0,7.12,2.69,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,93.54,97.55,91.25,0.0,6.46,2.45,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,96.88,99.26,98.82,95.02,3.12,0.74,1.18,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_14,100.0,93.15,97.34,90.68,0.0,6.85,2.66,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,93.15,97.34,90.68,0.0,6.85,2.66,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,93.64,97.75,91.53,0.0,6.36,2.25,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,93.64,97.75,91.53,0.0,6.36,2.25,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,92.14,97.44,89.78,0.0,7.86,2.56,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,92.14,97.44,89.78,0.0,7.86,2.56,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,93.33,97.32,90.83,0.0,6.67,2.68,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,93.33,97.32,90.83,0.0,6.67,2.68,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,93.0,99.55,92.58,0.0,7.0,0.45,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,93.0,99.55,92.58,0.0,7.0,0.45,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,92.5,97.84,90.5,0.0,7.5,2.16,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,92.5,97.84,90.5,0.0,7.5,2.16,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,92.4,97.16,89.78,0.0,7.6,2.84,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,92.4,97.16,89.78,0.0,7.6,2.84,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,99.58,91.26,98.95,89.93,0.42,8.74,1.05,Performance,Minor Stoppage,1-15
+Press_Line_4,100.0,93.1,98.29,91.51,0.0,6.9,1.71,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,93.1,98.29,91.51,0.0,6.9,1.71,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,92.34,97.42,89.96,0.0,7.66,2.58,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_8,100.0,93.77,97.94,91.84,0.0,6.23,2.06,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,92.34,97.42,89.96,0.0,7.66,2.58,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_8,100.0,93.77,97.94,91.84,0.0,6.23,2.06,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,92.08,97.35,89.65,0.0,7.92,2.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,93.33,97.81,91.29,0.0,6.67,2.19,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,93.33,97.81,91.29,0.0,6.67,2.19,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,92.08,97.35,89.65,0.0,7.92,2.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,92.74,97.21,90.16,0.0,7.26,2.79,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,92.74,97.21,90.16,0.0,7.26,2.79,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,93.82,97.12,91.12,0.0,6.18,2.88,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,93.82,97.12,91.12,0.0,6.18,2.88,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,92.96,98.76,91.81,0.0,7.04,1.24,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,92.96,98.76,91.81,0.0,7.04,1.24,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,93.33,98.3,91.74,0.0,6.67,1.7,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,93.33,98.3,91.74,0.0,6.67,1.7,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,92.45,97.38,90.03,0.0,7.55,2.62,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,92.45,97.38,90.03,0.0,7.55,2.62,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,97.92,99.42,92.8,90.34,2.08,0.58,7.2,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_9,100.0,92.87,98.43,91.41,0.0,7.13,1.57,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,92.87,98.43,91.41,0.0,7.13,1.57,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,98.33,99.0,88.56,86.21,1.67,1.0,11.44,Quality,Startup / Warm-up Loss,5-20
+Assembly_Line_7,100.0,92.45,98.59,91.15,0.0,7.55,1.41,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,92.45,98.59,91.15,0.0,7.55,1.41,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,93.56,98.3,91.97,0.0,6.44,1.7,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,93.56,98.3,91.97,0.0,6.44,1.7,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,91.8,97.79,89.77,0.0,8.2,2.21,Performance,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,91.8,97.79,89.77,0.0,8.2,2.21,Performance,No Fault / Normal Operation,0
+Press_Line_8,100.0,94.2,97.95,92.27,0.0,5.8,2.05,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_8,100.0,94.2,97.95,92.27,0.0,5.8,2.05,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,92.48,98.88,91.45,0.0,7.52,1.12,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,92.48,98.88,91.45,0.0,7.52,1.12,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,92.25,98.22,90.61,0.0,7.75,1.78,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,92.25,98.22,90.61,0.0,7.75,1.78,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,94.12,97.05,91.34,0.0,5.88,2.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,94.12,97.05,91.34,0.0,5.88,2.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_1,100.0,92.66,98.58,91.35,0.0,7.34,1.42,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,93.0,98.66,91.75,0.0,7.0,1.34,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_1,100.0,92.66,98.58,91.35,0.0,7.34,1.42,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,93.0,98.66,91.75,0.0,7.0,1.34,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,94.48,98.0,92.58,0.0,5.52,2.0,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,94.48,98.0,92.58,0.0,5.52,2.0,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,93.53,97.01,90.74,0.0,6.47,2.99,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,93.53,97.01,90.74,0.0,6.47,2.99,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,98.12,98.83,93.47,90.65,1.88,1.17,6.53,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_17,100.0,93.33,99.51,92.88,0.0,6.67,0.49,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,93.33,99.51,92.88,0.0,6.67,0.49,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,93.02,98.36,91.5,0.0,6.98,1.64,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,93.02,98.36,91.5,0.0,6.98,1.64,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,97.92,99.54,97.09,94.63,2.08,0.46,2.91,No Significant Loss,Changeover / Setup Delay,10-60
+Press_Line_16,100.0,93.53,97.28,90.99,0.0,6.47,2.72,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,93.53,97.28,90.99,0.0,6.47,2.72,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,94.35,97.06,91.58,0.0,5.65,2.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,94.35,97.06,91.58,0.0,5.65,2.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,93.33,99.76,93.1,0.0,6.67,0.24,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,92.48,99.72,92.22,0.0,7.52,0.28,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,92.13,99.7,91.85,0.0,7.87,0.3,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,92.13,99.7,91.85,0.0,7.87,0.3,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,92.48,99.72,92.22,0.0,7.52,0.28,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,93.33,99.76,93.1,0.0,6.67,0.24,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,93.0,99.19,92.25,0.0,7.0,0.81,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,93.56,99.27,92.88,0.0,6.44,0.73,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,93.0,99.19,92.25,0.0,7.0,0.81,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,93.56,99.27,92.88,0.0,6.44,0.73,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,92.55,98.5,91.16,0.0,7.45,1.5,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,92.55,98.5,91.16,0.0,7.45,1.5,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,92.29,99.07,91.42,0.0,7.71,0.93,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,92.29,99.07,91.42,0.0,7.71,0.93,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,94.69,98.44,93.21,0.0,5.31,1.56,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,94.69,98.44,93.21,0.0,5.31,1.56,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,94.0,97.61,91.75,0.0,6.0,2.39,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,92.96,97.2,90.35,0.0,7.04,2.8,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,92.96,97.2,90.35,0.0,7.04,2.8,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,94.0,97.61,91.75,0.0,6.0,2.39,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,98.54,99.93,95.51,94.06,1.46,0.07,4.49,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_19,100.0,92.68,99.41,92.13,0.0,7.32,0.59,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,92.68,99.41,92.13,0.0,7.32,0.59,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,93.26,98.89,92.22,0.0,6.74,1.11,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,93.26,98.89,92.22,0.0,6.74,1.11,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,92.3,97.18,89.7,0.0,7.7,2.82,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,92.3,97.18,89.7,0.0,7.7,2.82,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_1,100.0,93.71,97.76,91.61,0.0,6.29,2.24,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_1,100.0,93.71,97.76,91.61,0.0,6.29,2.24,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,99.58,94.6,97.94,92.27,0.42,5.4,2.06,No Significant Loss,Minor Stoppage,1-15
+Press_Line_11,100.0,93.79,99.76,93.56,0.0,6.21,0.24,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,93.79,99.76,93.56,0.0,6.21,0.24,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,92.68,99.1,91.85,0.0,7.32,0.9,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,92.68,99.1,91.85,0.0,7.32,0.9,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,93.79,98.1,92.01,0.0,6.21,1.9,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,93.79,98.1,92.01,0.0,6.21,1.9,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,93.71,98.04,91.88,0.0,6.29,1.96,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,94.47,98.32,92.88,0.0,5.53,1.68,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,93.71,98.04,91.88,0.0,6.29,1.96,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,94.47,98.32,92.88,0.0,5.53,1.68,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,94.72,97.86,92.7,0.0,5.28,2.14,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,93.25,97.2,90.64,0.0,6.75,2.8,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,94.72,97.86,92.7,0.0,5.28,2.14,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,93.25,97.2,90.64,0.0,6.75,2.8,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,93.89,99.51,93.42,0.0,6.11,0.49,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,93.89,99.51,93.42,0.0,6.11,0.49,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,91.98,98.59,90.68,0.0,8.02,1.41,Performance,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,91.98,98.59,90.68,0.0,8.02,1.41,Performance,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,92.5,97.97,90.62,0.0,7.5,2.03,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,92.5,97.97,90.62,0.0,7.5,2.03,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,93.98,97.77,91.88,0.0,6.02,2.23,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,93.98,97.77,91.88,0.0,6.02,2.23,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,94.24,99.28,93.56,0.0,5.76,0.72,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,92.67,99.06,91.8,0.0,7.33,0.94,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,92.67,99.06,91.8,0.0,7.33,0.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,94.24,99.28,93.56,0.0,5.76,0.72,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,93.66,98.59,92.34,0.0,6.34,1.41,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,93.66,98.59,92.34,0.0,6.34,1.41,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,94.03,98.08,92.22,0.0,5.97,1.92,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,94.03,98.08,92.22,0.0,5.97,1.92,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,94.3,97.57,92.01,0.0,5.7,2.43,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,94.3,97.57,92.01,0.0,5.7,2.43,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,92.03,99.3,91.39,0.0,7.97,0.7,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,94.69,99.56,94.27,0.0,5.31,0.44,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,93.33,99.43,92.8,0.0,6.67,0.57,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,92.03,99.3,91.39,0.0,7.97,0.7,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,94.69,99.56,94.27,0.0,5.31,0.44,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,93.33,99.43,92.8,0.0,6.67,0.57,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,93.78,98.24,92.12,0.0,6.22,1.76,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,93.78,98.24,92.12,0.0,6.22,1.76,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,93.65,98.22,91.99,0.0,6.35,1.78,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.5,97.86,90.52,0.0,7.5,2.14,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,93.65,98.22,91.99,0.0,6.35,1.78,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,92.78,97.95,90.88,0.0,7.22,2.05,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.5,97.86,90.52,0.0,7.5,2.14,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,92.78,97.95,90.88,0.0,7.22,2.05,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,93.0,97.22,90.42,0.0,7.0,2.78,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,93.1,97.28,90.57,0.0,6.9,2.72,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,93.1,97.28,90.57,0.0,6.9,2.72,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,93.0,97.22,90.42,0.0,7.0,2.78,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,95.74,97.36,93.21,0.0,4.26,2.64,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,95.74,97.36,93.21,0.0,4.26,2.64,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,93.26,99.71,92.99,0.0,6.74,0.29,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,93.26,99.71,92.99,0.0,6.74,0.29,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,93.65,98.52,92.27,0.0,6.35,1.48,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,93.65,98.52,92.27,0.0,6.35,1.48,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,94.92,98.33,93.33,0.0,5.08,1.67,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_1,100.0,94.24,98.05,92.4,0.0,5.76,1.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_1,100.0,94.24,98.05,92.4,0.0,5.76,1.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,94.92,98.33,93.33,0.0,5.08,1.67,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.12,97.65,90.94,0.0,6.88,2.35,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.12,97.65,90.94,0.0,6.88,2.35,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,94.55,97.58,92.26,0.0,5.45,2.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,94.55,97.58,92.26,0.0,5.45,2.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,94.55,97.54,92.22,0.0,5.45,2.46,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,94.55,97.54,92.22,0.0,5.45,2.46,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.5,98.58,91.18,0.0,7.5,1.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,92.68,98.61,91.39,0.0,7.32,1.39,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,92.81,98.65,91.56,0.0,7.19,1.35,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.5,98.58,91.18,0.0,7.5,1.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,92.81,98.65,91.56,0.0,7.19,1.35,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.5,98.58,91.18,0.0,7.5,1.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.5,98.58,91.18,0.0,7.5,1.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,92.68,98.61,91.39,0.0,7.32,1.39,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.32,98.68,94.06,0.0,4.68,1.32,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.32,98.68,94.06,0.0,4.68,1.32,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.32,98.68,94.06,0.0,4.68,1.32,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.82,97.87,90.85,0.0,7.18,2.13,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.82,97.87,90.85,0.0,7.18,2.13,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.12,97.99,91.25,0.0,6.88,2.01,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.32,98.68,94.06,0.0,4.68,1.32,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.12,97.99,91.25,0.0,6.88,2.01,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.11,99.34,94.48,0.0,4.89,0.66,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,94.03,99.18,93.26,0.0,5.97,0.82,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.11,99.34,94.48,0.0,4.89,0.66,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,93.5,99.09,92.65,0.0,6.5,0.91,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,92.78,98.98,91.83,0.0,7.22,1.02,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,94.03,99.18,93.26,0.0,5.97,0.82,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,93.5,99.09,92.65,0.0,6.5,0.91,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,92.78,98.98,91.83,0.0,7.22,1.02,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.19,97.2,89.61,0.0,7.81,2.8,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,94.33,97.96,92.4,0.0,5.67,2.04,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,94.46,98.04,92.6,0.0,5.54,1.96,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,94.46,98.04,92.6,0.0,5.54,1.96,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,94.33,97.96,92.4,0.0,5.67,2.04,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.19,97.2,89.61,0.0,7.81,2.8,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,93.61,99.42,93.06,0.0,6.39,0.58,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.5,99.29,91.84,0.0,7.5,0.71,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,92.68,99.3,92.03,0.0,7.32,0.7,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,92.62,99.3,91.98,0.0,7.38,0.7,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,92.68,99.3,92.03,0.0,7.32,0.7,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,92.5,99.29,91.84,0.0,7.5,0.71,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,93.61,99.42,93.06,0.0,6.39,0.58,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,92.62,99.3,91.98,0.0,7.38,0.7,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,93.32,97.92,91.39,0.0,6.68,2.08,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,92.55,97.74,90.46,0.0,7.45,2.26,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,93.32,97.92,91.39,0.0,6.68,2.08,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,92.55,97.74,90.46,0.0,7.45,2.26,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,94.79,97.8,92.71,0.0,5.21,2.2,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,94.43,97.69,92.25,0.0,5.57,2.31,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,94.11,97.54,91.8,0.0,5.89,2.46,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,94.11,97.54,91.8,0.0,5.89,2.46,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,94.67,97.75,92.53,0.0,5.33,2.25,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,94.43,97.69,92.25,0.0,5.57,2.31,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,94.79,97.8,92.71,0.0,5.21,2.2,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,94.67,97.75,92.53,0.0,5.33,2.25,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_1,100.0,95.02,97.24,92.4,0.0,4.98,2.76,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_1,100.0,95.02,97.24,92.4,0.0,4.98,2.76,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_5,100.0,93.79,99.71,93.53,0.0,6.21,0.29,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_5,100.0,93.79,99.71,93.53,0.0,6.21,0.29,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,93.52,99.7,93.24,0.0,6.48,0.3,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,93.52,99.7,93.24,0.0,6.48,0.3,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,94.06,99.14,93.26,0.0,5.94,0.86,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,94.24,99.16,93.45,0.0,5.76,0.84,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,94.24,99.16,93.45,0.0,5.76,0.84,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,94.06,99.14,93.26,0.0,5.94,0.86,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,92.55,98.12,90.81,0.0,7.45,1.88,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,92.55,98.12,90.81,0.0,7.45,1.88,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,92.22,97.06,89.51,0.0,7.78,2.94,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,92.22,97.06,89.51,0.0,7.78,2.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,96.16,97.59,93.85,0.0,3.84,2.41,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,96.16,97.59,93.85,0.0,3.84,2.41,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,92.95,99.3,92.3,0.0,7.05,0.7,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,92.95,99.3,92.3,0.0,7.05,0.7,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,93.8,99.4,93.24,0.0,6.2,0.6,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,93.8,99.4,93.24,0.0,6.2,0.6,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.75,98.0,91.88,0.0,6.25,2.0,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,92.71,97.6,90.48,0.0,7.29,2.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.75,98.0,91.88,0.0,6.25,2.0,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,92.71,97.6,90.48,0.0,7.29,2.4,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,96.04,98.26,94.38,0.0,3.96,1.74,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,93.24,97.01,90.46,0.0,6.76,2.99,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,93.24,97.01,90.46,0.0,6.76,2.99,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,96.04,98.26,94.38,0.0,3.96,1.74,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.92,97.06,92.12,0.0,5.08,2.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,95.74,97.58,93.43,0.0,4.26,2.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.92,97.06,92.12,0.0,5.08,2.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,95.74,97.58,93.43,0.0,4.26,2.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,92.25,99.62,91.89,0.0,7.75,0.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,92.25,99.62,91.89,0.0,7.75,0.38,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,94.19,99.72,93.93,0.0,5.81,0.28,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,94.19,99.72,93.93,0.0,5.81,0.28,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.19,98.8,91.08,0.0,7.81,1.2,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.19,98.8,91.08,0.0,7.81,1.2,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.08,99.11,93.24,0.0,5.92,0.89,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.19,98.8,91.08,0.0,7.81,1.2,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.44,99.0,92.5,0.0,6.56,1.0,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.19,98.8,91.08,0.0,7.81,1.2,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.44,99.0,92.5,0.0,6.56,1.0,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.08,99.11,93.24,0.0,5.92,0.89,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.75,98.33,92.19,0.0,6.25,1.67,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,91.92,97.84,89.93,0.0,8.08,2.16,Performance,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.0,97.83,90.0,0.0,8.0,2.17,Performance,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.0,97.83,90.0,0.0,8.0,2.17,Performance,No Fault / Normal Operation,0
+Press_Line_12,100.0,95.0,98.68,93.75,0.0,5.0,1.32,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,93.75,98.33,92.19,0.0,6.25,1.67,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,95.0,98.68,93.75,0.0,5.0,1.32,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,91.92,97.84,89.93,0.0,8.08,2.16,Performance,No Fault / Normal Operation,0
+Press_Line_20,100.0,95.83,98.91,94.79,0.0,4.17,1.09,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,95.83,98.91,94.79,0.0,4.17,1.09,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.56,98.01,90.71,0.0,7.44,1.99,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.56,98.01,90.71,0.0,7.44,1.99,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,93.97,97.59,91.71,0.0,6.03,2.41,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.95,98.46,94.48,0.0,4.05,1.54,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.4,96.97,89.6,0.0,7.6,3.03,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.4,96.97,89.6,0.0,7.6,3.03,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,95.07,98.1,93.26,0.0,4.93,1.9,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,95.07,98.1,93.26,0.0,4.93,1.9,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.95,98.46,94.48,0.0,4.05,1.54,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,93.97,97.59,91.71,0.0,6.03,2.41,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,95.57,97.0,92.71,0.0,4.43,3.0,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,95.57,97.07,92.77,0.0,4.43,2.93,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,95.57,97.07,92.77,0.0,4.43,2.93,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,95.57,97.0,92.71,0.0,4.43,3.0,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,95.15,99.52,94.69,0.0,4.85,0.48,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,92.55,99.25,91.85,0.0,7.45,0.75,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,92.55,99.25,91.85,0.0,7.45,0.75,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,95.15,99.52,94.69,0.0,4.85,0.48,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,94.53,99.45,94.01,0.0,5.47,0.55,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,94.53,99.45,94.01,0.0,5.47,0.55,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.56,98.41,91.08,0.0,7.44,1.59,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,94.35,98.8,93.22,0.0,5.65,1.2,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,94.35,98.8,93.22,0.0,5.65,1.2,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.56,98.41,91.08,0.0,7.44,1.59,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,93.97,97.94,92.03,0.0,6.03,2.06,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,95.6,98.57,94.24,0.0,4.4,1.43,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,95.6,98.57,94.24,0.0,4.4,1.43,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,93.81,97.89,91.84,0.0,6.19,2.11,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,93.81,97.89,91.84,0.0,6.19,2.11,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,93.97,97.94,92.03,0.0,6.03,2.06,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.95,98.68,94.69,0.0,4.05,1.32,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,95.95,98.68,94.69,0.0,4.05,1.32,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,95.14,97.74,92.99,0.0,4.86,2.26,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,95.14,97.74,92.99,0.0,4.86,2.26,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,94.98,96.95,92.09,0.0,5.02,3.05,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,94.98,96.95,92.09,0.0,5.02,3.05,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,92.11,99.6,91.74,0.0,7.89,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,92.11,99.6,91.74,0.0,7.89,0.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,94.36,99.11,93.52,0.0,5.64,0.89,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,92.89,98.88,91.85,0.0,7.11,1.12,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,94.49,99.12,93.65,0.0,5.51,0.88,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,94.36,99.11,93.52,0.0,5.64,0.89,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,94.49,99.12,93.65,0.0,5.51,0.88,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,92.89,98.88,91.85,0.0,7.11,1.12,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,95.6,98.81,94.47,0.0,4.4,1.19,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,93.81,98.25,92.17,0.0,6.19,1.75,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,95.07,98.64,93.78,0.0,4.93,1.36,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,95.6,98.81,94.47,0.0,4.4,1.19,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_14,100.0,92.04,97.75,89.96,0.0,7.96,2.25,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,93.81,98.25,92.17,0.0,6.19,1.75,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,95.07,98.64,93.78,0.0,4.93,1.36,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,91.99,97.76,89.92,0.0,8.01,2.24,Performance,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,93.81,98.25,92.17,0.0,6.19,1.75,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,93.81,98.25,92.17,0.0,6.19,1.75,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,91.99,97.76,89.92,0.0,8.01,2.24,Performance,No Fault / Normal Operation,0
+Press_Line_17,100.0,95.6,98.81,94.47,0.0,4.4,1.19,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,95.6,98.81,94.47,0.0,4.4,1.19,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_14,100.0,92.04,97.75,89.96,0.0,7.96,2.25,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.92,97.94,92.96,0.0,5.08,2.06,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,94.98,97.99,93.06,0.0,5.02,2.01,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,93.02,97.02,90.25,0.0,6.98,2.98,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,93.38,97.19,90.75,0.0,6.62,2.81,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,93.38,97.19,90.75,0.0,6.62,2.81,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,95.31,98.13,93.53,0.0,4.69,1.87,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,93.02,97.02,90.25,0.0,6.98,2.98,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.92,97.94,92.96,0.0,5.08,2.06,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.92,97.94,92.96,0.0,5.08,2.06,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,95.31,98.13,93.53,0.0,4.69,1.87,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.92,97.94,92.96,0.0,5.08,2.06,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,94.98,97.99,93.06,0.0,5.02,2.01,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,95.75,97.65,93.5,0.0,4.25,2.35,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,95.25,97.42,92.79,0.0,4.75,2.58,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,95.25,97.42,92.79,0.0,4.75,2.58,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,95.75,97.65,93.5,0.0,4.25,2.35,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,95.82,97.08,93.02,0.0,4.18,2.92,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,95.82,97.08,93.02,0.0,4.18,2.92,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,98.96,98.79,92.83,90.75,1.04,1.21,7.17,No Significant Loss,Calibration / Instrumentation Fault,5-30
+Press_Line_4,100.0,95.38,99.52,94.92,0.0,4.62,0.48,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,95.38,99.52,94.92,0.0,4.62,0.48,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,92.23,99.14,91.44,0.0,7.77,0.86,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,92.23,99.14,91.44,0.0,7.77,0.86,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,94.59,98.78,93.44,0.0,5.41,1.22,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,94.59,98.78,93.44,0.0,5.41,1.22,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.92,98.41,91.45,0.0,7.08,1.59,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.92,98.41,91.45,0.0,7.08,1.59,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,92.4,97.32,89.92,0.0,7.6,2.68,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,95.31,98.4,93.79,0.0,4.69,1.6,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,92.89,97.51,90.57,0.0,7.11,2.49,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,92.4,97.32,89.92,0.0,7.6,2.68,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,92.89,97.51,90.57,0.0,7.11,2.49,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,95.31,98.4,93.79,0.0,4.69,1.6,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,95.51,97.78,93.4,0.0,4.49,2.22,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,94.98,97.56,92.67,0.0,5.02,2.44,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,95.51,97.78,93.4,0.0,4.49,2.22,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,96.37,98.25,94.69,0.0,3.63,1.75,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,96.37,98.25,94.69,0.0,3.63,1.75,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,94.98,97.56,92.67,0.0,5.02,2.44,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.56,99.6,92.19,0.0,7.44,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,92.89,99.63,92.55,0.0,7.11,0.37,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,93.65,99.66,93.32,0.0,6.35,0.34,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,94.49,99.71,94.21,0.0,5.51,0.29,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,92.56,99.6,92.19,0.0,7.44,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,93.65,99.66,93.32,0.0,6.35,0.34,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,94.49,99.71,94.21,0.0,5.51,0.29,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,92.89,99.63,92.55,0.0,7.11,0.37,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,92.76,98.78,91.63,0.0,7.24,1.22,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,96.04,99.35,95.42,0.0,3.96,0.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,96.04,99.35,95.42,0.0,3.96,0.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,94.63,99.1,93.78,0.0,5.37,0.9,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,92.62,98.72,91.44,0.0,7.38,1.28,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,94.63,99.1,93.78,0.0,5.37,0.9,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,92.62,98.72,91.44,0.0,7.38,1.28,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,92.76,98.78,91.63,0.0,7.24,1.22,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,95.04,98.54,93.65,0.0,4.96,1.46,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.8,97.84,90.8,0.0,7.2,2.16,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.8,97.84,90.8,0.0,7.2,2.16,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,95.04,98.54,93.65,0.0,4.96,1.46,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_5,100.0,95.41,98.03,93.52,0.0,4.59,1.97,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_5,100.0,95.41,98.03,93.52,0.0,4.59,1.97,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,94.99,99.44,94.46,0.0,5.01,0.56,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,94.99,99.44,94.46,0.0,5.01,0.56,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,94.14,98.6,92.82,0.0,5.86,1.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,93.14,98.38,91.63,0.0,6.86,1.62,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.8,98.28,91.2,0.0,7.2,1.72,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,96.16,99.12,95.32,0.0,3.84,0.88,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,93.14,98.38,91.63,0.0,6.86,1.62,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,96.16,99.12,95.32,0.0,3.84,0.88,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,94.98,98.85,93.88,0.0,5.02,1.15,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,94.14,98.6,92.82,0.0,5.86,1.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,94.98,98.85,93.88,0.0,5.02,1.15,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.8,98.28,91.2,0.0,7.2,1.72,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,95.16,98.19,93.44,0.0,4.84,1.81,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,95.16,98.19,93.44,0.0,4.84,1.81,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,96.58,98.26,94.9,0.0,3.42,1.74,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,95.82,97.88,93.79,0.0,4.18,2.12,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,96.58,98.26,94.9,0.0,3.42,1.74,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,95.82,97.88,93.79,0.0,4.18,2.12,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,96.74,97.18,94.01,0.0,3.26,2.82,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,96.74,97.18,94.01,0.0,3.26,2.82,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,92.86,99.6,92.48,0.0,7.14,0.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,93.92,99.65,93.6,0.0,6.08,0.35,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,93.92,99.65,93.6,0.0,6.08,0.35,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,92.86,99.6,92.48,0.0,7.14,0.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,94.05,99.66,93.73,0.0,5.95,0.34,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,94.05,99.66,93.73,0.0,5.95,0.34,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.4,99.57,92.0,0.0,7.6,0.43,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,92.4,99.57,92.0,0.0,7.6,0.43,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,93.92,99.65,93.6,0.0,6.08,0.35,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,93.92,99.65,93.6,0.0,6.08,0.35,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,93.29,98.81,92.19,0.0,6.71,1.19,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,93.29,98.81,92.19,0.0,6.71,1.19,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,93.82,98.02,91.97,0.0,6.18,1.98,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,95.57,98.67,94.3,0.0,4.43,1.33,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,92.81,97.78,90.75,0.0,7.19,2.22,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,93.82,98.02,91.97,0.0,6.18,1.98,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,95.57,98.67,94.3,0.0,4.43,1.33,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,92.81,97.78,90.75,0.0,7.19,2.22,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,95.79,98.73,94.58,0.0,4.21,1.27,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,95.47,98.6,94.13,0.0,4.53,1.4,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,95.79,98.73,94.58,0.0,4.21,1.27,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,95.47,98.6,94.13,0.0,4.53,1.4,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,96.66,97.37,94.12,0.0,3.34,2.63,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,96.74,97.42,94.24,0.0,3.26,2.58,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,96.66,97.37,94.12,0.0,3.34,2.63,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,96.74,97.42,94.24,0.0,3.26,2.58,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.92,99.41,94.36,0.0,5.08,0.59,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,94.92,99.4,94.35,0.0,5.08,0.6,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,93.45,99.21,92.71,0.0,6.55,0.79,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,94.92,99.4,94.35,0.0,5.08,0.6,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,94.29,99.32,93.65,0.0,5.71,0.68,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,93.45,99.21,92.71,0.0,6.55,0.79,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,92.71,99.14,91.92,0.0,7.29,0.86,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,92.71,99.14,91.92,0.0,7.29,0.86,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,94.29,99.32,93.65,0.0,5.71,0.68,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,94.92,99.41,94.36,0.0,5.08,0.59,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,95.32,98.84,94.21,0.0,4.68,1.16,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,95.32,98.84,94.21,0.0,4.68,1.16,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,94.98,98.78,93.82,0.0,5.02,1.22,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,94.98,98.78,93.82,0.0,5.02,1.22,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_14,100.0,93.28,97.33,90.79,0.0,6.72,2.67,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_14,100.0,93.28,97.33,90.79,0.0,6.72,2.67,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,95.52,98.29,93.88,0.0,4.48,1.71,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,95.52,98.29,93.88,0.0,4.48,1.71,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,94.29,97.79,92.2,0.0,5.71,2.21,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,94.29,97.79,92.2,0.0,5.71,2.21,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,96.27,97.23,93.6,0.0,3.73,2.77,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,96.27,97.23,93.6,0.0,3.73,2.77,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,93.38,99.6,93.0,0.0,6.62,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,92.4,99.55,91.99,0.0,7.6,0.45,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,92.89,99.59,92.5,0.0,7.11,0.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,93.38,99.6,93.0,0.0,6.62,0.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,94.38,99.67,94.06,0.0,5.62,0.33,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,92.4,99.55,91.99,0.0,7.6,0.45,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,92.89,99.59,92.5,0.0,7.11,0.41,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,94.38,99.67,94.06,0.0,5.62,0.33,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,95.58,99.19,94.81,0.0,4.42,0.81,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,95.47,99.16,94.67,0.0,4.53,0.84,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,95.58,99.19,94.81,0.0,4.42,0.81,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,93.2,98.71,92.0,0.0,6.8,1.29,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,95.41,99.15,94.6,0.0,4.59,0.85,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,95.43,99.14,94.6,0.0,4.57,0.86,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,95.41,99.15,94.6,0.0,4.59,0.85,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,95.47,99.16,94.67,0.0,4.53,0.84,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,95.43,99.14,94.6,0.0,4.57,0.86,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,93.2,98.71,92.0,0.0,6.8,1.29,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,93.69,97.85,91.68,0.0,6.31,2.15,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,95.0,98.33,93.42,0.0,5.0,1.67,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,93.51,97.87,91.52,0.0,6.49,2.13,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,96.58,98.91,95.53,0.0,3.42,1.09,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,93.69,97.85,91.68,0.0,6.31,2.15,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,96.58,98.91,95.53,0.0,3.42,1.09,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,93.51,97.87,91.52,0.0,6.49,2.13,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,95.0,98.33,93.42,0.0,5.0,1.67,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,95.74,97.9,93.72,0.0,4.26,2.1,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,95.74,97.9,93.72,0.0,4.26,2.1,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,96.1,98.12,94.29,0.0,3.9,1.88,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,96.1,98.12,94.29,0.0,3.9,1.88,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,96.15,97.41,93.65,0.0,3.85,2.59,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,96.15,97.41,93.65,0.0,3.85,2.59,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,95.16,99.4,94.59,0.0,4.84,0.6,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,95.16,99.4,94.59,0.0,4.84,0.6,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,95.73,98.89,94.67,0.0,4.27,1.11,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,95.27,98.78,94.11,0.0,4.73,1.22,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,95.27,98.78,94.11,0.0,4.73,1.22,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,95.73,98.89,94.67,0.0,4.27,1.11,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,95.48,98.81,94.35,0.0,4.52,1.19,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,95.48,98.81,94.35,0.0,4.52,1.19,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,94.63,97.79,92.55,0.0,5.37,2.21,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,94.63,97.79,92.55,0.0,5.37,2.21,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,93.91,97.46,91.52,0.0,6.09,2.54,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,95.26,97.97,93.32,0.0,4.74,2.03,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,95.26,97.97,93.32,0.0,4.74,2.03,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,93.91,97.46,91.52,0.0,6.09,2.54,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,96.07,97.73,93.88,0.0,3.93,2.27,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,96.07,97.73,93.88,0.0,3.93,2.27,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,95.41,99.72,95.14,0.0,4.59,0.28,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,95.41,99.72,95.14,0.0,4.59,0.28,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,94.12,98.8,93.0,0.0,5.88,1.2,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,94.9,98.97,93.92,0.0,5.1,1.03,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,94.9,98.97,93.92,0.0,5.1,1.03,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,94.12,98.8,93.0,0.0,5.88,1.2,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,95.26,98.31,93.65,0.0,4.74,1.69,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,96.08,98.63,94.76,0.0,3.92,1.37,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,96.0,98.61,94.67,0.0,4.0,1.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,94.16,97.94,92.22,0.0,5.84,2.06,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,95.26,98.31,93.65,0.0,4.74,1.69,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,96.08,98.63,94.76,0.0,3.92,1.37,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,94.16,97.94,92.22,0.0,5.84,2.06,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,96.0,98.61,94.67,0.0,4.0,1.39,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,96.02,97.9,94.01,0.0,3.98,2.1,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,96.02,97.9,94.01,0.0,3.98,2.1,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,95.91,96.97,93.0,0.0,4.09,3.03,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,95.91,96.97,93.0,0.0,4.09,3.03,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,97.5,97.65,95.21,0.0,2.5,2.35,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,97.5,97.65,95.21,0.0,2.5,2.35,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,97.19,97.43,94.69,0.0,2.81,2.57,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,97.19,97.43,94.69,0.0,2.81,2.57,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,93.66,99.18,92.89,0.0,6.34,0.82,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,93.66,99.18,92.89,0.0,6.34,0.82,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,94.31,97.47,91.92,0.0,5.69,2.53,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,97.0,98.7,95.74,0.0,3.0,1.3,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,94.93,97.66,92.71,0.0,5.07,2.34,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,97.0,98.7,95.74,0.0,3.0,1.3,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,94.93,97.66,92.71,0.0,5.07,2.34,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,94.31,97.47,91.92,0.0,5.69,2.53,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,95.33,97.08,92.55,0.0,4.67,2.92,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,95.33,97.08,92.55,0.0,4.67,2.92,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,96.69,97.2,93.98,0.0,3.31,2.8,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,96.69,97.2,93.98,0.0,3.31,2.8,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,95.59,99.71,95.32,0.0,4.41,0.29,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,95.59,99.71,95.32,0.0,4.41,0.29,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,94.12,99.6,93.75,0.0,5.88,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,94.12,99.6,93.75,0.0,5.88,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,94.7,97.06,91.92,0.0,5.3,2.94,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,94.7,97.06,91.92,0.0,5.3,2.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,97.12,97.86,95.04,0.0,2.88,2.14,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,97.12,97.86,95.04,0.0,2.88,2.14,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,97.1,97.0,94.19,0.0,2.9,3.0,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,97.13,97.07,94.29,0.0,2.87,2.93,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,97.1,97.0,94.19,0.0,2.9,3.0,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,97.13,97.07,94.29,0.0,2.87,2.93,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,97.92,97.23,95.21,0.0,2.08,2.77,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,97.92,97.23,95.21,0.0,2.08,2.77,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,94.0,99.15,93.2,0.0,6.0,0.85,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,94.0,99.15,93.2,0.0,6.0,0.85,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,94.88,98.42,93.38,0.0,5.12,1.58,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,94.88,98.42,93.38,0.0,5.12,1.58,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,96.31,98.26,94.64,0.0,3.69,1.74,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,95.41,97.79,93.3,0.0,4.59,2.21,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,95.41,97.79,93.3,0.0,4.59,2.21,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,96.52,98.29,94.88,0.0,3.48,1.71,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,95.0,97.5,92.62,0.0,5.0,2.5,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,96.96,98.59,95.6,0.0,3.04,1.41,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,96.31,98.26,94.64,0.0,3.69,1.74,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,96.52,98.29,94.88,0.0,3.48,1.71,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,96.96,98.59,95.6,0.0,3.04,1.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,95.0,97.5,92.62,0.0,5.0,2.5,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,96.87,97.12,94.08,0.0,3.13,2.88,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,96.87,97.12,94.08,0.0,3.13,2.88,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,97.59,97.16,94.81,0.0,2.41,2.84,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,97.59,97.16,94.81,0.0,2.41,2.84,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,94.5,99.6,94.12,0.0,5.5,0.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,96.07,99.74,95.82,0.0,3.93,0.26,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,94.5,99.6,94.12,0.0,5.5,0.4,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,96.07,99.74,95.82,0.0,3.93,0.26,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,96.07,99.74,95.82,0.0,3.93,0.26,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,96.07,99.74,95.82,0.0,3.93,0.26,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,96.53,98.62,95.2,0.0,3.47,1.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,95.0,97.92,93.02,0.0,5.0,2.08,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,96.14,98.49,94.69,0.0,3.86,1.51,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,95.0,97.92,93.02,0.0,5.0,2.08,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,96.14,98.49,94.69,0.0,3.86,1.51,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,96.53,98.62,95.2,0.0,3.47,1.38,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,96.7,97.99,94.76,0.0,3.3,2.01,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,97.0,98.2,95.25,0.0,3.0,1.8,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,95.68,97.45,93.24,0.0,4.32,2.55,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,95.68,97.45,93.24,0.0,4.32,2.55,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,96.7,97.99,94.76,0.0,3.3,2.01,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,97.0,98.2,95.25,0.0,3.0,1.8,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,96.88,98.13,95.07,0.0,3.12,1.87,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,96.88,98.13,95.07,0.0,3.12,1.87,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,97.08,97.45,94.6,0.0,2.92,2.55,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,97.13,97.61,94.81,0.0,2.87,2.39,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,97.13,97.61,94.81,0.0,2.87,2.39,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,97.08,97.45,94.6,0.0,2.92,2.55,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_8,100.0,98.06,97.16,95.28,0.0,1.94,2.84,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_8,100.0,98.06,97.16,95.28,0.0,1.94,2.84,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,96.33,99.47,95.82,0.0,3.67,0.53,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,94.77,99.22,94.03,0.0,5.23,0.78,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,96.33,99.47,95.82,0.0,3.67,0.53,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,94.77,99.22,94.03,0.0,5.23,0.78,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,96.74,99.53,96.28,0.0,3.26,0.47,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,96.74,99.53,96.28,0.0,3.26,0.47,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,97.21,99.13,96.37,0.0,2.79,0.87,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,97.21,99.13,96.37,0.0,2.79,0.87,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,95.3,98.44,93.82,0.0,4.7,1.56,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,95.3,98.44,93.82,0.0,4.7,1.56,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,95.1,97.49,92.71,0.0,4.9,2.51,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,95.1,97.49,92.71,0.0,4.9,2.51,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,95.68,97.67,93.45,0.0,4.32,2.33,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,95.68,97.67,93.45,0.0,4.32,2.33,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,97.35,97.18,94.6,0.0,2.65,2.82,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,97.35,97.18,94.6,0.0,2.65,2.82,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,94.65,99.6,94.27,0.0,5.35,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,94.4,99.58,94.0,0.0,5.6,0.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,95.58,99.66,95.26,0.0,4.42,0.34,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,96.25,99.71,95.98,0.0,3.75,0.29,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,94.4,99.58,94.0,0.0,5.6,0.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,94.65,99.6,94.27,0.0,5.35,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,95.58,99.66,95.26,0.0,4.42,0.34,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,96.25,99.71,95.98,0.0,3.75,0.29,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,95.91,98.99,94.94,0.0,4.09,1.01,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,96.33,99.12,95.48,0.0,3.67,0.88,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,95.91,98.99,94.94,0.0,4.09,1.01,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,96.33,99.12,95.48,0.0,3.67,0.88,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,96.12,98.29,94.47,0.0,3.88,1.71,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,96.43,98.5,94.98,0.0,3.57,1.5,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,96.43,98.5,94.98,0.0,3.57,1.5,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,96.12,98.29,94.47,0.0,3.88,1.71,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,96.9,97.95,94.92,0.0,3.1,2.05,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,97.14,98.12,95.31,0.0,2.86,1.88,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,97.14,98.12,95.31,0.0,2.86,1.88,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,96.9,97.95,94.92,0.0,3.1,2.05,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,97.84,98.06,95.95,0.0,2.16,1.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,97.84,98.06,95.95,0.0,2.16,1.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,97.84,98.06,95.95,0.0,2.16,1.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,97.65,97.93,95.62,0.0,2.35,2.07,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,97.65,97.93,95.62,0.0,2.35,2.07,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,97.84,98.06,95.95,0.0,2.16,1.94,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,96.52,99.43,95.98,0.0,3.48,0.57,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_6,100.0,96.52,99.43,95.98,0.0,3.48,0.57,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,95.47,98.44,93.98,0.0,4.53,1.56,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,95.1,98.33,93.51,0.0,4.9,1.67,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,95.1,98.33,93.51,0.0,4.9,1.67,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,95.47,98.44,93.98,0.0,4.53,1.56,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,96.45,97.95,94.47,0.0,3.55,2.05,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,96.89,98.22,95.16,0.0,3.11,1.78,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,96.45,97.95,94.47,0.0,3.55,2.05,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,96.89,98.22,95.16,0.0,3.11,1.78,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,96.9,97.39,94.37,0.0,3.1,2.61,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,96.9,97.39,94.37,0.0,3.1,2.61,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,97.63,97.29,94.99,0.0,2.37,2.71,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,97.43,97.2,94.7,0.0,2.57,2.8,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,97.63,97.29,94.99,0.0,2.37,2.71,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,97.43,97.2,94.7,0.0,2.57,2.8,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,98.1,97.22,95.38,0.0,1.9,2.78,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,98.1,97.22,95.38,0.0,1.9,2.78,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,98.26,97.43,95.74,0.0,1.74,2.57,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,98.26,97.43,95.74,0.0,1.74,2.57,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,94.89,99.58,94.49,0.0,5.11,0.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,94.89,99.58,94.49,0.0,5.11,0.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,95.91,99.66,95.58,0.0,4.09,0.34,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,94.46,99.56,94.05,0.0,5.54,0.44,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,95.91,99.66,95.58,0.0,4.09,0.34,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,94.46,99.56,94.05,0.0,5.54,0.44,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,95.0,99.58,94.6,0.0,5.0,0.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,95.0,99.58,94.6,0.0,5.0,0.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,96.75,99.17,95.94,0.0,3.25,0.83,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,96.75,99.17,95.94,0.0,3.25,0.83,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,97.35,98.17,95.57,0.0,2.65,1.83,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,97.16,98.03,95.25,0.0,2.84,1.97,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,97.65,98.39,96.08,0.0,2.35,1.61,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,97.16,98.03,95.25,0.0,2.84,1.97,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,97.92,98.51,96.46,0.0,2.08,1.49,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,97.65,98.39,96.08,0.0,2.35,1.61,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,97.92,98.51,96.46,0.0,2.08,1.49,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,97.35,98.17,95.57,0.0,2.65,1.83,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,98.12,98.09,96.25,0.0,1.88,1.91,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,98.12,98.09,96.25,0.0,1.88,1.91,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,97.91,97.05,95.02,0.0,2.09,2.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,98.05,97.41,95.51,0.0,1.95,2.59,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,98.05,97.41,95.51,0.0,1.95,2.59,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,97.91,97.05,95.02,0.0,2.09,2.95,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,98.48,97.22,95.74,0.0,1.52,2.78,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,98.48,97.22,95.74,0.0,1.52,2.78,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,97.01,99.5,96.52,0.0,2.99,0.5,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,96.84,99.48,96.33,0.0,3.16,0.52,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,96.27,99.34,95.63,0.0,3.73,0.66,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,96.84,99.48,96.33,0.0,3.16,0.52,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,97.01,99.5,96.52,0.0,2.99,0.5,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,96.27,99.34,95.63,0.0,3.73,0.66,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,97.12,98.92,96.08,0.0,2.88,1.08,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,95.78,98.43,94.27,0.0,4.22,1.57,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,95.78,98.43,94.27,0.0,4.22,1.57,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,97.14,98.93,96.09,0.0,2.86,1.07,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,97.12,98.92,96.08,0.0,2.88,1.08,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,97.14,98.93,96.09,0.0,2.86,1.07,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,96.38,97.67,94.12,0.0,3.62,2.33,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,97.33,98.36,95.73,0.0,2.67,1.64,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,97.33,98.36,95.73,0.0,2.67,1.64,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,96.38,97.67,94.12,0.0,3.62,2.33,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,97.87,98.14,96.06,0.0,2.13,1.86,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,97.87,98.14,96.06,0.0,2.13,1.86,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,96.72,97.12,93.94,0.0,3.28,2.88,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,96.72,97.12,93.94,0.0,3.28,2.88,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,95.47,99.61,95.09,0.0,4.53,0.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,95.62,99.61,95.25,0.0,4.38,0.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,95.68,99.64,95.33,0.0,4.32,0.36,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,95.62,99.61,95.25,0.0,4.38,0.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,95.4,99.6,95.02,0.0,4.6,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,95.4,99.6,95.02,0.0,4.6,0.4,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,95.47,99.61,95.09,0.0,4.53,0.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,95.68,99.64,95.33,0.0,4.32,0.36,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,96.55,99.0,95.58,0.0,3.45,1.0,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,96.55,99.0,95.58,0.0,3.45,1.0,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,95.71,98.79,94.55,0.0,4.29,1.21,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,95.71,98.79,94.55,0.0,4.29,1.21,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,97.26,98.58,95.87,0.0,2.74,1.42,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,96.1,97.98,94.16,0.0,3.9,2.02,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,96.1,97.98,94.16,0.0,3.9,2.02,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,97.01,98.51,95.56,0.0,2.99,1.49,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,97.01,98.51,95.56,0.0,2.99,1.49,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_13,100.0,97.26,98.58,95.87,0.0,2.74,1.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,97.43,98.04,95.52,0.0,2.57,1.96,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_3,100.0,97.43,98.04,95.52,0.0,2.57,1.96,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,97.5,98.06,95.6,0.0,2.5,1.94,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,97.5,98.06,95.6,0.0,2.5,1.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,98.05,97.88,95.97,0.0,1.95,2.12,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,97.71,97.43,95.2,0.0,2.29,2.57,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,97.71,97.43,95.2,0.0,2.29,2.57,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,98.05,97.88,95.97,0.0,1.95,2.12,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,98.48,97.65,96.16,0.0,1.52,2.35,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,98.48,97.65,96.16,0.0,1.52,2.35,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,96.56,99.35,95.94,0.0,3.44,0.65,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,96.56,99.35,95.94,0.0,3.44,0.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,97.25,99.49,96.75,0.0,2.75,0.51,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,97.25,99.49,96.75,0.0,2.75,0.51,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_5,100.0,97.56,98.35,95.94,0.0,2.44,1.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_5,100.0,97.56,98.35,95.94,0.0,2.44,1.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,98.26,98.29,96.58,0.0,1.74,1.71,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,98.26,98.29,96.58,0.0,1.74,1.71,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,95.29,99.57,94.88,0.0,4.71,0.43,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,95.29,99.57,94.88,0.0,4.71,0.43,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,96.5,97.92,94.49,0.0,3.5,2.08,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,96.5,97.92,94.49,0.0,3.5,2.08,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,97.52,97.68,95.26,0.0,2.48,2.32,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,97.52,97.68,95.26,0.0,2.48,2.32,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,97.88,97.34,95.27,0.0,2.12,2.66,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,97.88,97.34,95.27,0.0,2.12,2.66,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,96.85,99.33,96.2,0.0,3.15,0.67,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,96.88,99.33,96.23,0.0,3.12,0.67,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,96.85,99.33,96.2,0.0,3.15,0.67,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,96.88,99.33,96.23,0.0,3.12,0.67,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,97.62,98.87,96.52,0.0,2.38,1.13,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,97.2,98.67,95.91,0.0,2.8,1.33,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,97.75,98.98,96.75,0.0,2.25,1.02,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,97.62,98.87,96.52,0.0,2.38,1.13,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,97.1,98.64,95.79,0.0,2.9,1.36,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,97.1,98.64,95.79,0.0,2.9,1.36,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,97.2,98.67,95.91,0.0,2.8,1.33,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,97.75,98.98,96.75,0.0,2.25,1.02,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,97.85,97.41,95.32,0.0,2.15,2.59,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,98.11,97.93,96.08,0.0,1.89,2.07,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,97.85,97.41,95.32,0.0,2.15,2.59,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,98.11,97.93,96.08,0.0,1.89,2.07,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,98.44,97.33,95.81,0.0,1.56,2.67,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,98.44,97.33,95.81,0.0,1.56,2.67,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,97.39,99.73,97.13,0.0,2.61,0.27,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,97.39,99.73,97.13,0.0,2.61,0.27,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,97.17,99.7,96.89,0.0,2.83,0.3,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,97.17,99.7,96.89,0.0,2.83,0.3,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,96.53,98.83,95.4,0.0,3.47,1.17,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,96.53,98.83,95.4,0.0,3.47,1.17,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,96.72,98.92,95.68,0.0,3.28,1.08,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,96.72,98.92,95.68,0.0,3.28,1.08,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,97.07,98.21,95.33,0.0,2.93,1.79,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,97.07,98.21,95.33,0.0,2.93,1.79,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,97.52,98.34,95.91,0.0,2.48,1.66,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,97.52,98.34,95.91,0.0,2.48,1.66,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,98.1,98.84,96.96,0.0,1.9,1.16,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_17,100.0,98.1,98.84,96.96,0.0,1.9,1.16,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,98.09,98.08,96.21,0.0,1.91,1.92,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,97.38,97.15,94.6,0.0,2.62,2.85,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,98.09,98.08,96.21,0.0,1.91,1.92,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,97.99,98.01,96.03,0.0,2.01,1.99,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,98.03,97.98,96.05,0.0,1.97,2.02,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,97.38,97.15,94.6,0.0,2.62,2.85,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,98.23,98.26,96.52,0.0,1.77,1.74,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,97.42,97.5,94.98,0.0,2.58,2.5,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,97.99,98.01,96.03,0.0,2.01,1.99,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,98.23,98.26,96.52,0.0,1.77,1.74,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,97.42,97.5,94.98,0.0,2.58,2.5,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,98.03,97.98,96.05,0.0,1.97,2.02,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,98.72,96.94,95.7,0.0,1.28,3.06,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,98.72,96.94,95.7,0.0,1.28,3.06,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,97.6,99.45,97.07,0.0,2.4,0.55,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,96.72,99.28,96.02,0.0,3.28,0.72,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,97.6,99.45,97.07,0.0,2.4,0.55,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,96.72,99.28,96.02,0.0,3.28,0.72,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,98.1,99.07,97.19,0.0,1.9,0.93,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,97.71,98.86,96.59,0.0,2.29,1.14,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,97.71,98.86,96.59,0.0,2.29,1.14,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,98.1,99.07,97.19,0.0,1.9,0.93,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,97.75,98.84,96.62,0.0,2.25,1.16,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,97.75,98.84,96.62,0.0,2.25,1.16,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,97.82,98.9,96.75,0.0,2.18,1.1,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,97.82,98.9,96.75,0.0,2.18,1.1,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,98.03,98.27,96.33,0.0,1.97,1.73,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,97.85,98.06,95.95,0.0,2.15,1.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,98.03,98.27,96.33,0.0,1.97,1.73,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,97.26,97.61,94.94,0.0,2.74,2.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,97.35,97.73,95.14,0.0,2.65,2.27,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_15,100.0,97.85,98.06,95.95,0.0,2.15,1.94,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,97.3,97.52,94.89,0.0,2.7,2.48,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,97.35,97.73,95.14,0.0,2.65,2.27,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,97.3,97.52,94.89,0.0,2.7,2.48,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,97.26,97.61,94.94,0.0,2.74,2.39,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,98.45,97.77,96.25,0.0,1.55,2.23,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,98.45,97.77,96.25,0.0,1.55,2.23,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,98.67,97.3,96.0,0.0,1.33,2.7,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,98.67,97.3,96.0,0.0,1.33,2.7,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,99.11,97.45,96.58,0.0,0.89,2.55,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_10,100.0,99.11,97.45,96.58,0.0,0.89,2.55,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,96.4,99.59,96.0,0.0,3.6,0.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,96.4,99.59,96.0,0.0,3.6,0.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,96.75,99.61,96.38,0.0,3.25,0.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,96.75,99.61,96.38,0.0,3.25,0.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,97.07,98.92,96.02,0.0,2.93,1.08,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,96.52,98.72,95.29,0.0,3.48,1.28,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_5,100.0,96.52,98.72,95.29,0.0,3.48,1.28,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,97.07,98.92,96.02,0.0,2.93,1.08,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,96.8,98.76,95.6,0.0,3.2,1.24,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,96.8,98.76,95.6,0.0,3.2,1.24,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,97.42,98.21,95.68,0.0,2.58,1.79,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,97.2,97.94,95.2,0.0,2.8,2.06,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,97.42,98.21,95.68,0.0,2.58,1.79,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,97.2,97.94,95.2,0.0,2.8,2.06,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,97.76,97.51,95.33,0.0,2.24,2.49,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,98.09,97.65,95.79,0.0,1.91,2.35,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,97.66,97.3,95.02,0.0,2.34,2.7,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,97.76,97.51,95.33,0.0,2.24,2.49,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,98.17,97.7,95.91,0.0,1.83,2.3,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,98.32,97.95,96.31,0.0,1.68,2.05,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,98.09,97.65,95.79,0.0,1.91,2.35,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_10,100.0,98.32,97.95,96.31,0.0,1.68,2.05,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,97.66,97.3,95.02,0.0,2.34,2.7,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,98.17,97.7,95.91,0.0,1.83,2.3,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,98.55,97.45,96.03,0.0,1.45,2.55,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_8,100.0,98.55,97.45,96.03,0.0,1.45,2.55,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,97.77,99.45,97.23,0.0,2.23,0.55,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,96.8,99.17,96.0,0.0,3.2,0.83,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,97.5,99.36,96.88,0.0,2.5,0.64,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,96.98,99.18,96.19,0.0,3.02,0.82,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,97.5,99.36,96.88,0.0,2.5,0.64,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,98.05,99.53,97.59,0.0,1.95,0.47,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,96.8,99.17,96.0,0.0,3.2,0.83,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,96.98,99.18,96.19,0.0,3.02,0.82,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,97.77,99.45,97.23,0.0,2.23,0.55,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,98.05,99.53,97.59,0.0,1.95,0.47,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,98.48,99.15,97.63,0.0,1.52,0.85,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,98.11,98.96,97.09,0.0,1.89,1.04,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,98.48,99.15,97.63,0.0,1.52,0.85,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,98.11,98.96,97.09,0.0,1.89,1.04,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,97.71,97.53,95.29,0.0,2.29,2.47,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,98.17,98.03,96.23,0.0,1.83,1.97,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_19,100.0,97.71,97.53,95.29,0.0,2.29,2.47,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,98.17,98.03,96.23,0.0,1.83,1.97,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,98.48,97.36,95.88,0.0,1.52,2.64,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,98.48,97.36,95.88,0.0,1.52,2.64,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,98.78,98.16,96.96,0.0,1.22,1.84,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,98.78,98.16,96.96,0.0,1.22,1.84,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,96.96,99.62,96.59,0.0,3.04,0.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,96.96,99.62,96.59,0.0,3.04,0.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,96.96,99.62,96.59,0.0,3.04,0.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,96.96,99.62,96.59,0.0,3.04,0.38,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,97.9,99.73,97.63,0.0,2.1,0.27,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,97.9,99.73,97.63,0.0,2.1,0.27,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,97.81,99.04,96.88,0.0,2.19,0.96,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,98.28,99.29,97.59,0.0,1.72,0.71,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_3,100.0,98.28,99.29,97.59,0.0,1.72,0.71,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,97.81,99.04,96.88,0.0,2.19,0.96,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,98.48,97.69,96.2,0.0,1.52,2.31,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,98.48,97.69,96.2,0.0,1.52,2.31,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,98.96,98.53,97.5,0.0,1.04,1.47,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,98.96,98.53,97.5,0.0,1.04,1.47,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,99.0,97.95,96.98,0.0,1.0,2.05,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,99.0,97.95,96.98,0.0,1.0,2.05,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,99.46,97.03,96.51,0.0,0.54,2.97,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_11,100.0,99.46,97.03,96.51,0.0,0.54,2.97,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,98.18,99.47,97.65,0.0,1.82,0.53,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,97.38,99.19,96.58,0.0,2.62,0.81,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,97.35,99.24,96.61,0.0,2.65,0.76,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,97.53,99.28,96.82,0.0,2.47,0.72,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,97.38,99.19,96.58,0.0,2.62,0.81,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,97.53,99.28,96.82,0.0,2.47,0.72,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,98.18,99.47,97.65,0.0,1.82,0.53,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_13,100.0,97.35,99.24,96.61,0.0,2.65,0.76,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,97.9,98.48,96.42,0.0,2.1,1.52,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,97.7,98.47,96.21,0.0,2.3,1.53,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,97.7,98.47,96.21,0.0,2.3,1.53,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,97.88,98.56,96.47,0.0,2.12,1.44,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,97.88,98.56,96.47,0.0,2.12,1.44,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,97.9,98.48,96.42,0.0,2.1,1.52,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,98.44,98.1,96.56,0.0,1.56,1.9,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,98.68,98.43,97.13,0.0,1.32,1.57,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_5,100.0,98.68,98.43,97.13,0.0,1.32,1.57,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,98.44,98.1,96.56,0.0,1.56,1.9,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,98.94,97.91,96.88,0.0,1.06,2.09,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_18,100.0,98.94,97.91,96.88,0.0,1.06,2.09,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,98.46,97.17,95.68,0.0,1.54,2.83,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,98.46,97.17,95.68,0.0,1.54,2.83,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,98.82,97.74,96.59,0.0,1.18,2.26,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,98.82,97.74,96.59,0.0,1.18,2.26,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,97.38,99.59,96.98,0.0,2.62,0.41,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,97.85,99.68,97.53,0.0,2.15,0.32,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,97.29,99.61,96.91,0.0,2.71,0.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,97.38,99.59,96.98,0.0,2.62,0.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,97.5,99.62,97.12,0.0,2.5,0.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,97.5,99.62,97.12,0.0,2.5,0.38,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,97.85,99.68,97.53,0.0,2.15,0.32,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_18,100.0,97.29,99.61,96.91,0.0,2.71,0.39,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,98.36,99.18,97.56,0.0,1.64,0.82,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,98.36,99.18,97.56,0.0,1.64,0.82,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_5,100.0,98.63,98.64,97.29,0.0,1.37,1.36,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_5,100.0,98.63,98.64,97.29,0.0,1.37,1.36,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,98.81,97.71,96.55,0.0,1.19,2.29,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_8,100.0,98.81,97.71,96.55,0.0,1.19,2.29,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,98.87,98.2,97.09,0.0,1.13,1.8,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,98.28,97.25,95.58,0.0,1.72,2.75,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,98.28,97.25,95.58,0.0,1.72,2.75,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,98.87,98.2,97.09,0.0,1.13,1.8,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,99.2,97.58,96.8,0.0,0.8,2.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,99.13,97.54,96.69,0.0,0.87,2.46,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,99.2,97.58,96.8,0.0,0.8,2.42,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_12,100.0,99.13,97.54,96.69,0.0,0.87,2.46,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,99.69,97.04,96.74,0.0,0.31,2.96,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,99.69,97.04,96.74,0.0,0.31,2.96,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,98.36,99.48,97.85,0.0,1.64,0.52,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,97.76,99.29,97.07,0.0,2.24,0.71,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,97.76,99.29,97.07,0.0,2.24,0.71,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_16,100.0,98.36,99.48,97.85,0.0,1.64,0.52,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,98.62,98.97,97.6,0.0,1.38,1.03,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,98.62,98.97,97.6,0.0,1.38,1.03,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,97.9,98.43,96.35,0.0,2.1,1.57,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,98.96,99.16,98.12,0.0,1.04,0.84,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,97.9,98.43,96.35,0.0,2.1,1.57,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_20,100.0,98.96,99.16,98.12,0.0,1.04,0.84,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,97.9,98.43,96.35,0.0,2.1,1.57,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,97.9,98.43,96.35,0.0,2.1,1.57,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,98.4,97.56,96.0,0.0,1.6,2.44,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,98.4,97.56,96.0,0.0,1.6,2.44,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,99.68,97.29,96.98,0.0,0.32,2.71,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,99.68,97.29,96.98,0.0,0.32,2.71,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,98.17,98.79,96.98,0.0,1.83,1.21,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,98.48,99.04,97.53,0.0,1.52,0.96,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,98.17,98.79,96.98,0.0,1.83,1.21,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,98.48,99.04,97.53,0.0,1.52,0.96,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,98.96,98.68,97.66,0.0,1.04,1.32,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,98.96,98.68,97.66,0.0,1.04,1.32,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,99.45,97.06,96.52,0.0,0.55,2.94,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,99.45,97.06,96.52,0.0,0.55,2.94,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,99.69,97.31,97.01,0.0,0.31,2.69,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_9,100.0,99.69,97.31,97.01,0.0,0.31,2.69,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,98.04,99.21,97.26,0.0,1.96,0.79,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,98.55,99.43,97.99,0.0,1.45,0.57,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,98.04,99.21,97.26,0.0,1.96,0.79,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,98.55,99.43,97.99,0.0,1.45,0.57,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,98.48,99.36,97.85,0.0,1.52,0.64,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,98.49,99.34,97.84,0.0,1.51,0.66,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,98.49,99.34,97.84,0.0,1.51,0.66,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,98.48,99.36,97.85,0.0,1.52,0.64,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,98.46,98.59,97.07,0.0,1.54,1.41,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,98.46,98.59,97.07,0.0,1.54,1.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,98.81,97.89,96.72,0.0,1.19,2.11,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,99.22,98.64,97.88,0.0,0.78,1.36,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_14,100.0,99.22,98.64,97.88,0.0,0.78,1.36,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,98.81,97.89,96.72,0.0,1.19,2.11,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,98.81,97.89,96.72,0.0,1.19,2.11,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,98.81,97.89,96.72,0.0,1.19,2.11,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,99.06,98.11,97.19,0.0,0.94,1.89,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,99.06,98.11,97.19,0.0,0.94,1.89,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,98.81,97.89,96.72,0.0,1.19,2.11,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,98.81,97.89,96.72,0.0,1.19,2.11,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,99.41,97.35,96.78,0.0,0.59,2.65,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.33,97.67,97.01,0.0,0.67,2.33,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.33,97.67,97.01,0.0,0.67,2.33,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,99.41,97.35,96.78,0.0,0.59,2.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,99.75,97.49,97.25,0.0,0.25,2.51,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,99.75,97.49,97.25,0.0,0.25,2.51,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,97.89,99.59,97.49,0.0,2.11,0.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_17,100.0,97.89,99.59,97.49,0.0,2.11,0.41,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,98.88,99.14,98.03,0.0,1.12,0.86,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_7,100.0,98.88,99.14,98.03,0.0,1.12,0.86,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,99.17,98.64,97.82,0.0,0.83,1.36,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,99.14,98.37,97.52,0.0,0.86,1.63,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,99.14,98.37,97.52,0.0,0.86,1.63,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,98.82,98.11,96.96,0.0,1.18,1.89,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_17,100.0,99.17,98.64,97.82,0.0,0.83,1.36,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,98.82,98.11,96.96,0.0,1.18,1.89,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,99.2,97.27,96.49,0.0,0.8,2.73,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,99.48,98.14,97.63,0.0,0.52,1.86,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,99.48,98.17,97.66,0.0,0.52,1.83,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_12,100.0,99.2,97.27,96.49,0.0,0.8,2.73,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_7,100.0,99.48,98.17,97.66,0.0,0.52,1.83,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,99.38,97.39,96.79,0.0,0.62,2.61,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,99.38,97.39,96.79,0.0,0.62,2.61,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,99.29,97.52,96.82,0.0,0.71,2.48,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,99.29,97.52,96.82,0.0,0.71,2.48,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,99.29,97.52,96.82,0.0,0.71,2.48,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,99.29,97.52,96.82,0.0,0.71,2.48,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,99.48,98.14,97.63,0.0,0.52,1.86,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,99.75,97.63,97.39,0.0,0.25,2.37,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,99.69,97.18,96.87,0.0,0.31,2.82,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,99.69,97.18,96.87,0.0,0.31,2.82,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_15,100.0,99.75,97.63,97.39,0.0,0.25,2.37,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,98.64,99.25,97.9,0.0,1.36,0.75,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_16,100.0,98.64,99.25,97.9,0.0,1.36,0.75,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,98.81,98.59,97.42,0.0,1.19,1.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_14,100.0,98.67,98.32,97.01,0.0,1.33,1.68,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_14,100.0,98.67,98.32,97.01,0.0,1.33,1.68,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_14,100.0,98.81,98.59,97.42,0.0,1.19,1.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,99.35,97.61,96.98,0.0,0.65,2.39,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,99.35,97.61,96.98,0.0,0.65,2.39,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,99.63,97.96,97.6,0.0,0.37,2.04,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,99.63,97.96,97.6,0.0,0.37,2.04,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,99.95,97.89,97.84,0.0,0.05,2.11,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_13,100.0,99.95,97.89,97.84,0.0,0.05,2.11,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,99.01,99.77,98.78,0.0,0.99,0.23,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,98.4,99.59,98.0,0.0,1.6,0.41,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_4,100.0,99.01,99.77,98.78,0.0,0.99,0.23,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,98.4,99.59,98.0,0.0,1.6,0.41,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,99.41,98.34,97.76,0.0,0.59,1.66,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,99.2,97.98,97.2,0.0,0.8,2.02,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.33,98.54,97.88,0.0,0.67,1.46,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_9,100.0,99.2,97.98,97.2,0.0,0.8,2.02,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_4,100.0,99.41,98.34,97.76,0.0,0.59,1.66,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.33,98.54,97.88,0.0,0.67,1.46,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,99.74,98.52,98.26,0.0,0.26,1.48,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,99.74,98.52,98.26,0.0,0.26,1.48,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,99.47,98.93,98.4,0.0,0.53,1.07,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,99.46,98.7,98.17,0.0,0.54,1.3,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_1,100.0,99.46,98.7,98.17,0.0,0.54,1.3,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_19,100.0,99.47,98.93,98.4,0.0,0.53,1.07,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,99.25,99.75,99.0,0.0,0.75,0.25,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,99.0,99.62,98.62,0.0,1.0,0.38,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_12,100.0,99.25,99.75,99.0,0.0,0.75,0.25,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,99.0,99.62,98.62,0.0,1.0,0.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,99.0,99.62,98.62,0.0,1.0,0.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_10,100.0,99.0,99.62,98.62,0.0,1.0,0.38,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,98.81,99.65,98.46,0.0,1.19,0.35,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_3,100.0,98.81,99.65,98.46,0.0,1.19,0.35,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,99.46,99.03,98.49,0.0,0.54,0.97,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,99.46,99.03,98.49,0.0,0.54,0.97,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,99.78,98.37,98.15,0.0,0.22,1.63,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,99.75,98.41,98.17,0.0,0.25,1.59,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,99.62,98.55,98.17,0.0,0.38,1.45,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,99.75,98.67,98.42,0.0,0.25,1.33,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_18,100.0,99.78,98.37,98.15,0.0,0.22,1.63,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_6,100.0,99.75,98.67,98.42,0.0,0.25,1.33,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_20,100.0,99.62,98.55,98.17,0.0,0.38,1.45,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,99.66,98.6,98.27,0.0,0.34,1.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_9,100.0,99.75,98.41,98.17,0.0,0.25,1.59,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_4,100.0,99.66,98.6,98.27,0.0,0.34,1.4,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,99.89,98.22,98.11,0.0,0.11,1.78,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_2,100.0,99.89,98.22,98.11,0.0,0.11,1.78,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,99.35,99.2,98.56,0.0,0.65,0.8,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,99.2,99.25,98.45,0.0,0.8,0.75,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,99.55,99.45,99.0,0.0,0.45,0.55,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,99.46,99.35,98.81,0.0,0.54,0.65,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,99.55,99.45,99.0,0.0,0.45,0.55,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_20,100.0,99.2,99.25,98.45,0.0,0.8,0.75,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_7,100.0,99.46,99.35,98.81,0.0,0.54,0.65,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_11,100.0,99.35,99.2,98.56,0.0,0.65,0.8,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,99.74,99.16,98.9,0.0,0.26,0.84,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_2,100.0,99.74,99.16,98.9,0.0,0.26,0.84,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,99.69,98.75,98.44,0.0,0.31,1.25,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_16,100.0,99.69,98.75,98.44,0.0,0.31,1.25,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,99.35,99.6,98.96,0.0,0.65,0.4,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,99.55,99.72,99.28,0.0,0.45,0.28,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_1,100.0,99.35,99.6,98.96,0.0,0.65,0.4,No Significant Loss,No Fault / Normal Operation,0
+Press_Line_19,100.0,99.55,99.72,99.28,0.0,0.45,0.28,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,99.85,98.26,98.11,0.0,0.15,1.74,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_6,100.0,99.85,98.26,98.11,0.0,0.15,1.74,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.91,98.55,98.46,0.0,0.09,1.45,No Significant Loss,No Fault / Normal Operation,0
+Assembly_Line_11,100.0,99.91,98.55,98.46,0.0,0.09,1.45,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,99.64,99.29,98.94,0.0,0.36,0.71,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,99.44,99.22,98.67,0.0,0.56,0.78,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_15,100.0,99.64,99.29,98.94,0.0,0.36,0.71,No Significant Loss,No Fault / Normal Operation,0
+CNC_Milling_2,100.0,99.44,99.22,98.67,0.0,0.56,0.78,No Significant Loss,No Fault / Normal Operation,0

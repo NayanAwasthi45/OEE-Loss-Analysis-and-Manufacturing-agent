@@ -45,6 +45,7 @@ For every KPI, use EXACTLY this bulleted format. Only display KPIs whose Gain is
 - **Current Loss:** ₹{context.get("deterministic_math", {}).get("current", {}).get("Business Loss", 0):,.2f}
 - **Projected Loss:** ₹{context.get("deterministic_math", {}).get("Projected Business Loss", 0):,.2f}
 - **Estimated Savings:** ₹{context.get("deterministic_math", {}).get("Savings", 0):,.2f}
+- **Required Overall Quality Defects Recover:** {context.get("evidence", {}).get("required_recovery_value", 0)} units
 - **ROI:** {context.get("roi", "Medium")}
 
 ---
@@ -56,32 +57,37 @@ For every KPI, use EXACTLY this bulleted format. Only display KPIs whose Gain is
 ---
 
 ## 🛠 Required Recovery & Dominant Contributors
-- **Required Defect Reduction:** {context.get("evidence", {}).get("required_recovery_value", 0)} units {
-"(Note: we can only reduce up to the sum of Top 2 contributions)" if sum(c.get("defects_contribution", 0) for c in context.get("evidence", {}).get("dominant_contributors", [])) < context.get("evidence", {}).get("required_recovery_value", 0) else ""
-}
+
+**Recovery Achieved by Top-2 Priority Machines:** **{context.get("evidence", {}).get("top2_recovered_value", 0)} units**
 
 For each contributor in `evidence.dominant_contributors`, display it as follows (use 🥇 for the first, 🥈 for the second):
 
 ### [🥇/🥈] Dominant Machine: [machine_id]
-- **Error Code:** Extract error_code
-- **Defects Contribution:** Extract defects_contribution units
-- **AI Validation:** Extract ai_validation
-- **Likely Root Cause:** Extract likely_root_cause
+
+* **Error Code:** [Extract error_code]
+* **Defects Contribution:** [Extract defects_contribution] units
+* **AI Validation:** [Extract ai_validation]
+* **Likely Root Cause:** [Extract likely_root_cause]
 
 ---
 
 ## 🔍 Top-2 Machine Summary
-- **Current Loss:** ₹{context.get("evidence", {}).get("top2_current_loss", 0):,.2f}
-- **Projected Loss:** ₹{context.get("evidence", {}).get("top2_projected_loss", 0):,.2f}
-- **Estimated Savings:** ₹{context.get("evidence", {}).get("top2_estimated_saving", 0):,.2f}
+
+* **Current Quality-Related Loss:** ₹{context.get("evidence", {}).get("top2_current_loss", 0):,.2f}
+* **Projected Quality-Related Loss:** ₹{context.get("evidence", {}).get("top2_projected_loss", 0):,.2f}
+* **Estimated Savings from Quality Improvement:** ₹{context.get("evidence", {}).get("top2_estimated_saving", 0):,.2f}
+* **Combined Defects Contribution (Top-2 Machines):** **[Sum of defects contributions] units**
+* **Recovery Coverage:** The selected Top-2 machines account for the highest defect contribution and business impact. Together they contribute **[Sum of defects contributions] units** of scrap, making them the highest-priority assets for quality assurance. Improving these machines provides the maximum achievable quality gain within the current simulation scope.
 
 For each contributor in `evidence.dominant_contributors`:
 
-### [🥇/🥈] Dominant Machine: [machine_id]
-- **Estimated Business Loss:** ₹[Extract estimated_business_loss]
-- **Estimated Savings:** ₹[Extract estimated_savings]
-- **Projected Loss:** ₹[Extract projected_loss]
-- **Recovered Value:** [Extract recovered_value] units
+### [🥇/🥈] [machine_id]
+
+* **Quality Improvement:** +{improvement_pct}%
+* **Current Quality-Related Loss:** ₹[Extract estimated_business_loss]
+* **Estimated Savings:** ₹[Extract estimated_savings]
+* **Projected Quality-Related Loss:** ₹[Extract projected_loss]
+* **Recovered Units:** [Extract recovered_value] units
 
 ---
 

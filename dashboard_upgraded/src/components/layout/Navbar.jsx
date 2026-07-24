@@ -3,7 +3,7 @@ import { Factory, Activity, Bell, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { checkHealth } from "../../services/api";
 
-export default function Navbar() {
+export default function Navbar({ activeTab, setActiveTab }) {
   const [health, setHealth] = useState(null);
   const [now, setNow] = useState(new Date());
 
@@ -88,6 +88,44 @@ export default function Navbar() {
             Plant Performance &amp; Loss Analytics
           </span>
         </div>
+      </div>
+
+      {/* Center — Navigation Tabs */}
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--bg-primary)", padding: "4px", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
+        <button
+          onClick={() => setActiveTab("dashboard")}
+          style={{
+            padding: "6px 16px",
+            borderRadius: "6px",
+            border: "none",
+            background: activeTab === "dashboard" ? "var(--bg-secondary)" : "transparent",
+            color: activeTab === "dashboard" ? "var(--text-primary)" : "var(--text-muted)",
+            fontWeight: activeTab === "dashboard" ? 600 : 500,
+            fontSize: "0.85rem",
+            cursor: "pointer",
+            boxShadow: activeTab === "dashboard" ? "0 1px 2px rgba(0,0,0,0.05)" : "none",
+            transition: "all 0.2s ease"
+          }}
+        >
+          OEE Analytics
+        </button>
+        <button
+          onClick={() => setActiveTab("scenarios")}
+          style={{
+            padding: "6px 16px",
+            borderRadius: "6px",
+            border: "none",
+            background: activeTab === "scenarios" ? "var(--bg-secondary)" : "transparent",
+            color: activeTab === "scenarios" ? "var(--text-primary)" : "var(--text-muted)",
+            fontWeight: activeTab === "scenarios" ? 600 : 500,
+            fontSize: "0.85rem",
+            cursor: "pointer",
+            boxShadow: activeTab === "scenarios" ? "0 1px 2px rgba(0,0,0,0.05)" : "none",
+            transition: "all 0.2s ease"
+          }}
+        >
+          Scenario Simulations
+        </button>
       </div>
 
       {/* Right — Date + Status */}

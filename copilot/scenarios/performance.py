@@ -56,12 +56,22 @@ class PerformanceScenario(BaseScenarioPlugin):
             if not df_val.empty and not df_biz.empty:
                 df_merged = pd.merge(df_val, df_biz, on=["Machine ID", "Date", "Shift"])
                 
+                # 1. Required Recovery Calculation
+                if "Total Parts Produced" in df_val.columns:
+                    total_produced = float(df_val["Total Parts Produced"].sum())
+                    overall_required_recovery = round(total_produced * (applied_pct / 100.0), 2)
+                    evidence["required_recovery_value"] = overall_required_recovery
+                else:
+                    overall_required_recovery = 0.0
+                    evidence["required_recovery_value"] = 0.0
+
+                # 2. Get Top 2 records
                 machine_gb = df_merged.sort_values(by=["Production Loss Cost", "Production Loss (units)"], ascending=[False, False])
                 top_machines = machine_gb.head(2)
 
                 top2_current_loss = 0.0
-                top2_estimated_saving = 0.0
                 total_recovered = 0.0
+                total_plant_loss_units = float(df_merged["Production Loss (units)"].sum())
 
                 for _, top_row in top_machines.iterrows():
                     # For record-level granularity, include the Date
@@ -69,31 +79,27 @@ class PerformanceScenario(BaseScenarioPlugin):
                     raw_machine_id = str(top_row["Machine ID"])
                     m_planned = float(top_row["Planned Time (min)"])
                     m_downtime = float(top_row["Downtime (min)"])
-                    m_prod_loss_cost = float(top_row["Production Loss Cost"])
                     m_total_parts = float(top_row["Total Parts Produced"])
                     m_ideal_cycle = float(top_row["Ideal Cycle Time (min/unit)"])
+                    m_prod_loss_cost = float(top_row["Production Loss Cost"])
                     m_prod_loss_units = float(top_row["Production Loss (units)"])
                     raw_error_code = str(top_row.get("Error Code", ""))
-                    if raw_error_code.startswith("DT-") or raw_error_code.startswith("DEF-"):
-                        error_code = "N/A (Speed Loss)"
-                    else:
-                        error_code = raw_error_code if raw_error_code else "N/A (Speed Loss)"
+                    error_code = raw_error_code if raw_error_code else "Unknown"
                     
                     top2_current_loss += m_prod_loss_cost
                     
-                    # Machine-Specific Deterministic Math
-                    m_op = m_planned - m_downtime
-                    m_c_perf = (m_ideal_cycle * m_total_parts) / m_op if m_op > 0 else 0.0
-                    m_t_perf = min(m_c_perf + (applied_pct / 100.0), 1.0)
-                    
-                    m_req_prod = (m_t_perf * m_op) / m_ideal_cycle if m_ideal_cycle > 0 else 0.0
-                    m_add_units = max(m_req_prod - m_total_parts, 0)
-                    m_rec_units = min(m_add_units, m_prod_loss_units)
+                    # Proportional Recovery Math
+                    if total_plant_loss_units > 0:
+                        proportion = m_prod_loss_units / total_plant_loss_units
+                    else:
+                        proportion = 0.0
+                        
+                    m_rec_units = proportion * overall_required_recovery
+                    m_rec_units = min(m_rec_units, m_prod_loss_units) # cannot recover more than lost
                     
                     lpu = m_prod_loss_cost / m_prod_loss_units if m_prod_loss_units > 0 else 0.0
                     m_est_saving = m_rec_units * lpu
                     
-                    top2_estimated_saving += m_est_saving
                     total_recovered += m_rec_units
                     
                     contributor = {
@@ -108,7 +114,11 @@ class PerformanceScenario(BaseScenarioPlugin):
 
                     # AI Context
                     if not df_ai.empty:
-                        ai_match = df_ai[(df_ai["Machine ID"] == raw_machine_id) & (df_ai["Dominant Loss"] == "Performance")]
+                        ai_match = df_ai[
+                            (df_ai["Machine ID"] == raw_machine_id) & 
+                            (df_ai["Date"] == top_row["Date"]) & 
+                            (df_ai["Shift"] == top_row["Shift"])
+                        ]
                         if not ai_match.empty:
                             contributor["ai_validation"] = str(ai_match.iloc[0].get("AI Validation", "Unknown"))
                             contributor["validation_reason"] = str(ai_match.iloc[0].get("Validation Reason", "None"))
@@ -122,10 +132,11 @@ class PerformanceScenario(BaseScenarioPlugin):
 
                     evidence["dominant_contributors"].append(contributor)
 
+                top2_estimated_saving = sum(c["estimated_savings"] for c in evidence["dominant_contributors"])
                 evidence["top2_current_loss"] = round(top2_current_loss, 2)
                 evidence["top2_estimated_saving"] = round(top2_estimated_saving, 2)
                 evidence["top2_projected_loss"] = round(max(top2_current_loss - top2_estimated_saving, 0), 2)
-                evidence["required_recovery_value"] = round(total_recovered, 2)
+                evidence["top2_recovered_value"] = round(total_recovered, 2)
                     
         except Exception as e:
             print(f"Error in analyze_evidence (Performance): {e}")

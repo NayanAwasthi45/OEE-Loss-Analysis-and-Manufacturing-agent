@@ -96,7 +96,7 @@ class BusinessImpactEngine:
         # 2. Financial Loss Metrics
         downtime_cost = downtime * self.downtime_cost_per_minute
         scrap_cost = defective_parts * self.scrap_cost_per_part
-        production_loss_cost = production_loss * self.production_value_per_part
+        production_loss_cost = result_df["Production Loss (units)"] * self.production_value_per_part
 
         estimated_business_loss = downtime_cost + scrap_cost + production_loss_cost
 

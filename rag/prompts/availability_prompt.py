@@ -45,6 +45,7 @@ For every KPI, use EXACTLY this bulleted format. Only display KPIs whose Gain is
 - **Current Loss:** ₹{context.get("deterministic_math", {}).get("current", {}).get("Business Loss", 0):,.2f}
 - **Projected Loss:** ₹{context.get("deterministic_math", {}).get("Projected Business Loss", 0):,.2f}
 - **Estimated Savings:** ₹{context.get("deterministic_math", {}).get("Savings", 0):,.2f}
+- **Required Overall Downtime Recover:** {context.get("evidence", {}).get("required_recovery_value", 0)} min
 - **ROI:** {context.get("roi", "Medium")}
 
 ---
@@ -56,32 +57,37 @@ For every KPI, use EXACTLY this bulleted format. Only display KPIs whose Gain is
 ---
 
 ## 🛠 Required Recovery & Dominant Contributors
-- **Required Downtime Recovery:** {context.get("evidence", {}).get("required_recovery_value", 0)} minutes {
-"(Note: we can only reduce up to the sum of Top 2 contributions)" if sum(c.get("downtime_contribution", 0) for c in context.get("evidence", {}).get("dominant_contributors", [])) < context.get("evidence", {}).get("required_recovery_value", 0) else ""
-}
+
+**Recovery Achieved by Top-2 Priority Machines:** **{context.get("evidence", {}).get("top2_recovered_value", 0)} minutes**
 
 For each contributor in `evidence.dominant_contributors`, display it as follows (use 🥇 for the first, 🥈 for the second):
 
 ### [🥇/🥈] Dominant Machine: [machine_id]
-- **Error Code:** Extract error_code
-- **Downtime Contribution:** Extract downtime_contribution minutes
-- **AI Validation:** Extract ai_validation
-- **Likely Root Cause:** Extract likely_root_cause
+
+* **Error Code:** [Extract error_code]
+* **Downtime Contribution:** [Extract downtime_contribution] minutes
+* **AI Validation:** [Extract ai_validation]
+* **Likely Root Cause:** [Extract likely_root_cause]
 
 ---
 
 ## 🔍 Top-2 Machine Summary
-- **Current Loss:** ₹{context.get("evidence", {}).get("top2_current_loss", 0):,.2f}
-- **Projected Loss:** ₹{context.get("evidence", {}).get("top2_projected_loss", 0):,.2f}
-- **Estimated Savings:** ₹{context.get("evidence", {}).get("top2_estimated_saving", 0):,.2f}
+
+* **Current Availability-Related Loss:** ₹{context.get("evidence", {}).get("top2_current_loss", 0):,.2f}
+* **Projected Availability-Related Loss:** ₹{context.get("evidence", {}).get("top2_projected_loss", 0):,.2f}
+* **Estimated Savings from Availability Improvement:** ₹{context.get("evidence", {}).get("top2_estimated_saving", 0):,.2f}
+* **Combined Downtime Contribution (Top-2 Machines):** **[Sum of downtime contributions] minutes**
+* **Recovery Coverage:** The selected Top-2 machines account for the highest downtime contribution and business impact. Together they contribute **[Sum of downtime contributions] minutes** of downtime, making them the highest-priority assets for maintenance. Improving these machines provides the maximum achievable availability gain within the current simulation scope.
 
 For each contributor in `evidence.dominant_contributors`:
 
-### [🥇/🥈] Dominant Machine: [machine_id]
-- **Estimated Business Loss:** ₹[Extract estimated_business_loss]
-- **Estimated Savings:** ₹[Extract estimated_savings]
-- **Projected Loss:** ₹[Extract projected_loss]
-- **Recovered Value:** [Extract recovered_value] minutes
+### [🥇/🥈] [machine_id]
+
+* **Availability Improvement:** +{improvement_pct}%
+* **Current Availability-Related Loss:** ₹[Extract estimated_business_loss]
+* **Estimated Savings:** ₹[Extract estimated_savings]
+* **Projected Availability-Related Loss:** ₹[Extract projected_loss]
+* **Recovered Downtime:** [Extract recovered_value] minutes
 
 ---
 

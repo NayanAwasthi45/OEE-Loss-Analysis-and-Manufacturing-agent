@@ -56,12 +56,21 @@ class QualityScenario(BaseScenarioPlugin):
             if not df_val.empty and not df_biz.empty:
                 df_merged = pd.merge(df_val, df_biz, on=["Machine ID", "Date", "Shift"])
                 
+                # 1. Required Recovery Calculation
+                if "Total Parts Produced" in df_val.columns:
+                    total_parts = float(df_val["Total Parts Produced"].sum())
+                    overall_required_recovery = round(total_parts * (applied_pct / 100.0), 2)
+                    evidence["required_recovery_value"] = overall_required_recovery
+                else:
+                    overall_required_recovery = 0.0
+                    evidence["required_recovery_value"] = 0.0
+
                 machine_gb = df_merged.sort_values(by=["Scrap Cost", "Defective Parts"], ascending=[False, False])
                 top_machines = machine_gb.head(2)
 
                 top2_current_loss = 0.0
-                top2_estimated_saving = 0.0
                 total_recovered = 0.0
+                total_plant_loss_units = float(df_merged["Defective Parts"].sum())
 
                 for _, top_row in top_machines.iterrows():
                     machine_id = f"{top_row['Machine ID']} ({top_row['Date']})"
@@ -73,19 +82,18 @@ class QualityScenario(BaseScenarioPlugin):
                     
                     top2_current_loss += m_scrap_cost
                     
-                    # Machine-Specific Deterministic Math
-                    m_good = m_total_parts - m_defective
-                    m_c_qual = m_good / m_total_parts if m_total_parts > 0 else 0.0
-                    m_t_qual = min(m_c_qual + (applied_pct / 100.0), 1.0)
-                    
-                    m_req_good = m_t_qual * m_total_parts
-                    m_allow_defects = m_total_parts - m_req_good
-                    m_rec_defects = min(max(m_defective - m_allow_defects, 0), m_defective)
+                    # Proportional Recovery Math
+                    if total_plant_loss_units > 0:
+                        proportion = m_defective / total_plant_loss_units
+                    else:
+                        proportion = 0.0
+                        
+                    m_rec_defects = proportion * overall_required_recovery
+                    m_rec_defects = min(m_rec_defects, m_defective) # cannot recover more than lost
                     
                     cpd = m_scrap_cost / m_defective if m_defective > 0 else 0.0
                     m_est_saving = m_rec_defects * cpd
                     
-                    top2_estimated_saving += m_est_saving
                     total_recovered += m_rec_defects
                     
                     contributor = {
@@ -100,7 +108,11 @@ class QualityScenario(BaseScenarioPlugin):
 
                     # AI Context
                     if not df_ai.empty:
-                        ai_match = df_ai[(df_ai["Machine ID"] == raw_machine_id) & (df_ai["Dominant Loss"] == "Quality")]
+                        ai_match = df_ai[
+                            (df_ai["Machine ID"] == raw_machine_id) & 
+                            (df_ai["Date"] == top_row["Date"]) & 
+                            (df_ai["Shift"] == top_row["Shift"])
+                        ]
                         if not ai_match.empty:
                             contributor["ai_validation"] = str(ai_match.iloc[0].get("AI Validation", "Unknown"))
                             contributor["validation_reason"] = str(ai_match.iloc[0].get("Validation Reason", "None"))
@@ -109,15 +121,16 @@ class QualityScenario(BaseScenarioPlugin):
                         else:
                             contributor["ai_validation"] = "N/A"
                             contributor["validation_reason"] = "No quality AI context found."
-                            contributor["likely_root_cause"] = "Scrap or rework due to process deviation or machine calibration."
-                            contributor["manufacturing_insight"] = "Quality loss typically points to defective parts."
+                            contributor["likely_root_cause"] = "Check generic machine profile for calibration or material issues."
+                            contributor["manufacturing_insight"] = "Scrap loss points to precision or material defects."
 
                     evidence["dominant_contributors"].append(contributor)
 
+                top2_estimated_saving = sum(c["estimated_savings"] for c in evidence["dominant_contributors"])
                 evidence["top2_current_loss"] = round(top2_current_loss, 2)
                 evidence["top2_estimated_saving"] = round(top2_estimated_saving, 2)
                 evidence["top2_projected_loss"] = round(max(top2_current_loss - top2_estimated_saving, 0), 2)
-                evidence["required_recovery_value"] = round(total_recovered, 2)
+                evidence["top2_recovered_value"] = round(total_recovered, 2)
                     
         except Exception as e:
             print(f"Error in analyze_evidence (Quality): {e}")

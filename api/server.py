@@ -224,10 +224,24 @@ def create_ticket(ticket: TicketCreate) -> dict:
     try:
         with pipe.db.get_connection() as conn:
             cursor = conn.cursor()
+            
+            # Resolve actual line from machine_id
+            resolved_line = ticket.line
+            if not resolved_line or resolved_line == "Unknown":
+                cursor.execute('''
+                    SELECT l.line_name 
+                    FROM dim_line l 
+                    JOIN dim_machine m ON l.line_id = m.line_id 
+                    WHERE m.machine_code = ?
+                ''', (ticket.machine_id,))
+                line_row = cursor.fetchone()
+                if line_row:
+                    resolved_line = line_row[0]
+                    
             cursor.execute('''
                 INSERT INTO ticket (date, shift, line, machine_id, ticket_status)
                 VALUES (?, ?, ?, ?, ?)
-            ''', (ticket.date, ticket.shift, ticket.line, ticket.machine_id, ticket.ticket_status))
+            ''', (ticket.date, ticket.shift, resolved_line, ticket.machine_id, ticket.ticket_status))
             conn.commit()
             return {"status": "success", "message": "Ticket raised successfully", "ticket_id": cursor.lastrowid}
     except Exception as e:

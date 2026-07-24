@@ -97,30 +97,18 @@ class ScenarioService:
 
         elif scenario_type == "performance":
             p_p = min(c_perf + (pct / 100.0), 1.0)
+            req_prod = p_p * op_time / (ideal_op_time / total_parts) if op_time > 0 and ideal_op_time > 0 else total_parts * p_p
+            # Actually, user expects: Total Produced * (pct/100) = Recovered units
+            overall_rec_units = total_parts * (pct / 100.0)
             
-            # Since Performance uses Ideal Cycle Time per row, we aggregate recovered units row-by-row
-            df_perf = df_val.copy()
-            df_perf = df_perf.merge(df_biz[['Machine ID', 'Date', 'Shift', 'Production Loss Cost', 'Production Loss (units)']], 
-                                    on=['Machine ID', 'Date', 'Shift'], how='left')
-            df_perf['OpTime'] = df_perf['Planned Time (min)'] - df_perf['Downtime (min)']
-            df_perf['Current Perf'] = (df_perf['Ideal Cycle Time (min/unit)'] * df_perf['Total Parts Produced']) / df_perf['OpTime']
-            df_perf['Current Perf'] = df_perf['Current Perf'].fillna(0)
-            df_perf['Target Perf'] = df_perf['Current Perf'] + (pct / 100.0)
-            df_perf['Target Perf'] = df_perf['Target Perf'].clip(upper=1.0)
+            total_prod_loss_units = float(df_biz['Production Loss (units)'].sum()) if 'Production Loss (units)' in df_biz.columns else 0.0
+            overall_rec_units = min(overall_rec_units, total_prod_loss_units)
             
-            df_perf['Required Production'] = (df_perf['Target Perf'] * df_perf['OpTime']) / df_perf['Ideal Cycle Time (min/unit)']
-            df_perf['Additional Units'] = df_perf['Required Production'] - df_perf['Total Parts Produced']
-            df_perf['Additional Units'] = df_perf['Additional Units'].clip(lower=0)
+            # Global Cost Per Unit
+            from analysis.business_impact import BusinessImpactEngine
+            cpu = BusinessImpactEngine().production_value_per_part
             
-            df_perf['Recovered Units'] = df_perf[['Additional Units', 'Production Loss (units)']].min(axis=1)
-            df_perf['Recovered Units'] = df_perf['Recovered Units'].fillna(0)
-            
-            df_perf['Loss Per Unit'] = df_perf['Production Loss Cost'] / df_perf['Production Loss (units)']
-            df_perf['Loss Per Unit'] = df_perf['Loss Per Unit'].fillna(0)
-            
-            df_perf['Estimated Saving'] = df_perf['Recovered Units'] * df_perf['Loss Per Unit']
-            
-            savings = float(df_perf['Estimated Saving'].sum())
+            savings = overall_rec_units * cpu
             p_prod_loss_cost = max(c_prod_loss_cost - savings, 0)
 
         elif scenario_type == "quality":
