@@ -155,13 +155,6 @@ export default function FloatingChatbot({ analysisData }) {
           desc="Ask factual questions about SOPs, Manuals, and Guidelines."
           onClick={() => { setChatMode("manufacturing_question"); setView("chat"); }}
         />
-        <ActionCard 
-          icon={<TrendingUp size={20} color="var(--accent-emerald)" />}
-          title="Analyze Recommendations"
-          desc={hasData ? "Let AI find the best way to reduce losses." : "Requires active dashboard analysis."}
-          onClick={() => sendMessage("Please provide AI recommendations to reduce the primary losses based on the current data.", "recommendation")}
-          disabled={!hasData}
-        />
       </div>
     </motion.div>
   )};
@@ -213,6 +206,38 @@ export default function FloatingChatbot({ analysisData }) {
                 </button>
               )}
             </div>
+
+            {/* Quick Tabs when in Chat View */}
+            {view === "chat" && (
+              <div style={{ display: "flex", borderBottom: "1px solid var(--border-color)", background: "var(--bg-shell)" }}>
+                {[
+                  { id: "general_chat", label: "General", icon: <MessageSquare size={14} /> },
+                  { id: "manufacturing_question", label: "Knowledge", icon: <BookOpen size={14} /> }
+                ].map(tab => {
+                  const hasData = !!analysisData?.summary;
+                  const isDisabled = tab.requiresData && !hasData;
+                  return (
+                    <button
+                      key={tab.id}
+                      disabled={isDisabled}
+                      onClick={() => setChatMode(tab.id)}
+                      style={{
+                        flex: 1, padding: "8px 0", border: "none", background: "none",
+                        color: chatMode === tab.id ? "var(--accent-rose)" : "var(--text-muted)",
+                        borderBottom: chatMode === tab.id ? "2px solid var(--accent-rose)" : "2px solid transparent",
+                        display: "flex", flexDirection: "column", alignItems: "center", gap: "4px",
+                        fontSize: "0.65rem", fontWeight: 600, cursor: isDisabled ? "not-allowed" : "pointer",
+                        opacity: isDisabled ? 0.3 : 1
+                      }}
+                      title={isDisabled ? "Requires active dashboard analysis" : tab.label}
+                    >
+                      {tab.icon}
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
             <div style={{ flex: 1, overflowY: "hidden", display: "flex", flexDirection: "column", background: "var(--bg-shell)" }}>
               <AnimatePresence mode="wait">

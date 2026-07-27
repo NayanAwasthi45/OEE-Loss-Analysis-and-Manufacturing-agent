@@ -126,6 +126,23 @@ export default function Navbar({ activeTab, setActiveTab }) {
         >
           Scenario Simulations
         </button>
+        <button
+          onClick={() => setActiveTab("recommendations")}
+          style={{
+            padding: "6px 16px",
+            borderRadius: "6px",
+            border: "none",
+            background: activeTab === "recommendations" ? "var(--bg-secondary)" : "transparent",
+            color: activeTab === "recommendations" ? "var(--text-primary)" : "var(--text-muted)",
+            fontWeight: activeTab === "recommendations" ? 600 : 500,
+            fontSize: "0.85rem",
+            cursor: "pointer",
+            boxShadow: activeTab === "recommendations" ? "0 1px 2px rgba(0,0,0,0.05)" : "none",
+            transition: "all 0.2s ease"
+          }}
+        >
+          AI Recommendations
+        </button>
       </div>
 
       {/* Right — Date + Status */}
