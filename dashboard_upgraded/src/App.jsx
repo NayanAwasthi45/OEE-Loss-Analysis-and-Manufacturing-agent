@@ -12,13 +12,15 @@ export default function App() {
   return (
     <div>
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
-      {activeTab === "dashboard" ? (
+      <div style={{ display: activeTab === "dashboard" ? "block" : "none" }}>
         <Dashboard analysisProps={analysisProps} />
-      ) : activeTab === "scenarios" ? (
+      </div>
+      <div style={{ display: activeTab === "scenarios" ? "block" : "none" }}>
         <ScenarioDashboard analysisProps={analysisProps} />
-      ) : (
+      </div>
+      <div style={{ display: activeTab === "recommendations" ? "block" : "none" }}>
         <RecommendationDashboard analysisProps={analysisProps} />
-      )}
+      </div>
     </div>
   );
 }
