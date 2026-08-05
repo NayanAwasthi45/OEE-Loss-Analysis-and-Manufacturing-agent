@@ -59,9 +59,13 @@ export default function ScenarioDashboard({ analysisProps }) {
     }
 
     try {
+      const token = localStorage.getItem("oee_token");
       const res = await fetch("/api/chat/message", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          ...(token && { "Authorization": `Bearer ${token}` })
+        },
         body: JSON.stringify({
           session_id: "dashboard-sim",
           message: text,

@@ -20,7 +20,7 @@ from typing import Optional
 
 import pandas as pd
 import numpy as np
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -49,6 +49,8 @@ from rag.retriever import Retriever
 from copilot.memory import SessionMemory
 from copilot.chat_service import CopilotChatService
 
+from api.auth import router as auth_router, get_current_user
+
 logger = logging.getLogger(__name__)
 
 # ── FastAPI App ──────────────────────────────────────────────────────
@@ -66,6 +68,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
 
 
 # ── Request / Response Models ────────────────────────────────────────
@@ -177,7 +181,7 @@ def _df_to_records(df: pd.DataFrame) -> list[dict]:
 # ── Endpoints ────────────────────────────────────────────────────────
 
 @app.get("/api/health")
-def health_check() -> dict:
+def health_check(current_user: dict = Depends(get_current_user)) -> dict:
     """System health check."""
     try:
         pipe = Pipeline.get()
@@ -191,34 +195,34 @@ def health_check() -> dict:
 
 
 @app.get("/api/filters/plants")
-def get_plants() -> dict:
+def get_plants(current_user: dict = Depends(get_current_user)) -> dict:
     """Returns available plants."""
     pipe = Pipeline.get()
     return {"plants": pipe.repo.get_plants()}
 
 
 @app.get("/api/filters/lines")
-def get_lines(plant: Optional[str] = None) -> dict:
+def get_lines(plant: Optional[str] = None, current_user: dict = Depends(get_current_user)) -> dict:
     """Returns available lines, optionally filtered by plant."""
     pipe = Pipeline.get()
     return {"lines": pipe.repo.get_lines(plant)}
 
 
 @app.get("/api/filters/shifts")
-def get_shifts() -> dict:
+def get_shifts(current_user: dict = Depends(get_current_user)) -> dict:
     """Returns available shifts."""
     pipe = Pipeline.get()
     return {"shifts": pipe.repo.get_available_shifts()}
 
 
 @app.get("/api/machines")
-def get_machines(line: Optional[str] = None, plant: Optional[str] = None) -> dict:
+def get_machines(line: Optional[str] = None, plant: Optional[str] = None, current_user: dict = Depends(get_current_user)) -> dict:
     """Returns available machine list, optionally filtered by line and/or plant."""
     pipe = Pipeline.get()
     return {"machines": pipe.repo.get_available_machines(line, plant)}
 
 @app.post("/api/tickets")
-def create_ticket(ticket: TicketCreate) -> dict:
+def create_ticket(ticket: TicketCreate, current_user: dict = Depends(get_current_user)) -> dict:
     """Creates a new maintenance ticket."""
     pipe = Pipeline.get()
     try:
@@ -239,7 +243,20 @@ def create_ticket(ticket: TicketCreate) -> dict:
                     resolved_line = line_row[0]
                     
             cursor.execute('''
-                INSERT INTO ticket (date, shift, line, machine_id, ticket_status)
+                CREATE TABLE IF NOT EXISTS ticket (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    date TEXT NOT NULL,
+                    shift TEXT NOT NULL,
+                    line TEXT NOT NULL,
+                    machine_id TEXT NOT NULL,
+                    ticket_status TEXT NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    UNIQUE(date, shift, machine_id)
+                )
+            ''')
+            
+            cursor.execute('''
+                INSERT OR IGNORE INTO ticket (date, shift, line, machine_id, ticket_status)
                 VALUES (?, ?, ?, ?, ?)
             ''', (ticket.date, ticket.shift, resolved_line, ticket.machine_id, ticket.ticket_status))
             conn.commit()
@@ -249,7 +266,7 @@ def create_ticket(ticket: TicketCreate) -> dict:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/tickets")
-def get_tickets() -> dict:
+def get_tickets(current_user: dict = Depends(get_current_user)) -> dict:
     """Retrieves all tickets."""
     pipe = Pipeline.get()
     try:
@@ -265,7 +282,7 @@ def get_tickets() -> dict:
 
 
 @app.post("/api/analyze")
-def analyze(request: AnalyzeRequest) -> dict:
+def analyze(request: AnalyzeRequest, current_user: dict = Depends(get_current_user)) -> dict:
     """
     Runs the full analysis pipeline for a natural language query.
 
@@ -320,6 +337,45 @@ def analyze(request: AnalyzeRequest) -> dict:
 
     # 7. Business Impact
     analysis_df = pipe.business_engine.calculate(ai_df)
+
+    # 7.5 Agentic Ticketing
+    try:
+        with pipe.db.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS ticket (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    date TEXT NOT NULL,
+                    shift TEXT NOT NULL,
+                    line TEXT NOT NULL,
+                    machine_id TEXT NOT NULL,
+                    ticket_status TEXT NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    UNIQUE(date, shift, machine_id)
+                )
+            ''')
+            for _, row in analysis_df.iterrows():
+                oee = row.get("OEE", 100)
+                ai_val = str(row.get("AI Validation", ""))
+                loss = row.get("Estimated Business Loss", 0)
+                
+                if pd.isna(oee): oee = 100
+                if pd.isna(loss): loss = 0
+                
+                if oee < 50 or ai_val.strip() == "Mismatch" or loss > 1000:
+                    cursor.execute('''
+                        INSERT OR IGNORE INTO ticket (date, shift, line, machine_id, ticket_status)
+                        VALUES (?, ?, ?, ?, ?)
+                    ''', (
+                        str(row.get("Date", "Unknown")),
+                        str(row.get("Shift", "Unknown")),
+                        str(row.get("Line", "Unknown")),
+                        str(row.get("Machine ID", "Unknown")),
+                        "Open (Auto-Generated)"
+                    ))
+            conn.commit()
+    except Exception as e:
+        logger.error(f"Agentic ticket generation failed: {e}")
 
     # 8. Export CSVs (Sync with UI)
     try:
@@ -386,7 +442,7 @@ def analyze(request: AnalyzeRequest) -> dict:
 # ── RAG Chat Endpoints ───────────────────────────────────────────────
 
 @app.post("/api/chat/ingest")
-def ingest_knowledge() -> dict:
+def ingest_knowledge(current_user: dict = Depends(get_current_user)) -> dict:
     """Admin endpoint to ingest PDFs into ChromaDB."""
     pipe = Pipeline.get()
     if not pipe.chat_service:
@@ -409,7 +465,7 @@ def ingest_knowledge() -> dict:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/chat/message")
-def chat_message(request: ChatRequest) -> dict:
+def chat_message(request: ChatRequest, current_user: dict = Depends(get_current_user)) -> dict:
     """Main interaction endpoint for the AI Assistant."""
     pipe = Pipeline.get()
     if not pipe.chat_service:

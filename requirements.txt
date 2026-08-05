@@ -7,3 +7,5 @@ uvicorn[standard]
 chromadb
 sentence-transformers
 PyPDF2
+PyJWT
+python-multipart

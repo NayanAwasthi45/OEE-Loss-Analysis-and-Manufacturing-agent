@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Factory, Activity, Bell, User } from "lucide-react";
+import { Factory, Activity, Bell, User, LogOut } from "lucide-react";
 import { motion } from "framer-motion";
 import { checkHealth } from "../../services/api";
 
-export default function Navbar({ activeTab, setActiveTab }) {
+export default function Navbar({ activeTab, setActiveTab, onLogout }) {
   const [health, setHealth] = useState(null);
   const [now, setNow] = useState(new Date());
 
@@ -219,6 +219,27 @@ export default function Navbar({ activeTab, setActiveTab }) {
               <span style={{ fontSize: "0.65rem", color: "var(--text-muted)" }}>Plant Manager</span>
             </div>
           </div>
+
+          <button
+            onClick={onLogout}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              background: "rgba(244, 63, 94, 0.1)",
+              border: "1px solid rgba(244, 63, 94, 0.2)",
+              color: "var(--accent-rose)",
+              padding: "6px 12px",
+              borderRadius: "8px",
+              cursor: "pointer",
+              fontWeight: 600,
+              fontSize: "0.8rem",
+              transition: "all 0.2s ease"
+            }}
+          >
+            <LogOut size={16} />
+            Logout
+          </button>
         </div>
       </div>
     </nav>

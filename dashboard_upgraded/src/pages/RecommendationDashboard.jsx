@@ -45,9 +45,13 @@ export default function RecommendationDashboard({ analysisProps }) {
     }
 
     try {
+      const token = localStorage.getItem("oee_token");
       const res = await fetch("/api/chat/message", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          ...(token && { "Authorization": `Bearer ${token}` })
+        },
         body: JSON.stringify({
           session_id: "dashboard-rec",
           message: text,

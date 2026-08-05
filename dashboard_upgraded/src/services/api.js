@@ -1,28 +1,33 @@
 const API_BASE = "/api";
 
-export async function fetchPlants() {
-  const res = await fetch(`${API_BASE}/filters/plants`);
+const getAuthHeader = () => {
+  const token = localStorage.getItem("oee_token");
+  return token ? { "Authorization": `Bearer ${token}` } : {};
+};
+
+export const fetchPlants = async () => {
+  const res = await fetch(`${API_BASE}/filters/plants`, { headers: getAuthHeader() });
   if (!res.ok) throw new Error("Failed to fetch plants");
   const data = await res.json();
-  return data.plants;
-}
+  return data.plants || [];
+};
 
-export async function fetchLines(plant = null) {
+export const fetchLines = async (plant = null) => {
   const url = plant ? `${API_BASE}/filters/lines?plant=${encodeURIComponent(plant)}` : `${API_BASE}/filters/lines`;
-  const res = await fetch(url);
+  const res = await fetch(url, { headers: getAuthHeader() });
   if (!res.ok) throw new Error("Failed to fetch lines");
   const data = await res.json();
   return data.lines;
-}
+};
 
-export async function fetchShifts() {
-  const res = await fetch(`${API_BASE}/filters/shifts`);
+export const fetchShifts = async () => {
+  const res = await fetch(`${API_BASE}/filters/shifts`, { headers: getAuthHeader() });
   if (!res.ok) throw new Error("Failed to fetch shifts");
   const data = await res.json();
   return data.shifts;
-}
+};
 
-export async function fetchMachines(line = null, plant = null) {
+export const fetchMachines = async (line = null, plant = null) => {
   let url = `${API_BASE}/machines`;
   const params = new URLSearchParams();
   if (line) params.append("line", line);
@@ -32,16 +37,19 @@ export async function fetchMachines(line = null, plant = null) {
     url += `?${params.toString()}`;
   }
   
-  const res = await fetch(url);
+  const res = await fetch(url, { headers: getAuthHeader() });
   if (!res.ok) throw new Error("Failed to fetch machines");
   const data = await res.json();
-  return data.machines;
-}
+  return data.machines || [];
+};
 
 export async function analyzeQuery(payload) {
   const res = await fetch(`${API_BASE}/analyze`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { 
+      "Content-Type": "application/json",
+      ...getAuthHeader()
+    },
     body: JSON.stringify(payload),
   });
   if (!res.ok) {
@@ -52,7 +60,7 @@ export async function analyzeQuery(payload) {
 }
 
 export async function checkHealth() {
-  const res = await fetch(`${API_BASE}/health`);
+  const res = await fetch(`${API_BASE}/health`, { headers: getAuthHeader() });
   if (!res.ok) throw new Error("API unhealthy");
   return res.json();
 }
@@ -60,7 +68,10 @@ export async function checkHealth() {
 export async function createTicket(payload) {
   const res = await fetch(`${API_BASE}/tickets`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { 
+      "Content-Type": "application/json",
+      ...getAuthHeader()
+    },
     body: JSON.stringify(payload),
   });
   if (!res.ok) throw new Error("Failed to create ticket");
@@ -68,8 +79,8 @@ export async function createTicket(payload) {
 }
 
 export async function fetchTickets() {
-  const res = await fetch(`${API_BASE}/tickets`);
+  const res = await fetch(`${API_BASE}/tickets`, { headers: getAuthHeader() });
   if (!res.ok) throw new Error("Failed to fetch tickets");
   const data = await res.json();
-  return data.tickets;
+  return data.tickets || [];
 }

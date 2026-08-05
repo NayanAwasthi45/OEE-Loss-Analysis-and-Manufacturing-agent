@@ -28,8 +28,10 @@ An enterprise-grade OEE (Overall Equipment Effectiveness) Analytics Agent that d
 - **Top-2 Contributor Ranking**: Dynamically targets the worst-performing machines for a specific KPI (Availability, Performance, Quality).
 - **Domain RAG Integration**: Injects actual Standard Operating Procedures (SOPs) based on dominant machine and error codes to provide highly targeted improvement plans.
 
-### Phase E: Ticketing System
-- **Integrated Maintenance Ticketing**: Directly raise maintenance tickets for records flagged by AI as `Mismatch` or `Partially Verified`.
+### Phase E: Ticketing System & Autonomous Agent
+- **Automated Threshold Ticketing**: The backend proactively scans OEE records during analysis and automatically files database tickets for severe anomalies (OEE < 50%, AI Validation = Mismatch, or Business Loss > $1000).
+- **Idempotency Safeguards**: Enforces UNIQUE constraints (`date`, `shift`, `machine_id`) to prevent duplicate automated tickets.
+- **Integrated Maintenance Ticketing**: Directly raise maintenance tickets for records manually from the UI when needed.
 - **Database Persistence**: Tickets are saved to the `ticket` table with metadata (Date, Shift, Machine ID, Status).
 - **Optimistic UI Updates**: Instant feedback upon raising a ticket, changing the action button to a confirmed status.
 
@@ -68,6 +70,17 @@ project_root/
 ├── requirements.txt          # Python dependencies
 └── README.md
 ```
+
+## Authentication Details
+
+The dashboard is secured using Role-Based JWT Authentication. You must log in using one of the following provisioned accounts (all use the same demonstration password):
+
+| Role | Username | Password |
+|------|----------|----------|
+| Plant Manager | `plant_user` | `password123` |
+| Production Admin | `production_user` | `password123` |
+| CLI Operator | `cli_user` | `password123` |
+| Operational Excellence | `op_ex_user` | `password123` |
 
 ## Setup Instructions
 

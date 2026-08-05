@@ -86,9 +86,13 @@ export default function FloatingChatbot({ analysisData }) {
 
       const payloadMessage = text.trim() ? text : activeMode;
 
+      const token = localStorage.getItem("oee_token");
       const res = await fetch("/api/chat/message", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          ...(token && { "Authorization": `Bearer ${token}` })
+        },
         body: JSON.stringify({
           session_id: sessionId,
           message: payloadMessage,
