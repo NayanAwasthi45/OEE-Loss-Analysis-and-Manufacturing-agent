@@ -363,15 +363,29 @@ def analyze(request: AnalyzeRequest, current_user: dict = Depends(get_current_us
                 if pd.isna(oee): oee = 100
                 if pd.isna(loss): loss = 0
                 
-                if oee < 50 or ai_val.strip() == "Mismatch" or loss > 1000:
+                if oee < 50 or ai_val.strip() == "Mismatch" or loss > 80000:
+                    resolved_line = str(row.get("Line", "Unknown"))
+                    machine_id = str(row.get("Machine ID", "Unknown"))
+                    
+                    if not resolved_line or resolved_line == "Unknown" or resolved_line == "nan":
+                        cursor.execute('''
+                            SELECT l.line_name 
+                            FROM dim_line l 
+                            JOIN dim_machine m ON l.line_id = m.line_id 
+                            WHERE m.machine_code = ?
+                        ''', (machine_id,))
+                        line_row = cursor.fetchone()
+                        if line_row:
+                            resolved_line = line_row[0]
+                            
                     cursor.execute('''
                         INSERT OR IGNORE INTO ticket (date, shift, line, machine_id, ticket_status)
                         VALUES (?, ?, ?, ?, ?)
                     ''', (
                         str(row.get("Date", "Unknown")),
                         str(row.get("Shift", "Unknown")),
-                        str(row.get("Line", "Unknown")),
-                        str(row.get("Machine ID", "Unknown")),
+                        resolved_line,
+                        machine_id,
                         "Open (Auto-Generated)"
                     ))
                     if cursor.rowcount > 0:

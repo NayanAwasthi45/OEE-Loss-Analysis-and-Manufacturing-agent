@@ -29,7 +29,7 @@ An enterprise-grade OEE (Overall Equipment Effectiveness) Analytics Agent that d
 - **Domain RAG Integration**: Injects actual Standard Operating Procedures (SOPs) based on dominant machine and error codes to provide highly targeted improvement plans.
 
 ### Phase E: Ticketing System & Autonomous Agent
-- **Automated Threshold Ticketing**: The backend proactively scans OEE records during analysis and automatically files database tickets for severe anomalies (OEE < 50%, AI Validation = Mismatch, or Business Loss > $1000).
+- **Automated Threshold Ticketing**: The backend proactively scans OEE records during analysis and automatically files database tickets for severe anomalies (OEE < 50%, AI Validation = Mismatch, or Business Loss > ₹80,000).
 - **Idempotency Safeguards**: Enforces UNIQUE constraints (`date`, `shift`, `machine_id`) to prevent duplicate automated tickets.
 - **Integrated Maintenance Ticketing**: Directly raise maintenance tickets for records manually from the UI when needed.
 - **Database Persistence**: Tickets are saved to the `ticket` table with metadata (Date, Shift, Machine ID, Status).
