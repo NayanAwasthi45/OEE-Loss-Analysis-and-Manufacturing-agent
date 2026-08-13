@@ -1,4 +1,8 @@
 Machine ID,Date,Shift,OEE,Production Loss (units),Throughput Loss (units),Downtime Cost,Scrap Cost,Production Loss Cost,Estimated Business Loss,Primary Business Driver,Business Loss Breakdown,Priority Score,Priority,Top Loss Driver Rank
-CNC_Milling_1,2026-07-09,Morning,80.75,45,4,30800.0,480.0,11250.0,42530.0,Downtime Cost,"Downtime (₹30,800.00) + Scrap (₹480.00) + Prod. Loss (₹11,250.00)",74,High,1
-CNC_Milling_1,2026-05-10,Morning,87.48,29,2,20000.0,360.0,7250.0,27610.0,Downtime Cost,"Downtime (₹20,000.00) + Scrap (₹360.00) + Prod. Loss (₹7,250.00)",51,Medium,2
-CNC_Milling_1,2026-05-26,Morning,87.48,30,13,12800.0,240.0,7500.0,20540.0,Downtime Cost,"Downtime (₹12,800.00) + Scrap (₹240.00) + Prod. Loss (₹7,500.00)",41,Medium,3
+Assembly_Line_1,2026-07-10,Morning,85.57,43,6,22800.0,240.0,10750.0,33790.0,Downtime Cost,"Downtime (₹22,800.00) + Scrap (₹240.00) + Prod. Loss (₹10,750.00)",72,High,1
+Assembly_Line_1,2026-06-17,Morning,87.51,31,29,800.0,960.0,7750.0,9510.0,Production Loss Cost,"Downtime (₹800.00) + Scrap (₹960.00) + Prod. Loss (₹7,750.00)",20,Low,2
+Assembly_Line_1,2026-05-27,Morning,91.71,19,19,0.0,840.0,4750.0,5590.0,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹840.00) + Prod. Loss (₹4,750.00)",9,Low,3
+Assembly_Line_1,2026-06-29,Morning,95.58,13,13,0.0,120.0,3250.0,3370.0,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹120.00) + Prod. Loss (₹3,250.00)",5,Low,4
+Assembly_Line_1,2026-04-17,Morning,96.23,10,10,0.0,240.0,2500.0,2740.0,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹240.00) + Prod. Loss (₹2,500.00)",4,Low,5
+Assembly_Line_1,2026-06-07,Morning,95.91,9,9,0.0,480.0,2250.0,2730.0,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹480.00) + Prod. Loss (₹2,250.00)",4,Low,6
+Assembly_Line_1,2026-06-10,Morning,96.23,6,6,0.0,720.0,1500.0,2220.0,Production Loss Cost,"Downtime (₹0.00) + Scrap (₹720.00) + Prod. Loss (₹1,500.00)",4,Low,7

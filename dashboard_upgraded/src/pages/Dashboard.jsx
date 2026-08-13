@@ -22,7 +22,7 @@ import FloatingChatbot from "../components/chat/FloatingChatbot";
 import { useAnalysis } from "../hooks/useAnalysis";
 import { fetchMachines, fetchPlants, fetchLines, fetchShifts } from "../services/api";
 
-export default function Dashboard({ analysisProps }) {
+export default function Dashboard({ analysisProps, onAddNotification }) {
   const [query, setQuery] = useState("");
   const [plant, setPlant] = useState("");
   const [line, setLine] = useState("");
@@ -75,6 +75,13 @@ export default function Dashboard({ analysisProps }) {
     fetchMachines(line || null, plant || null).then(setMachinesOptions).catch(() => {});
     setMachine(""); // reset machine on line change
   }, [line, plant]);
+
+  // Track auto-generated tickets
+  useEffect(() => {
+    if (data?.summary?.auto_tickets_created) {
+      onAddNotification(`Agent autonomously created ${data.summary.auto_tickets_created} ticket(s) for critical anomalies.`);
+    }
+  }, [data?.summary?.auto_tickets_created]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -396,7 +403,7 @@ export default function Dashboard({ analysisProps }) {
             <span className="sub">Row-level machine, shift, and business-impact detail</span>
           </div>
           <div style={{ gridColumn: "1 / -1" }}>
-            <ProductionTable records={records} />
+            <ProductionTable records={records} onAddNotification={onAddNotification} />
           </div>
 
           {/* ── Financial Impact Summary ─────────────────── */}

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Factory, Activity, Bell, User, LogOut } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { checkHealth } from "../../services/api";
 
-export default function Navbar({ activeTab, setActiveTab, onLogout }) {
+export default function Navbar({ activeTab, setActiveTab, onLogout, notifications = [] }) {
   const [health, setHealth] = useState(null);
   const [now, setNow] = useState(new Date());
+  const [showNotifications, setShowNotifications] = useState(false);
 
   useEffect(() => {
     checkHealth()
@@ -42,7 +43,6 @@ export default function Navbar({ activeTab, setActiveTab, onLogout }) {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        overflow: "hidden",
       }}
     >
       {/* Top accent line */}
@@ -205,10 +205,60 @@ export default function Navbar({ activeTab, setActiveTab, onLogout }) {
 
         {/* Notifications & Profile */}
         <div style={{ display: "flex", alignItems: "center", gap: "16px", color: "var(--text-secondary)" }}>
-          <button style={{ background: "none", border: "none", cursor: "pointer", position: "relative" }}>
-            <Bell size={18} color="var(--text-secondary)" />
-            <span style={{ position: "absolute", top: -2, right: -2, width: 8, height: 8, background: "var(--accent-rose)", borderRadius: "50%" }}></span>
-          </button>
+          <div style={{ position: "relative" }}>
+            <button 
+              onClick={() => setShowNotifications(!showNotifications)}
+              style={{ background: "none", border: "none", cursor: "pointer", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}
+            >
+              <Bell size={18} color="var(--text-secondary)" />
+              {notifications.length > 0 && (
+                <span style={{ position: "absolute", top: -2, right: -2, width: 8, height: 8, background: "var(--accent-rose)", borderRadius: "50%" }}></span>
+              )}
+            </button>
+
+            {/* Notification Dropdown */}
+            <AnimatePresence>
+              {showNotifications && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    right: 0,
+                    marginTop: "12px",
+                    width: "320px",
+                    background: "var(--bg-card)",
+                    border: "1px solid var(--border-color)",
+                    borderRadius: "12px",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                    zIndex: 100,
+                    overflow: "hidden"
+                  }}
+                >
+                  <div style={{ padding: "12px 16px", borderBottom: "1px solid var(--border-color)", fontWeight: 600, color: "var(--text-primary)" }}>
+                    Notifications ({notifications.length})
+                  </div>
+                  <div style={{ maxHeight: "300px", overflowY: "auto", display: "flex", flexDirection: "column" }}>
+                    {notifications.length === 0 ? (
+                      <div style={{ padding: "20px", textAlign: "center", color: "var(--text-muted)", fontSize: "0.85rem" }}>
+                        No new notifications
+                      </div>
+                    ) : (
+                      notifications.map(n => (
+                        <div key={n.id} style={{ padding: "12px 16px", borderBottom: "1px solid var(--border-color)", fontSize: "0.85rem" }}>
+                          <div style={{ color: "var(--text-primary)", marginBottom: "4px" }}>{n.message}</div>
+                          <div style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>{n.time.toLocaleTimeString()}</div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           
           <div style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
             <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", display: "flex", alignItems: "center", justifyContent: "center" }}>

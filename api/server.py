@@ -339,6 +339,7 @@ def analyze(request: AnalyzeRequest, current_user: dict = Depends(get_current_us
     analysis_df = pipe.business_engine.calculate(ai_df)
 
     # 7.5 Agentic Ticketing
+    auto_tickets_created = 0
     try:
         with pipe.db.get_connection() as conn:
             cursor = conn.cursor()
@@ -373,6 +374,8 @@ def analyze(request: AnalyzeRequest, current_user: dict = Depends(get_current_us
                         str(row.get("Machine ID", "Unknown")),
                         "Open (Auto-Generated)"
                     ))
+                    if cursor.rowcount > 0:
+                        auto_tickets_created += 1
             conn.commit()
     except Exception as e:
         logger.error(f"Agentic ticket generation failed: {e}")
@@ -397,6 +400,7 @@ def analyze(request: AnalyzeRequest, current_user: dict = Depends(get_current_us
         "avg_availability": round(float(analysis_df["Availability"].mean()), 2),
         "avg_performance": round(float(analysis_df["Performance"].mean()), 2),
         "avg_quality": round(float(analysis_df["Quality"].mean()), 2),
+        "auto_tickets_created": auto_tickets_created,
     }
 
     # Business impact summary

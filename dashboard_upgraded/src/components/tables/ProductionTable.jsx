@@ -4,7 +4,7 @@ import { ChevronDown, ChevronRight, Ticket, CheckCircle2 } from "lucide-react";
 import { getValidationBadge, formatPercent } from "../../lib/utils";
 import { createTicket, fetchTickets } from "../../services/api";
 
-export default function ProductionTable({ records }) {
+export default function ProductionTable({ records, onAddNotification }) {
   const [expandedRow, setExpandedRow] = useState(null);
   const [tickets, setTickets] = useState([]);
 
@@ -57,6 +57,7 @@ export default function ProductionTable({ records }) {
                 onToggle={() => toggleRow(idx)}
                 tickets={tickets}
                 onTicketCreated={(newTicket) => setTickets(prev => [newTicket, ...prev])}
+                onAddNotification={onAddNotification}
               />
             ))}
           </tbody>
@@ -66,7 +67,7 @@ export default function ProductionTable({ records }) {
   );
 }
 
-function TableRow({ record, idx, isExpanded, onToggle, tickets, onTicketCreated }) {
+function TableRow({ record, idx, isExpanded, onToggle, tickets, onTicketCreated, onAddNotification }) {
   const r = record;
   const validation = r["AI Validation"] || "Skipped";
   const [isRaising, setIsRaising] = useState(false);
@@ -93,6 +94,9 @@ function TableRow({ record, idx, isExpanded, onToggle, tickets, onTicketCreated 
       };
       await createTicket(payload);
       onTicketCreated(payload); // Optimistic UI update
+      if (onAddNotification) {
+        onAddNotification(`Manual ticket raised for Machine ${record["Machine ID"]} (Shift: ${record["Shift"]})`);
+      }
     } catch (err) {
       console.error(err);
       alert("Failed to raise ticket.");

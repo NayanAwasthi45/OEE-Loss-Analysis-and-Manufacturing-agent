@@ -1,4 +1,8 @@
 Date,Machine ID,Shift,Planned Time (min),Downtime (min),Total Parts Produced,Defective Parts,Ideal Cycle Time (min/unit),Error Code,Operator ID
-2026-05-10,CNC_Milling_1,Morning,480.0,50.0,224.0,3.0,1.9,DT-02,OP-053
-2026-05-26,CNC_Milling_1,Morning,480.0,32.0,223.0,2.0,1.9,DT-01,OP-101
-2026-07-09,CNC_Milling_1,Morning,480.0,77.0,208.0,4.0,1.9,DT-02,OP-073
+2026-04-17,Assembly_Line_1,Morning,480.0,0.0,300.0,2.0,1.55,DT-00,OP-088
+2026-05-27,Assembly_Line_1,Morning,480.0,0.0,291.0,7.0,1.55,DT-00,OP-022
+2026-06-07,Assembly_Line_1,Morning,480.0,0.0,301.0,4.0,1.55,DT-00,OP-095
+2026-06-10,Assembly_Line_1,Morning,480.0,0.0,304.0,6.0,1.55,DT-00,OP-089
+2026-06-17,Assembly_Line_1,Morning,480.0,2.0,279.0,8.0,1.55,DT-04,OP-005
+2026-06-29,Assembly_Line_1,Morning,480.0,0.0,297.0,1.0,1.55,DT-00,OP-110
+2026-07-10,Assembly_Line_1,Morning,480.0,57.0,267.0,2.0,1.55,DT-03,OP-046
